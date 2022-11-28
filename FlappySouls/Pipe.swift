@@ -10,7 +10,7 @@ import SpriteKit
 
 class Pipe: SKNode, GameObject {
     
-    func setUp() {
+    func setUp(with controller: GameController) {
         
     }
     

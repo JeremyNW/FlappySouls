@@ -17,6 +17,8 @@
 		1FBFE4372934803B001CF936 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE4362934803B001CF936 /* Hero.swift */; };
 		1FBFE439293482DF001CF936 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE438293482DF001CF936 /* Pipe.swift */; };
 		1FBFE43B2934868F001CF936 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE43A2934868F001CF936 /* .gitignore */; };
+		B37317132934995300C1DF0B /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37317122934995300C1DF0B /* GameController.swift */; };
+		B373171529350AD700C1DF0B /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373171429350AD700C1DF0B /* Background.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		1FBFE4362934803B001CF936 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		1FBFE438293482DF001CF936 /* Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipe.swift; sourceTree = "<group>"; };
 		1FBFE43A2934868F001CF936 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B37317122934995300C1DF0B /* GameController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; tabWidth = 4; };
+		B373171429350AD700C1DF0B /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +69,10 @@
 			isa = PBXGroup;
 			children = (
 				1FBFE41F29347BE4001CF936 /* AppDelegate.swift */,
+				B37317122934995300C1DF0B /* GameController.swift */,
 				1FBFE42129347BE4001CF936 /* GameScene.sks */,
 				1FBFE4362934803B001CF936 /* Hero.swift */,
+				B373171429350AD700C1DF0B /* Background.swift */,
 				1FBFE438293482DF001CF936 /* Pipe.swift */,
 				1FBFE42529347BE4001CF936 /* GameScene.swift */,
 				1FBFE42729347BE4001CF936 /* GameViewController.swift */,
@@ -151,6 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FBFE42629347BE4001CF936 /* GameScene.swift in Sources */,
+				B373171529350AD700C1DF0B /* Background.swift in Sources */,
+				B37317132934995300C1DF0B /* GameController.swift in Sources */,
 				1FBFE42829347BE4001CF936 /* GameViewController.swift in Sources */,
 				1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */,
 				1FBFE439293482DF001CF936 /* Pipe.swift in Sources */,
