@@ -12,7 +12,7 @@ class Hero: SKSpriteNode, GameObject {
     
     var yVelocity = CGFloat(0)
     
-    func setUp() {
+    func setUp(with controller: GameController) {
         
     }
     
