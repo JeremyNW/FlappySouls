@@ -18,8 +18,8 @@ class Background: SKNode, GameObject {
     for child in children {
       for tree in child.children {
         tree.position.x -= speed
-        if tree.position.x <= -2423 {
-          tree.position.x = 5848
+        if tree.position.x <= -887 {
+          tree.position.x = 1161
         }
       }
       speed -= 0.6
