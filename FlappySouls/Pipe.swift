@@ -17,6 +17,9 @@ class Pipe: SKNode, GameObject {
     func update(_ currentTime: TimeInterval) {
 
         position.x -= 6
+        if position.x < -380 {
+            position.x = 420
+        }
     }
     
     func didCollide(with body: SKPhysicsBody) {
