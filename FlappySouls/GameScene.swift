@@ -26,6 +26,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        if objects.count != children.count {
+            objects = children.compactMap { $0 as? GameObject }
+        }
         objects.forEach { $0.update(currentTime) }
     }
     

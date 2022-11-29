@@ -10,6 +10,8 @@ import SpriteKit
 
 class Hero: SKSpriteNode, GameObject {
     
+    var timer: Int = 60
+    var controller: GameController?
     var yVelocity = CGFloat(0)
     var upWing: SKNode?
     var flapWing: SKNode?
@@ -18,6 +20,7 @@ class Hero: SKSpriteNode, GameObject {
         upWing = childNode(withName: "SKWingUp")
         flapWing = childNode(withName: "SKWingDown")
         flapWing?.isHidden = true
+        self.controller = controller
     }
     
     func update(_ currentTime: TimeInterval) {
@@ -39,6 +42,18 @@ class Hero: SKSpriteNode, GameObject {
             flapWing?.isHidden = false
             upWing?.isHidden = true
         }
+        if timer == 0 {
+            let bullet = Bullet()
+            scene?.addChild(bullet)
+            bullet.position.x = -160
+            bullet.position.y = self.position.y
+            if let controller = controller {
+                bullet.setUp(with: controller)
+            }
+            timer = 60
+        }
+        timer -= 5
+        print(timer)
     }
     
     func didCollide(with body: SKPhysicsBody) {
