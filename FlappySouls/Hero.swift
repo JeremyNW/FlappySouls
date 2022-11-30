@@ -50,7 +50,7 @@ class Hero: SKSpriteNode, GameObject {
             if let controller = controller {
                 bullet.setUp(with: controller)
             }
-            timer = 60
+            timer = 20
         }
         timer -= 5
         print(timer)

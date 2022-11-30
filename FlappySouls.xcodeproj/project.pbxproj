@@ -18,6 +18,7 @@
 		1FBFE439293482DF001CF936 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE438293482DF001CF936 /* Pipe.swift */; };
 		1FBFE43B2934868F001CF936 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE43A2934868F001CF936 /* .gitignore */; };
 		1FBFE43D2936B456001CF936 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE43C2936B456001CF936 /* Bullet.swift */; };
+		1FBFE43F29382066001CF936 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE43E29382066001CF936 /* Enemy.swift */; };
 		B37317132934995300C1DF0B /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37317122934995300C1DF0B /* GameController.swift */; };
 		B373171529350AD700C1DF0B /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373171429350AD700C1DF0B /* Background.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		1FBFE438293482DF001CF936 /* Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipe.swift; sourceTree = "<group>"; };
 		1FBFE43A2934868F001CF936 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		1FBFE43C2936B456001CF936 /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
+		1FBFE43E29382066001CF936 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		B37317122934995300C1DF0B /* GameController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B373171429350AD700C1DF0B /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +78,7 @@
 				1FBFE4362934803B001CF936 /* Hero.swift */,
 				B373171429350AD700C1DF0B /* Background.swift */,
 				1FBFE438293482DF001CF936 /* Pipe.swift */,
+				1FBFE43E29382066001CF936 /* Enemy.swift */,
 				1FBFE43C2936B456001CF936 /* Bullet.swift */,
 				1FBFE42529347BE4001CF936 /* GameScene.swift */,
 				1FBFE42729347BE4001CF936 /* GameViewController.swift */,
@@ -164,6 +167,7 @@
 				B37317132934995300C1DF0B /* GameController.swift in Sources */,
 				1FBFE42829347BE4001CF936 /* GameViewController.swift in Sources */,
 				1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */,
+				1FBFE43F29382066001CF936 /* Enemy.swift in Sources */,
 				1FBFE439293482DF001CF936 /* Pipe.swift in Sources */,
 				1FBFE4372934803B001CF936 /* Hero.swift in Sources */,
 				1FBFE43D2936B456001CF936 /* Bullet.swift in Sources */,
