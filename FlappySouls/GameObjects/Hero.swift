@@ -13,13 +13,18 @@ class Hero: SKSpriteNode, GameObject {
     var timer: Int = 60
     var controller: GameController!
     var yVelocity = CGFloat(0)
-    var upWing: SKNode?
-    var flapWing: SKNode?
+    var upWings: [SKNode] = []
+    var downWings: [SKNode] = []
     
     func setUp(with controller: GameController) {
-        upWing = childNode(withName: "SKWingUp")
-        flapWing = childNode(withName: "SKWingDown")
-        flapWing?.isHidden = true
+        guard
+            let upZero = childNode(withName: "SKWingUp0"),
+            let upOne = childNode(withName: "SKWingUp1"),
+            let downZero = childNode(withName: "SKWingDown0"),
+            let downOne = childNode(withName: "SKWingDown1")
+        else { return }
+        upWings = [upZero, upOne]
+        downWings = [downZero, downOne]
         self.controller = controller
     }
     
@@ -35,12 +40,12 @@ class Hero: SKSpriteNode, GameObject {
             position.y = 620
         }
         
-        if yVelocity < 2.5 {
-            flapWing?.isHidden = true
-            upWing?.isHidden = false
+        if yVelocity < 8.5 {
+            downWings.forEach { $0.isHidden = true }
+            upWings.forEach { $0.isHidden = false }
         } else {
-            flapWing?.isHidden = false
-            upWing?.isHidden = true
+            downWings.forEach { $0.isHidden = false }
+            upWings.forEach { $0.isHidden = true }
         }
         if timer == 0 {
             let bullet = Bullet()
