@@ -12,6 +12,12 @@ class Pipe: SKNode, GameObject {
     
     func setUp(with controller: GameController) {
         
+        
+        for child in children {
+            if let child = child as? GameObject {
+                child.setUp(with: controller)
+            }
+        }
     }
     
     func update(_ currentTime: TimeInterval) {

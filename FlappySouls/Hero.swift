@@ -11,7 +11,7 @@ import SpriteKit
 class Hero: SKSpriteNode, GameObject {
     
     var timer: Int = 60
-    var controller: GameController?
+    var controller: GameController!
     var yVelocity = CGFloat(0)
     var upWing: SKNode?
     var flapWing: SKNode?
@@ -53,11 +53,9 @@ class Hero: SKSpriteNode, GameObject {
             timer = 20
         }
         timer -= 5
-        print(timer)
     }
     
     func didCollide(with body: SKPhysicsBody) {
-        print("Game Over")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

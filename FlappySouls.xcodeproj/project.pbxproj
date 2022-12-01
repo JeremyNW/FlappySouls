@@ -19,6 +19,7 @@
 		1FBFE43B2934868F001CF936 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE43A2934868F001CF936 /* .gitignore */; };
 		1FBFE43D2936B456001CF936 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE43C2936B456001CF936 /* Bullet.swift */; };
 		1FBFE43F29382066001CF936 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE43E29382066001CF936 /* Enemy.swift */; };
+		1FBFE4412938267E001CF936 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE4402938267E001CF936 /* Score.swift */; };
 		B37317132934995300C1DF0B /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37317122934995300C1DF0B /* GameController.swift */; };
 		B373171529350AD700C1DF0B /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373171429350AD700C1DF0B /* Background.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		1FBFE43A2934868F001CF936 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		1FBFE43C2936B456001CF936 /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		1FBFE43E29382066001CF936 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		1FBFE4402938267E001CF936 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		B37317122934995300C1DF0B /* GameController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B373171429350AD700C1DF0B /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,11 +77,12 @@
 				1FBFE41F29347BE4001CF936 /* AppDelegate.swift */,
 				B37317122934995300C1DF0B /* GameController.swift */,
 				1FBFE42129347BE4001CF936 /* GameScene.sks */,
-				1FBFE4362934803B001CF936 /* Hero.swift */,
 				B373171429350AD700C1DF0B /* Background.swift */,
-				1FBFE438293482DF001CF936 /* Pipe.swift */,
-				1FBFE43E29382066001CF936 /* Enemy.swift */,
 				1FBFE43C2936B456001CF936 /* Bullet.swift */,
+				1FBFE43E29382066001CF936 /* Enemy.swift */,
+				1FBFE4362934803B001CF936 /* Hero.swift */,
+				1FBFE438293482DF001CF936 /* Pipe.swift */,
+				1FBFE4402938267E001CF936 /* Score.swift */,
 				1FBFE42529347BE4001CF936 /* GameScene.swift */,
 				1FBFE42729347BE4001CF936 /* GameViewController.swift */,
 				1FBFE42929347BE4001CF936 /* Main.storyboard */,
@@ -166,6 +169,7 @@
 				B373171529350AD700C1DF0B /* Background.swift in Sources */,
 				B37317132934995300C1DF0B /* GameController.swift in Sources */,
 				1FBFE42829347BE4001CF936 /* GameViewController.swift in Sources */,
+				1FBFE4412938267E001CF936 /* Score.swift in Sources */,
 				1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */,
 				1FBFE43F29382066001CF936 /* Enemy.swift in Sources */,
 				1FBFE439293482DF001CF936 /* Pipe.swift in Sources */,
@@ -319,6 +323,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FL58422VA9;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlappySouls/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -347,6 +352,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FL58422VA9;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlappySouls/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
