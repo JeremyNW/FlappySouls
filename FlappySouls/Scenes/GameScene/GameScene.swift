@@ -17,18 +17,14 @@ protocol GameObject {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var controller = GameController()
-    var objects: [GameObject] = []
+    var objects: [GameObject] { getGameObjects(for: self) }
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
-        objects = children.compactMap { $0 as? GameObject }
         objects.forEach { $0.setUp(with: controller) }
     }
     
     override func update(_ currentTime: TimeInterval) {
-        if objects.count != children.count {
-            objects = children.compactMap { $0 as? GameObject }
-        }
         objects.forEach { $0.update(currentTime) }
     }
     
@@ -39,6 +35,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         (contact.bodyA.node as? GameObject)?.didCollide(with: contact.bodyB)
         (contact.bodyB.node as? GameObject)?.didCollide(with: contact.bodyA)
+    }
+    
+    // finds every GameObject in the scene by recursively searching all nodes
+    private func getGameObjects(for node: SKNode) -> [GameObject] {
+        var objects: [GameObject] = []
+        for child in node.children {
+            objects.append(contentsOf: getGameObjects(for: child))
+        }
+        if let object = node as? GameObject {
+            objects.append(object)
+        }
+        return objects
     }
     
 }

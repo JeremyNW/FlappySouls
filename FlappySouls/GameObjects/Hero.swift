@@ -56,6 +56,7 @@ class Hero: SKSpriteNode, GameObject {
     }
     
     func didCollide(with body: SKPhysicsBody) {
+      scene?.view?.presentScene(SKScene(fileNamed: "MainScene"))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
