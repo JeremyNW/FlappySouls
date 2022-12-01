@@ -15,7 +15,6 @@ class MainScene: SKScene {
   
   override func didMove(to view: SKView) {
     super.didMove(to: view)
-    scaleMode = .aspectFit
     playButton = childNode(withName: "PlayButton") as? GameButton
     watchButton = childNode(withName: "WatchButton") as? GameButton
     purchaseButton = childNode(withName: "PurchaseButton") as? GameButton

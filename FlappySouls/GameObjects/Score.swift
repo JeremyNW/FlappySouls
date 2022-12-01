@@ -20,7 +20,6 @@ class Score: SKNode, GameObject {
     
     func update(_ currentTime: TimeInterval) {
         label?.text = "\(controller?.score ?? 0)"
-        print(controller?.score ?? 0)
     }
     
     func didCollide(with body: SKPhysicsBody) {

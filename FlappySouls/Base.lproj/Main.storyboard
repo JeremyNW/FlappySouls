@@ -1,24 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="FlappySouls" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <skView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1L-wt-JxF">
+                                <rect key="frame" x="0.0" y="59" width="393" height="663"/>
+                            </skView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvX-2q-y8B">
+                                <rect key="frame" x="0.0" y="722" width="393" height="84"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="dD7-0X-zfg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="M1L-wt-JxF" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="H8c-AP-1Wi"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="vvX-2q-y8B" secondAttribute="bottom" constant="12" id="Icd-fK-PG4"/>
+                            <constraint firstItem="M1L-wt-JxF" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="Jzs-v4-nH9"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="M1L-wt-JxF" secondAttribute="trailing" id="KSo-WV-iLT"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="vvX-2q-y8B" secondAttribute="trailing" id="Lvb-qs-KSF"/>
+                            <constraint firstItem="vvX-2q-y8B" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="PaN-dq-aBY"/>
+                            <constraint firstItem="vvX-2q-y8B" firstAttribute="top" secondItem="M1L-wt-JxF" secondAttribute="bottom" id="qL9-ca-QOx"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="adView" destination="vvX-2q-y8B" id="G97-MT-wai"/>
+                        <outlet property="gameView" destination="M1L-wt-JxF" id="XNT-Pb-eyp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="35.877862595419849" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

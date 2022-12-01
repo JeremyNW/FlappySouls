@@ -50,7 +50,7 @@ class Hero: SKSpriteNode, GameObject {
         if timer == 0 {
             let bullet = Bullet()
             scene?.addChild(bullet)
-            bullet.position.x = -160
+            bullet.position.x = self.position.x + 32
             bullet.position.y = self.position.y
             if let controller = controller {
                 bullet.setUp(with: controller)
@@ -58,7 +58,9 @@ class Hero: SKSpriteNode, GameObject {
             timer = 20
         }
         timer -= 5
+        print(self.position.x)
     }
+    
     
     func didCollide(with body: SKPhysicsBody) {
       scene?.view?.presentScene(SKScene(fileNamed: "MainScene"))
