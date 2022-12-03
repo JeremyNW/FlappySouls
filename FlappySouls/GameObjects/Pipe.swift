@@ -10,21 +10,19 @@ import SpriteKit
 
 class Pipe: SKNode, GameObject {
     
+    var controller: GameController?
+    
     func setUp(with controller: GameController) {
-        
-        
-        for child in children {
-            if let child = child as? GameObject {
-                child.setUp(with: controller)
-            }
-        }
+        self.controller = controller
+        setUpChildren()
     }
     
     func update(_ currentTime: TimeInterval) {
-
-        position.x -= 6
-        if position.x < -380 {
-            position.x = 420
+        
+        position.x -= 4
+        if position.x < -512 {
+            position.x = 1024
+            setUpChildren()
         }
     }
     
@@ -32,4 +30,13 @@ class Pipe: SKNode, GameObject {
         
     }
     
+    func setUpChildren() {
+        guard let controller = controller else { return }
+        for child in children {
+            if let child = child as? GameObject {
+                
+                child.setUp(with: controller)
+            }
+        }
+    }
 }

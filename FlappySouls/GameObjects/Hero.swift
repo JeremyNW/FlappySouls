@@ -10,7 +10,7 @@ import SpriteKit
 
 class Hero: SKSpriteNode, GameObject {
     
-    var timer: Int = 60
+    var timer: Int = 15
     var controller: GameController!
     var yVelocity = CGFloat(0)
     var upWings: [SKNode] = []
@@ -55,9 +55,9 @@ class Hero: SKSpriteNode, GameObject {
             if let controller = controller {
                 bullet.setUp(with: controller)
             }
-            timer = 20
+            timer = 15
         }
-        timer -= 5
+        timer -= 1
         print(self.position.x)
     }
     

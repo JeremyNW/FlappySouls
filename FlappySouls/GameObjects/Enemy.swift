@@ -12,10 +12,21 @@ class Enemy: SKSpriteNode, GameObject {
     
     
     
-    var hitPoints: Int = 10
+    var hitPoints: Int = 3
     var controller: GameController!
     func setUp(with controller: GameController) {
         self.controller = controller
+        let body = SKPhysicsBody(circleOfRadius: self.size.width / 2)
+        body.categoryBitMask = 0
+        body.contactTestBitMask = 1
+        body.collisionBitMask = 0
+        body.affectedByGravity = false
+        body.allowsRotation = false
+        body.pinned = false
+        body.isDynamic = true
+        self.physicsBody = body
+        self.isHidden = false
+        hitPoints = 3
     }
     
     func update(_ currentTime: TimeInterval) {
@@ -24,8 +35,9 @@ class Enemy: SKSpriteNode, GameObject {
     
     func didCollide(with body: SKPhysicsBody) {
         hitPoints -= 1
-        if hitPoints == 0 {
-            self.removeFromParent()
+        if hitPoints <= 0 {
+            self.isHidden = true
+            physicsBody = nil
             controller.score += 1
         }
     }
