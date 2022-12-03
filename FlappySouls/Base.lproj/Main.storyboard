@@ -19,7 +19,7 @@
                             <skView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1L-wt-JxF">
                                 <rect key="frame" x="0.0" y="59" width="393" height="663"/>
                             </skView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvX-2q-y8B">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvX-2q-y8B" customClass="GADBannerView">
                                 <rect key="frame" x="0.0" y="722" width="393" height="84"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -41,6 +41,7 @@
                     </view>
                     <connections>
                         <outlet property="adView" destination="vvX-2q-y8B" id="G97-MT-wai"/>
+                        <outlet property="bannerView" destination="vvX-2q-y8B" id="P2e-TX-lHd"/>
                         <outlet property="gameView" destination="M1L-wt-JxF" id="XNT-Pb-eyp"/>
                     </connections>
                 </viewController>

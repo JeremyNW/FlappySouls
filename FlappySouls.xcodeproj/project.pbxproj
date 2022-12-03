@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2F8329293B1A84000C0F02 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 1F2F8328293B1A84000C0F02 /* GoogleMobileAds */; };
 		1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE41F29347BE4001CF936 /* AppDelegate.swift */; };
 		1FBFE42229347BE4001CF936 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE42129347BE4001CF936 /* GameScene.sks */; };
 		1FBFE42629347BE4001CF936 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE42529347BE4001CF936 /* GameScene.swift */; };
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F2F8329293B1A84000C0F02 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +156,9 @@
 			dependencies = (
 			);
 			name = FlappySouls;
+			packageProductDependencies = (
+				1F2F8328293B1A84000C0F02 /* GoogleMobileAds */,
+			);
 			productName = FlappySouls;
 			productReference = 1FBFE41C29347BE4001CF936 /* FlappySouls.app */;
 			productType = "com.apple.product-type.application";
@@ -182,6 +187,9 @@
 				Base,
 			);
 			mainGroup = 1FBFE41329347BE4001CF936;
+			packageReferences = (
+				1F2F8327293B1A84000C0F02 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = 1FBFE41D29347BE4001CF936 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -383,6 +391,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JeremyW.FlappySouls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -412,6 +421,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JeremyW.FlappySouls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -442,6 +452,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F2F8327293B1A84000C0F02 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F2F8328293B1A84000C0F02 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F2F8327293B1A84000C0F02 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1FBFE41429347BE4001CF936 /* Project object */;
 }
