@@ -21,6 +21,7 @@ class Pipe: SKNode, GameObject {
         
         position.x -= 4
         if position.x < -512 {
+            controller?.waves += 1
             position.x = 1024
             setUpChildren()
         }
@@ -34,7 +35,6 @@ class Pipe: SKNode, GameObject {
         guard let controller = controller else { return }
         for child in children {
             if let child = child as? GameObject {
-                
                 child.setUp(with: controller)
             }
         }

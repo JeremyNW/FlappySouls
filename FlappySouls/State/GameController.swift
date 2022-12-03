@@ -8,5 +8,6 @@
 import Foundation
 
 class GameController {
-  var score = 0
+    var score = 0
+    var waves = 0
 }

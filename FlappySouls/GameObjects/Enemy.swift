@@ -9,10 +9,7 @@ import Foundation
 import SpriteKit
 
 class Enemy: SKSpriteNode, GameObject {
-    
-    
-    
-    var hitPoints: Int = 3
+    var hitPoints: Int = 2
     var controller: GameController!
     func setUp(with controller: GameController) {
         self.controller = controller
@@ -26,7 +23,8 @@ class Enemy: SKSpriteNode, GameObject {
         body.isDynamic = true
         self.physicsBody = body
         self.isHidden = false
-        hitPoints = 3
+        hitPoints = 2
+        texture = SKTexture(imageNamed: "enemy\(controller.score % 7)")
     }
     
     func update(_ currentTime: TimeInterval) {
