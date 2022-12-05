@@ -9,10 +9,10 @@ import Foundation
 import SpriteKit
 
 class Enemy: SKSpriteNode, GameObject {
-    var hp = 1.0
+    var hp = 1
     var state: GameState!
     var label: SKLabelNode?
-
+    
     func setUp(for state: GameState) {
         self.state = state
         let body = SKPhysicsBody(circleOfRadius: self.size.width / 2)
@@ -28,6 +28,8 @@ class Enemy: SKSpriteNode, GameObject {
         let type = EnemyType.random()
         texture = type.texture()
         hp = type.hitpoints(state: state)
+        color = type.color()
+        colorBlendFactor = 1
         if label == nil {
             let label = SKLabelNode()
             addChild(label)
@@ -35,12 +37,11 @@ class Enemy: SKSpriteNode, GameObject {
             label.xScale = -1
             label.position.x = -64
             label.color = .white
-            label.zPosition = 1
         }
     }
     
     func update(_ currentTime: TimeInterval) {
-        label?.text = "\(Int(hp.rounded(.up)))"
+        label?.text = "\(hp)"
     }
     
     func didCollide(with body: SKPhysicsBody) {
@@ -53,7 +54,7 @@ class Enemy: SKSpriteNode, GameObject {
     }
 }
 
-private enum EnemyType: Int {
+private enum EnemyType {
     case weak, normal, strong
     case powerup
     case shield
@@ -61,50 +62,71 @@ private enum EnemyType: Int {
     
     static func random() -> EnemyType {
         [EnemyType
-            .weak, .weak, .weak,
-         .normal, .normal, .normal, .normal, .normal,
-         .strong, .strong, .strong,
+            .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak,
+         .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak,
+         .normal, .normal, .normal, .normal, .normal, .normal, .normal, .normal, .normal,
+         .normal, .normal, .normal, .normal, .normal, .normal, .normal, .normal, .normal,
+         .strong, .strong, .strong, .strong, .strong, .strong, .strong, .strong, .strong,
+         .strong, .strong, .strong, .strong, .strong, .strong, .strong, .strong, .strong,
          .powerup,
          .shield,
          .bomb
         ].randomElement() ?? .normal
     }
     
-    func hitpoints(state: GameState) -> Double {
+    func hitpoints(state: GameState) -> Int {
         let score = Double(state.score)
-        let hp = Double.random(in: (score * 0.9)...(score * 1.1))
+        var hp = Double.random(in: (score * 0.9)...(score * 1.1))
         switch self {
         case .weak:
-            return hp * 0.8
+            hp *= 0.8
         case .normal:
-            return hp
+            break
         case .strong:
-            return hp * 1.2
+            hp *= 1.2
         case .powerup:
-            return hp
+            break
         case .shield:
-            return hp
+            break
         case .bomb:
-            return hp
+            break
         }
+        return Int(hp) + 1
     }
     
     func texture() -> SKTexture {
-        SKTexture(imageNamed: "enemy\(rawValue)")
-        //    switch self {
-        //    case .weak:
-        //      <#code#>
-        //    case .normal:
-        //      <#code#>
-        //    case .strong:
-        //      <#code#>
-        //    case .powerup:
-        //      <#code#>
-        //    case .shield:
-        //      <#code#>
-        //    case .bomb:
-        //      <#code#>
-        //    }
+        var id = 0
+        switch self {
+        case .weak:
+            id = 1
+        case .normal:
+            id = 1
+        case .strong:
+            id = 1
+        case .powerup:
+            id = 6
+        case .shield:
+            id = 3
+        case .bomb:
+            id = 2
+        }
+        return SKTexture(imageNamed: "enemy\(id)")
     }
     
+    func color() -> UIColor {
+        switch self {
+        case .weak:
+            return .white
+        case .normal:
+            return .white
+        case .strong:
+            return .white
+        case .powerup:
+            return .green
+        case .shield:
+            return .cyan
+        case .bomb:
+            return .red
+        }
+    }
 }
