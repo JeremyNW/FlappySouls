@@ -9,19 +9,19 @@ import SpriteKit
 import GameplayKit
 
 protocol GameObject {
-    func setUp(with controller: GameController)
+    func setUp(for state: GameState)
     func update(_ currentTime: TimeInterval)
     func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     func didCollide(with body: SKPhysicsBody)
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    var controller = GameController()
+    var state = GameState()
     var objects: [GameObject] { getGameObjects(for: self) }
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
-        objects.forEach { $0.setUp(with: controller) }
+        objects.forEach { $0.setUp(for: state) }
     }
     
     override func update(_ currentTime: TimeInterval) {

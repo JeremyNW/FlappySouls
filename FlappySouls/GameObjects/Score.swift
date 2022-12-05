@@ -10,16 +10,16 @@ import SpriteKit
 
 class Score: SKNode, GameObject {
     
-    var controller: GameController!
+    var state: GameState!
     var label: SKLabelNode?
     
-    func setUp(with controller: GameController) {
-        self.controller = controller
+    func setUp(for state: GameState) {
+        self.state = state
         self.label = children.first as? SKLabelNode
     }
     
     func update(_ currentTime: TimeInterval) {
-        label?.text = "\(controller?.score ?? 0)"
+        label?.text = "\(state?.score ?? 0)"
     }
     
     func didCollide(with body: SKPhysicsBody) {

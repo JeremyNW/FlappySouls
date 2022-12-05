@@ -10,18 +10,17 @@ import SpriteKit
 
 class Pipe: SKNode, GameObject {
     
-    var controller: GameController?
+    var state: GameState?
     
-    func setUp(with controller: GameController) {
-        self.controller = controller
+    func setUp(for state: GameState) {
+        self.state = state
         setUpChildren()
     }
     
     func update(_ currentTime: TimeInterval) {
-        
         position.x -= 4
         if position.x < -512 {
-            controller?.waves += 1
+            state?.waves += 1
             position.x = 1024
             setUpChildren()
         }
@@ -32,10 +31,10 @@ class Pipe: SKNode, GameObject {
     }
     
     func setUpChildren() {
-        guard let controller = controller else { return }
+        guard let state else { return }
         for child in children {
             if let child = child as? GameObject {
-                child.setUp(with: controller)
+                child.setUp(for: state)
             }
         }
     }

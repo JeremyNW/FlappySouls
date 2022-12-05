@@ -16,13 +16,13 @@ class Hero: SKSpriteNode, GameObject {
         SKTexture(imageNamed: "wing3"),
     ]
     var timer: Int = 15
-    var controller: GameController!
+    var state: GameState!
     var yVelocity = CGFloat(0)
     var upWings: [SKSpriteNode] = []
     var downWings: [SKNode] = []
     var standardRotation = CGFloat(0)
     
-    func setUp(with controller: GameController) {
+    func setUp(for state: GameState) {
         guard
             let upZero = childNode(withName: "SKWingUp0") as? SKSpriteNode,
             let upOne = childNode(withName: "SKWingUp1") as? SKSpriteNode,
@@ -32,7 +32,7 @@ class Hero: SKSpriteNode, GameObject {
         upWings = [upZero, upOne]
         downWings = [downZero, downOne]
         standardRotation = zRotation
-        self.controller = controller
+        self.state = state
     }
     
     func update(_ currentTime: TimeInterval) {
@@ -58,14 +58,13 @@ class Hero: SKSpriteNode, GameObject {
             downWings.forEach { $0.isHidden = false }
             upWings.forEach { $0.isHidden = true }
         }
-        if timer == 0 {
+        if timer == 0,
+        let state {
             let bullet = Bullet()
             scene?.addChild(bullet)
             bullet.position.x = self.position.x + 32
             bullet.position.y = self.position.y
-            if let controller = controller {
-                bullet.setUp(with: controller)
-            }
+            bullet.setUp(for: state)
             timer = 15
         }
         

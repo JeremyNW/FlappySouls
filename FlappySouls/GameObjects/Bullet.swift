@@ -10,8 +10,7 @@ import SpriteKit
 
 class Bullet: SKSpriteNode, GameObject {
     
-    
-    func setUp(with controller: GameController) {
+    func setUp(for state: GameState) {
         self.zPosition = 0
         texture = SKTexture(imageNamed: "s.shapes.circle.soft")
         self.size = CGSize(width: 26, height: 26)

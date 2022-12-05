@@ -16,20 +16,20 @@ class GameButton: SKNode {
   func setUp(action: @escaping () -> Void) {
     label = childNode(withName: "Label") as? SKLabelNode
     background = childNode(withName: "Sprite") as? SKSpriteNode
-    background?.color = .systemCyan
+    background?.color = .darkGray
     self.action = action
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesBegan(touches, with: event)
     background?.yScale = -1
-    background?.color = .systemMint
+    background?.color = .lightGray
   }
   
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     background?.yScale = 1
-    background?.color = .systemCyan
+    background?.color = .darkGray
     action?()
   }
 }
