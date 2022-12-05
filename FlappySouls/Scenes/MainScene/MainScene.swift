@@ -24,9 +24,9 @@ class MainScene: SKScene {
     purchaseButton?.isUserInteractionEnabled = true
     
     playButton?.setUp {
-      let scene = SKScene(fileNamed: "GameScene")
-      scene?.scaleMode = .aspectFit
-      view.presentScene(scene)
+      guard let scene = SKScene(fileNamed: "GameScene") else { return }
+      scene.scaleMode = .aspectFit
+      view.presentScene(scene, transition: .doorsOpenHorizontal(withDuration: 0.4))
     }
     watchButton?.setUp { print("watch") }
     purchaseButton?.setUp { print("purchase") }

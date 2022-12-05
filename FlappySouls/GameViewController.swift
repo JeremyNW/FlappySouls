@@ -22,15 +22,13 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-        if let view = gameView {
-            if let scene = SKScene(fileNamed: "MainScene") {
-                view.presentScene(scene)
-            }
-            
-            view.ignoresSiblingOrder = true
-        }
+      bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+      bannerView.rootViewController = self
+      bannerView.load(GADRequest())
+      
+      let scene = SKScene(fileNamed: "MainScene")
+      scene?.scaleMode = .aspectFit
+      gameView.ignoresSiblingOrder = true
+      gameView.presentScene(scene)
     }
 }

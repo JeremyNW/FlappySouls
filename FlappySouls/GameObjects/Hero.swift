@@ -80,7 +80,9 @@ class Hero: SKSpriteNode, GameObject {
     
     
     func didCollide(with body: SKPhysicsBody) {
-      scene?.view?.presentScene(SKScene(fileNamed: "MainScene"))
+        guard let scene = SKScene(fileNamed: "MainScene") else { return }
+        scene.scaleMode = .aspectFit
+        self.scene?.view?.presentScene(scene, transition: .doorsCloseHorizontal(withDuration: 0.4))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
