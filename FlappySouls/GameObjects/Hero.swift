@@ -38,7 +38,7 @@ class Hero: SKSpriteNode, GameObject {
     func update(_ currentTime: TimeInterval) {
      
         position.y += yVelocity
-        yVelocity -= 0.25
+        yVelocity -= 0.36
         if position.y < -600 {
             yVelocity = 0
         }
