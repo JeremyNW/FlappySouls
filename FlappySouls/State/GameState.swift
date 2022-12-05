@@ -8,6 +8,11 @@
 import Foundation
 
 class GameState {
-    var score = 0
-    var waves = 0
+    var score = 0 {
+        didSet { currency += 1 }
+    }
+    var waves = 0 {
+        didSet { currency += 1 }
+    }
+    private(set) var currency = 0
 }

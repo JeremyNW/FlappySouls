@@ -104,7 +104,7 @@ private enum EnemyType {
         case .strong:
             id = 1
         case .powerup:
-            id = 6
+            id = 5
         case .shield:
             id = 3
         case .bomb:
@@ -122,11 +122,11 @@ private enum EnemyType {
         case .strong:
             return .white
         case .powerup:
-            return .green
+            return UIColor(red: 0.6, green: 1, blue: 0.6, alpha: 1)
         case .shield:
-            return .cyan
+            return UIColor(red: 0.6, green: 1, blue: 1, alpha: 1)
         case .bomb:
-            return .red
+            return UIColor(red: 1, green: 0.4, blue: 0.4, alpha: 1)
         }
     }
 }
