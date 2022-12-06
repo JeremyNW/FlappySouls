@@ -86,7 +86,7 @@ private enum EnemyType {
     
     func hitpoints(state: GameState) -> Int {
         let score = Double(state.score)
-        var hp = Double.random(in: (score * 0.9)...(score * 1.1))
+        var hp = Double.random(in: (score * 0.6)...(score * 0.8))
         switch self {
         case .weak:
             hp *= 0.8

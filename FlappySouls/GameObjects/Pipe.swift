@@ -18,10 +18,10 @@ class Pipe: SKNode, GameObject {
     }
     
     func update(_ currentTime: TimeInterval) {
-        position.x -= 3
-        if position.x < -512 {
+        position.x -= 4
+        if position.x < -800 {
             state?.waves += 1
-            position.x = 1024
+            position.x = 1600
             setUpChildren()
         }
     }

@@ -23,6 +23,7 @@ class Hero: SKSpriteNode, GameObject {
     var standardRotation = CGFloat(0)
     var shieldAura: SKNode?
     var shieldIFrames = 15
+    var isDead: Bool = false
     
     func setUp(for state: GameState) {
         guard
@@ -66,6 +67,7 @@ class Hero: SKSpriteNode, GameObject {
             upWings.forEach { $0.isHidden = true }
         }
         if timer == 0,
+           !isDead,
         let state {
             let bullet = Bullet()
             scene?.addChild(bullet)
@@ -94,12 +96,16 @@ class Hero: SKSpriteNode, GameObject {
             state.isShielded = false
             return
         }
-        guard let scene = SKScene(fileNamed: "MainScene") else { return }
-        scene.scaleMode = .aspectFit
-        self.scene?.view?.presentScene(scene, transition: .doorsCloseHorizontal(withDuration: 0.4))
+        isDead = true
+//        guard let scene = SKScene(fileNamed: "MainScene") else { return }
+//
+//
+//        scene.scaleMode = .aspectFit
+//        self.scene?.view?.presentScene(scene, transition: .doorsCloseHorizontal(withDuration: 0.4))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard !isDead else { return }
         yVelocity = 10
         
     }

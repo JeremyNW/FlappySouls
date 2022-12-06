@@ -51,6 +51,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         return objects
     }
-    
 }
 
