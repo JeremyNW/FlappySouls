@@ -41,18 +41,19 @@ class Hero: SKSpriteNode, GameObject {
     }
     
     func update(_ currentTime: TimeInterval) {
-        color = state.powerupCooldown > 0 ? .green :
+        color = isDead ? .darkGray :
+        state.powerupCooldown > 0 ? .green :
         state.swords > 0 ? .red :
         state.isShielded ? .cyan : .white
         shieldAura?.isHidden = !state.isShielded
         position.y += yVelocity
         yVelocity -= 0.48
         if position.y < -600 {
-            yVelocity = 0
+            isDead = true
         }
         if position.y > 620 {
-            yVelocity = 0
             position.y = 620
+            isDead = true
         }
         
         if yVelocity < 8 {
