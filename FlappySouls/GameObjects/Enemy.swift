@@ -38,6 +38,7 @@ class Enemy: SKSpriteNode, GameObject {
             label.xScale = -1
             label.position.x = -64
             label.color = .white
+            label.fontName = "HelveticaNeue"
         }
         self.type = type
     }
@@ -108,11 +109,11 @@ private enum EnemyType {
         var id = 0
         switch self {
         case .weak:
-            id = 1
+            id = 0
         case .normal:
             id = 1
         case .strong:
-            id = 1
+            id = 4
         case .powerup:
             id = 5
         case .shield:
