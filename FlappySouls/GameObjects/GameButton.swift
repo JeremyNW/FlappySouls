@@ -17,6 +17,8 @@ class GameButton: SKNode {
     label = childNode(withName: "Label") as? SKLabelNode
     background = childNode(withName: "Sprite") as? SKSpriteNode
     background?.color = .darkGray
+    background?.colorBlendFactor = 1
+    isUserInteractionEnabled = true
     self.action = action
   }
   

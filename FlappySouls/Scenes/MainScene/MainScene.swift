@@ -19,10 +19,6 @@ class MainScene: SKScene {
     watchButton = childNode(withName: "WatchButton") as? GameButton
     purchaseButton = childNode(withName: "PurchaseButton") as? GameButton
     
-    playButton?.isUserInteractionEnabled = true
-    watchButton?.isUserInteractionEnabled = true
-    purchaseButton?.isUserInteractionEnabled = true
-    
     playButton?.setUp {
       guard let scene = SKScene(fileNamed: "GameScene") else { return }
       scene.scaleMode = .aspectFit

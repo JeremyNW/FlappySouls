@@ -8,7 +8,6 @@
 import Foundation
 
 class GameState {
-    
     var score = 0 {
         didSet {
             increaseXP(by: 0.1)
@@ -21,12 +20,14 @@ class GameState {
     }
     var isShielded = false
     var swords = 0
-    private var xp = 1.0
     var power: Int { Int(xp) }
+    var powerupCooldown = 0
+    var isDead = false
+    private var xp = 1.0
+
     func increaseXP(by amount: Double = 1) {
         xp += amount
     }
-    var powerupCooldown = 0
     
     func update(_ currentTime: TimeInterval) {
         powerupCooldown -= 1

@@ -23,7 +23,6 @@ class Hero: SKSpriteNode, GameObject {
     var standardRotation = CGFloat(0)
     var shieldAura: SKNode?
     var shieldIFrames = 15
-    var isDead: Bool = false
     
     func setUp(for state: GameState) {
         guard
@@ -41,19 +40,15 @@ class Hero: SKSpriteNode, GameObject {
     }
     
     func update(_ currentTime: TimeInterval) {
-        color = isDead ? .darkGray :
+        color = state.isDead ? .darkGray :
         state.powerupCooldown > 0 ? .green :
         state.swords > 0 ? .red :
         state.isShielded ? .cyan : .white
         shieldAura?.isHidden = !state.isShielded
         position.y += yVelocity
         yVelocity -= 0.48
-        if position.y < -600 {
-            isDead = true
-        }
-        if position.y > 620 {
-            position.y = 620
-            isDead = true
+        if position.y < -600 || position.y > 620 {
+            state.isDead = true
         }
         
         if yVelocity < 8 {
@@ -68,7 +63,7 @@ class Hero: SKSpriteNode, GameObject {
             upWings.forEach { $0.isHidden = true }
         }
         if timer == 0,
-           !isDead,
+           !state.isDead,
         let state {
             let bullet = Bullet()
             scene?.addChild(bullet)
@@ -97,16 +92,11 @@ class Hero: SKSpriteNode, GameObject {
             state.isShielded = false
             return
         }
-        isDead = true
-//        guard let scene = SKScene(fileNamed: "MainScene") else { return }
-//
-//
-//        scene.scaleMode = .aspectFit
-//        self.scene?.view?.presentScene(scene, transition: .doorsCloseHorizontal(withDuration: 0.4))
+        state.isDead = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard !isDead else { return }
+        guard !state.isDead else { return }
         yVelocity = 10
         
     }
