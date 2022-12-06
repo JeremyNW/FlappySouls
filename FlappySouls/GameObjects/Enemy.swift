@@ -12,6 +12,7 @@ class Enemy: SKSpriteNode, GameObject {
     var hp = 1
     var state: GameState!
     var label: SKLabelNode?
+    fileprivate var type: EnemyType = .normal
     
     func setUp(for state: GameState) {
         self.state = state
@@ -38,18 +39,27 @@ class Enemy: SKSpriteNode, GameObject {
             label.position.x = -64
             label.color = .white
         }
+        self.type = type
     }
     
     func update(_ currentTime: TimeInterval) {
         label?.text = "\(hp)"
     }
     
-    func didCollide(with body: SKPhysicsBody) {
-        hp -= 1
+    func didCollide(with node: SKNode?) {
+        if node is Hero {
+            hp = 0
+        } else if let node = node as? Bullet {
+            hp -= node.damage
+        } else {
+            print("This enemy collided with a bullet that has already been destroyed.")
+            hp -= state.power
+        }
         if hp <= 0 {
             self.isHidden = true
             physicsBody = nil
             state.score += 1
+            type.onDeath(for: state)
         }
     }
 }
@@ -127,6 +137,20 @@ private enum EnemyType {
             return UIColor(red: 0.6, green: 1, blue: 1, alpha: 1)
         case .bomb:
             return UIColor(red: 1, green: 0.4, blue: 0.4, alpha: 1)
+        }
+    }
+    
+    func onDeath(for state: GameState) {
+        switch self {
+        case .weak, .normal, .strong:
+            break
+        case .powerup:
+            state.increaseXP()
+            state.powerupCooldown = 120
+        case .shield:
+            state.isShielded = true
+        case .bomb:
+            state.swords += 48
         }
     }
 }

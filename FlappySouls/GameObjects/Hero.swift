@@ -21,6 +21,8 @@ class Hero: SKSpriteNode, GameObject {
     var upWings: [SKSpriteNode] = []
     var downWings: [SKNode] = []
     var standardRotation = CGFloat(0)
+    var shieldAura: SKNode?
+    var shieldIFrames = 15
     
     func setUp(for state: GameState) {
         guard
@@ -29,16 +31,21 @@ class Hero: SKSpriteNode, GameObject {
             let downZero = childNode(withName: "SKWingDown0"),
             let downOne = childNode(withName: "SKWingDown1")
         else { return }
+        colorBlendFactor = 1
         upWings = [upZero, upOne]
         downWings = [downZero, downOne]
         standardRotation = zRotation
         self.state = state
+        self.shieldAura = childNode(withName: "ShieldAura")
     }
     
     func update(_ currentTime: TimeInterval) {
-     
+        color = state.powerupCooldown > 0 ? .green :
+        state.swords > 0 ? .red :
+        state.isShielded ? .cyan : .white
+        shieldAura?.isHidden = !state.isShielded
         position.y += yVelocity
-        yVelocity -= 0.36
+        yVelocity -= 0.48
         if position.y < -600 {
             yVelocity = 0
         }
@@ -73,12 +80,20 @@ class Hero: SKSpriteNode, GameObject {
         } else {
             zRotation = standardRotation
         }
-        
+        if state.isShielded {
+            shieldIFrames = 15
+        } else {
+            shieldIFrames -= 1
+        }
         timer -= 1
     }
     
     
-    func didCollide(with body: SKPhysicsBody) {
+    func didCollide(with node: SKNode?) {
+        if state.isShielded || shieldIFrames > 0 {
+            state.isShielded = false
+            return
+        }
         guard let scene = SKScene(fileNamed: "MainScene") else { return }
         scene.scaleMode = .aspectFit
         self.scene?.view?.presentScene(scene, transition: .doorsCloseHorizontal(withDuration: 0.4))

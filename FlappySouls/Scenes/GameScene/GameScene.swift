@@ -12,7 +12,7 @@ protocol GameObject {
     func setUp(for state: GameState)
     func update(_ currentTime: TimeInterval)
     func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
-    func didCollide(with body: SKPhysicsBody)
+    func didCollide(with node: SKNode?)
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -25,6 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        state.update(currentTime)
         objects.forEach { $0.update(currentTime) }
     }
     
@@ -33,8 +34,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        (contact.bodyA.node as? GameObject)?.didCollide(with: contact.bodyB)
-        (contact.bodyB.node as? GameObject)?.didCollide(with: contact.bodyA)
+        let a = contact.bodyA.node
+        let b = contact.bodyB.node
+        (a as? GameObject)?.didCollide(with: b)
+        (b as? GameObject)?.didCollide(with: a)
     }
     
     // finds every GameObject in the scene by recursively searching all nodes

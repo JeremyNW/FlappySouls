@@ -18,7 +18,7 @@ class Pipe: SKNode, GameObject {
     }
     
     func update(_ currentTime: TimeInterval) {
-        position.x -= 4
+        position.x -= 3
         if position.x < -512 {
             state?.waves += 1
             position.x = 1024
@@ -26,7 +26,7 @@ class Pipe: SKNode, GameObject {
         }
     }
     
-    func didCollide(with body: SKPhysicsBody) {
+    func didCollide(with node: SKNode?) {
         
     }
     
