@@ -18,6 +18,7 @@ class GameState {
             increaseXP(by: 0.1)
         }
     }
+
     var isShielded = false
     var swords = 0
     var power: Int { Int(xp) }

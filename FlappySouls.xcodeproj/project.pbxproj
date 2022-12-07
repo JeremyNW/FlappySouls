@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F2F8329293B1A84000C0F02 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 1F2F8328293B1A84000C0F02 /* GoogleMobileAds */; };
+		1F2F832B29406017000C0F02 /* PurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F832A29406017000C0F02 /* PurchaseController.swift */; };
 		1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE41F29347BE4001CF936 /* AppDelegate.swift */; };
 		1FBFE42229347BE4001CF936 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE42129347BE4001CF936 /* GameScene.sks */; };
 		1FBFE42629347BE4001CF936 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE42529347BE4001CF936 /* GameScene.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F2F832A29406017000C0F02 /* PurchaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseController.swift; sourceTree = "<group>"; };
 		1FBFE41C29347BE4001CF936 /* FlappySouls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappySouls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBFE41F29347BE4001CF936 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FBFE42129347BE4001CF936 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			children = (
 				B33BD91F2939167700F51FD3 /* MainScene.sks */,
 				B33BD91D2939166400F51FD3 /* MainScene.swift */,
+				1F2F832A29406017000C0F02 /* PurchaseController.swift */,
 			);
 			path = MainScene;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				1FBFE4412938267E001CF936 /* HUD.swift in Sources */,
 				1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */,
 				B33BD9242939173A00F51FD3 /* GameButton.swift in Sources */,
+				1F2F832B29406017000C0F02 /* PurchaseController.swift in Sources */,
 				1FBFE43F29382066001CF936 /* Enemy.swift in Sources */,
 				1FBFE439293482DF001CF936 /* Pipe.swift in Sources */,
 				1FBFE4372934803B001CF936 /* Hero.swift in Sources */,
