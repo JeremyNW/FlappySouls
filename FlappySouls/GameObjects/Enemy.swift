@@ -100,7 +100,7 @@ private enum EnemyType {
         case .bomb:
             break
         }
-        return Int(hp) + 1
+        return Int(hp) + Int.random(in: 1...3)
     }
     
     func texture() -> SKTexture {
