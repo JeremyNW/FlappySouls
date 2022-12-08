@@ -25,7 +25,7 @@ class GameState {
     var swords = 0
     var power: Int { Int(xp) }
     var powerupCooldown = 0
-    var isDead = false
+    var isDead = false 
     private var xp = 1.0
 
     func increaseXP(by amount: Double = 1) {

@@ -16,7 +16,6 @@ class DeathCover: SKNode, GameObject {
       guard let scene = SKScene(fileNamed: "MainScene") else { return }
       scene.scaleMode = .aspectFit
       self.scene?.view?.presentScene(scene, transition: .doorsCloseHorizontal(withDuration: 0.4))
-      print("DID SET UP")
     }
   }
   

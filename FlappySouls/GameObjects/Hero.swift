@@ -48,7 +48,7 @@ class Hero: SKSpriteNode, GameObject {
         position.y += yVelocity
         yVelocity -= 0.48
         if position.y < -600 || position.y > 620 {
-            state.isDead = true
+            die()
         }
         
         if yVelocity < 8 {
@@ -90,10 +90,17 @@ class Hero: SKSpriteNode, GameObject {
     func didCollide(with node: SKNode?) {
         if state.isShielded || shieldIFrames > 0 {
             state.isShielded = false
+            state.sendHapticFeedback(.soft)
             return
         }
-        state.isDead = true
-        state.sendHapticFeedback(.heavy)
+        die()
+    }
+    
+    func die() {
+        if !state.isDead {
+            state.isDead = true
+            state.sendHapticFeedback(.heavy)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
