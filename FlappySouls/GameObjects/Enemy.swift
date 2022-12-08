@@ -93,9 +93,9 @@ private enum EnemyType {
         case .weak:
             hp *= 0.8
         case .normal:
-            break
+            hp += Double(state.waves)
         case .strong:
-            hp *= 1.2
+            hp += Double(state.waves * state.waves)
         case .powerup:
             break
         case .shield:

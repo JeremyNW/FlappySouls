@@ -25,7 +25,7 @@ class HUD: SKNode, GameObject {
         damageLabel?.text = "Damage: \(state.swords > 0 ? state.power * 2 : state.power)"
         damageLabel?.fontColor = state.swords > 0 ? .enemyRed :
         state.powerupCooldown > 0 ? .angelGreen : .white
-        isHidden = state.isDead
+//        isHidden = state.isDead
     }
     
     func didCollide(with node: SKNode?) {
