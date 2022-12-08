@@ -411,7 +411,7 @@
 				DEVELOPMENT_TEAM = 2464D42ZHT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlappySouls/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Flappy Judgement";
+				INFOPLIST_KEY_CFBundleDisplayName = "Flappy Souls";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -444,7 +444,7 @@
 				DEVELOPMENT_TEAM = 2464D42ZHT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlappySouls/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Flappy Judgement";
+				INFOPLIST_KEY_CFBundleDisplayName = "Flappy Souls";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
