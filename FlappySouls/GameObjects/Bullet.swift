@@ -65,7 +65,7 @@ enum BulletType {
     func texture() -> SKTexture {
         switch self {
         case .standard:
-            return SKTexture(imageNamed: "s.shapes.circle.soft")
+            return SKTexture(imageNamed: "bullet")
         case .sword:
             return SKTexture(imageNamed: "s.weapons.sword")
         }
@@ -74,9 +74,9 @@ enum BulletType {
     func size() -> CGSize {
         switch self {
         case .standard:
-            return CGSize(width: 16, height: 16)
+            return CGSize(width: 36, height: 36)
         case .sword:
-            return CGSize(width: 64, height: 64)
+            return CGSize(width: 72, height: 72)
         }
     }
     
@@ -92,7 +92,7 @@ enum BulletType {
     func color() -> UIColor {
         switch self {
         case .standard:
-            return UIColor(red: 0.8, green: 1, blue: 1, alpha: 1)
+            return .angelBlue
         case .sword:
             return .white
         }

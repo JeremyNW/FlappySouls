@@ -7,7 +7,6 @@
 
 import UIKit
 import SpriteKit
-import GameplayKit
 import GoogleMobileAds
 import Combine
 
@@ -23,7 +22,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      GameKitController.shared.setUp()
         subscription = PurchaseController.shared.$isPurchased.sink(receiveValue: { [self] isPurchased in
             if isPurchased {
                 adView.removeFromSuperview()

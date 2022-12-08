@@ -2,7 +2,7 @@
 //  Background.swift
 //  FlappySouls
 //
-//  Created by Paola Warren on 12/7/22.
+//  Created by Jared Warren on 12/7/22.
 //
 
 import Foundation

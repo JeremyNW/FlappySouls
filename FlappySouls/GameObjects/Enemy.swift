@@ -74,21 +74,21 @@ private enum EnemyType {
     
     static func random() -> EnemyType {
         [EnemyType
-            .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak,
-         .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak,
+            .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak,
+         .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak, .weak,
          .normal, .normal, .normal, .normal, .normal, .normal, .normal, .normal, .normal,
          .normal, .normal, .normal, .normal, .normal, .normal, .normal, .normal, .normal,
          .strong, .strong, .strong, .strong, .strong, .strong, .strong, .strong, .strong,
          .strong, .strong, .strong, .strong, .strong, .strong, .strong, .strong, .strong,
-         .powerup,
-         .shield,
-         .bomb
+         .powerup, .powerup, .powerup, .powerup,
+         .shield, .shield, .shield, .shield,
+         .bomb, .bomb, .bomb, .bomb,
         ].randomElement() ?? .normal
     }
     
     func hitpoints(state: GameState) -> Int {
         let score = Double(state.score)
-        var hp = Double.random(in: (score * 0.6)...(score * 0.8))
+        var hp = Double.random(in: (score * 0.6)...(score * 1.0))
         switch self {
         case .weak:
             hp *= 0.8
@@ -134,11 +134,11 @@ private enum EnemyType {
         case .strong:
             return .white
         case .powerup:
-            return UIColor(red: 0.6, green: 1, blue: 0.6, alpha: 1)
+            return .angelGreen
         case .shield:
-            return UIColor(red: 0.6, green: 1, blue: 1, alpha: 1)
+            return .cyan
         case .bomb:
-            return UIColor(red: 1, green: 0.4, blue: 0.4, alpha: 1)
+            return .enemyRed
         }
     }
     
@@ -148,13 +148,13 @@ private enum EnemyType {
             break
         case .powerup:
             state.increaseXP()
-            state.powerupCooldown = 120
+            state.powerupCooldown = 90
             state.sendHapticFeedback(.rigid)
         case .shield:
             state.isShielded = true
             state.sendHapticFeedback(.soft)
         case .bomb:
-            state.swords += 48
+            state.swords += 24
             state.sendHapticFeedback(.rigid)
         }
     }

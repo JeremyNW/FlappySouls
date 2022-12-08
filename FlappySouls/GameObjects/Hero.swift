@@ -22,6 +22,7 @@ class Hero: SKSpriteNode, GameObject {
     var downWings: [SKNode] = []
     var standardRotation = CGFloat(0)
     var shieldAura: SKNode?
+    var halo: SKEmitterNode?
     var shieldIFrames = 15
     
     func setUp(for state: GameState) {
@@ -29,21 +30,25 @@ class Hero: SKSpriteNode, GameObject {
             let upZero = childNode(withName: "SKWingUp0") as? SKSpriteNode,
             let upOne = childNode(withName: "SKWingUp1") as? SKSpriteNode,
             let downZero = childNode(withName: "SKWingDown0"),
-            let downOne = childNode(withName: "SKWingDown1")
+            let downOne = childNode(withName: "SKWingDown1"),
+            let halo = SKEmitterNode(fileNamed: "Halo")
         else { return }
         colorBlendFactor = 1
         upWings = [upZero, upOne]
         downWings = [downZero, downOne]
         standardRotation = zRotation
+        addChild(halo)
+        halo.position = CGPoint(x: 8, y: 56)
+        halo.zPosition = 1
+        halo.particleBirthRate = 0
+        self.halo = halo
         self.state = state
         self.shieldAura = childNode(withName: "ShieldAura")
     }
     
     func update(_ currentTime: TimeInterval) {
         color = state.isDead ? .darkGray :
-        state.powerupCooldown > 0 ? .green :
-        state.swords > 0 ? .red :
-        state.isShielded ? .cyan : .white
+        state.powerupCooldown > 0 ? .angelGreen : .white
         shieldAura?.isHidden = !state.isShielded
         position.y += yVelocity
         yVelocity -= 0.48
@@ -73,7 +78,7 @@ class Hero: SKSpriteNode, GameObject {
             timer = 15
         }
         
-        if yVelocity <= -10 {
+        if yVelocity <= -12 {
             zRotation = standardRotation + yVelocity
         } else {
             zRotation = standardRotation
@@ -84,6 +89,7 @@ class Hero: SKSpriteNode, GameObject {
             shieldIFrames -= 1
         }
         timer -= 1
+        halo?.particleBirthRate = CGFloat(state.swords * 2)
     }
     
     

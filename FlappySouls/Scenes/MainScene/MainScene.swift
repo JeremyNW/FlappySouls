@@ -2,7 +2,7 @@
 //  MainScene.swift
 //  FlappySouls
 //
-//  Created by Paola Warren on 12/1/22.
+//  Created by Jared Warren on 12/1/22.
 //
 
 import Foundation
