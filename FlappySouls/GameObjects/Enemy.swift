@@ -37,8 +37,9 @@ class Enemy: SKSpriteNode, GameObject {
             self.label = label
             label.xScale = -1
             label.position.x = -64
-            label.color = .white
-            label.fontName = "HelveticaNeue"
+            label.zPosition = 1
+            label.fontColor = .white
+            label.fontName = "HelveticaNeue-CondensedBlack"
         }
         self.type = type
     }
