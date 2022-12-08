@@ -22,7 +22,7 @@ class MainScene: SKScene {
         watchButton = childNode(withName: "WatchButton") as? GameButton
         purchaseButton = childNode(withName: "PurchaseButton") as? GameButton
         
-        playButton?.setUp {
+      playButton?.setUp(isProminent: true) {
             guard let scene = SKScene(fileNamed: "GameScene") else { return }
             scene.scaleMode = .aspectFit
             view.presentScene(scene, transition: .doorsOpenHorizontal(withDuration: 0.4))
