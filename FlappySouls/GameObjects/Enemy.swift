@@ -148,10 +148,13 @@ private enum EnemyType {
         case .powerup:
             state.increaseXP()
             state.powerupCooldown = 120
+            state.sendHapticFeedback(.rigid)
         case .shield:
             state.isShielded = true
+            state.sendHapticFeedback(.soft)
         case .bomb:
             state.swords += 48
+            state.sendHapticFeedback(.rigid)
         }
     }
 }

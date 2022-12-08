@@ -93,6 +93,7 @@ class Hero: SKSpriteNode, GameObject {
             return
         }
         state.isDead = true
+        state.sendHapticFeedback(.heavy)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

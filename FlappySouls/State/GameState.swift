@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 class GameState {
+    private let haptics = HapticFeedbackGenerators()
     var score = 0 {
         didSet {
             increaseXP(by: 0.1)
@@ -40,4 +42,37 @@ class GameState {
             highscore = score
         }
     }
+    
+    func sendHapticFeedback(_ type: HapticType) {
+        switch type {
+        case .soft:
+            haptics.soft.impactOccurred(intensity: 1)
+        case .heavy:
+            haptics.heavy.impactOccurred(intensity: 1)
+        case .rigid:
+            haptics.rigid.impactOccurred(intensity: 1)
+        }
+    }
+    
+    enum HapticType {
+        case soft, heavy, rigid
+    }
+}
+
+private class HapticFeedbackGenerators {
+    let soft: UIImpactFeedbackGenerator = {
+        let generator = UIImpactFeedbackGenerator(style: .soft)
+        generator.prepare()
+        return generator
+    }()
+    let heavy: UIImpactFeedbackGenerator = {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.prepare()
+        return generator
+    }()
+    let rigid: UIImpactFeedbackGenerator = {
+        let generator = UIImpactFeedbackGenerator(style: .rigid)
+        generator.prepare()
+        return generator
+    }()
 }
