@@ -33,7 +33,6 @@ class Hero: SKSpriteNode, GameObject {
             let downOne = childNode(withName: "SKWingDown1"),
             let halo = SKEmitterNode(fileNamed: "Halo")
         else { return }
-        colorBlendFactor = 1
         upWings = [upZero, upOne]
         downWings = [downZero, downOne]
         standardRotation = zRotation
@@ -47,12 +46,10 @@ class Hero: SKSpriteNode, GameObject {
     }
     
     func update(_ currentTime: TimeInterval) {
-        color = state.isDead ? .darkGray :
-        state.powerupCooldown > 0 ? .angelGreen : .white
         shieldAura?.isHidden = !state.isShielded
         position.y += yVelocity
         yVelocity -= 0.48
-        if position.y < -600 || position.y > 620 {
+        if position.y < -640 || position.y > 640 {
             die()
         }
         
@@ -106,6 +103,8 @@ class Hero: SKSpriteNode, GameObject {
         if !state.isDead {
             state.isDead = true
             state.sendHapticFeedback(.heavy)
+            color = .darkGray
+            colorBlendFactor = 1
         }
     }
     
