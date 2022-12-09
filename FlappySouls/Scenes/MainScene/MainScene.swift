@@ -27,8 +27,11 @@ class MainScene: SKScene {
             scene.scaleMode = .aspectFit
             view.presentScene(scene, transition: .doorsOpenHorizontal(withDuration: 0.4))
         }
+        
         watchButton?.setUp {
-          print("watch ad")
+            let notificationName = Notification.Name("fullscreen")
+            let notification = Notification(name: notificationName)
+            NotificationCenter.default.post(notification)
         }
         purchaseButton?.setUp {   PurchaseController.shared.buyFullscreen() }
     }
