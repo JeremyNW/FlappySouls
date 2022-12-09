@@ -38,4 +38,8 @@ class GameButton: SKNode {
     background?.color = normalColor
     action?()
   }
+  
+  func setText(_ text: String) {
+    label?.text = text
+  }
 }

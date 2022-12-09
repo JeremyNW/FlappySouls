@@ -32,6 +32,7 @@ class MainScene: SKScene {
             let notificationName = Notification.Name("fullscreen")
             let notification = Notification(name: notificationName)
             NotificationCenter.default.post(notification)
+          self.watchButton?.setText("Please wait...")
         }
         purchaseButton?.setUp {   PurchaseController.shared.buyFullscreen() }
     }
