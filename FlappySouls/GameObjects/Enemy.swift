@@ -88,9 +88,9 @@ private enum EnemyType {
         var hp = Double.random(in: (score * 0.6)...(score * 1.2))
         switch self {
         case .weak:
-            hp *= 0.4
+            hp *= 0.6
         case .normal:
-            hp += 2 * Double(state.waves)
+            hp += 0.1 * Double(state.waves * state.waves)
         case .strong:
             hp += Double(state.waves * state.waves)
         case .powerup:

@@ -28,10 +28,7 @@ class GameViewController: UIViewController {
       GameKitController.shared.setUp()
         subscription = PurchaseController.shared.$isPurchased.sink(receiveValue: { [self] isPurchased in
             if isPurchased {
-                adView.removeFromSuperview()
-                NSLayoutConstraint.activate([
-                    gameView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-                ])
+              self.constrainForFullscreen()
             } else {
                 bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
                 bannerView.rootViewController = self
@@ -45,6 +42,15 @@ class GameViewController: UIViewController {
         gameView.ignoresSiblingOrder = true
         gameView.presentScene(scene)
     }
+  
+  @objc func constrainForFullscreen() {
+    UIView.animate(withDuration: 0.5) {
+      self.adView.removeFromSuperview()
+      NSLayoutConstraint.activate([
+        self.gameView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+      ])
+    }
+  }
 }
 extension GameViewController: GADFullScreenContentDelegate {
     
@@ -73,7 +79,7 @@ extension GameViewController: GADFullScreenContentDelegate {
        }
 
        func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-         print("Ad did dismiss full screen content.")
+         constrainForFullscreen()
        }
       
     
