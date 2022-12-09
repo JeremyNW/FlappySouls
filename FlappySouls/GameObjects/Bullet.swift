@@ -23,6 +23,8 @@ class Bullet: SKSpriteNode, GameObject {
         zRotation = type.rotation()
         zPosition = 0
         colorBlendFactor = 1
+        let name = type == .sword ? "sword" : "bullet"
+        run(.playSoundFileNamed(name + "\(Int.random(in: 0...4)).wav", waitForCompletion: false))
         
         let body = SKPhysicsBody(circleOfRadius: self.size.width / 2)
         body.categoryBitMask = 1

@@ -43,6 +43,7 @@ class Hero: SKSpriteNode, GameObject {
         self.halo = halo
         self.state = state
         self.shieldAura = childNode(withName: "ShieldAura")
+        run(.changeVolume(to: 0.1, duration: .greatestFiniteMagnitude))
     }
     
     func update(_ currentTime: TimeInterval) {
@@ -93,6 +94,7 @@ class Hero: SKSpriteNode, GameObject {
     func didCollide(with node: SKNode?) {
         if state.isShielded || shieldIFrames > 0 {
             state.isShielded = false
+            run(.playSoundFileNamed("shieldOff.wav", waitForCompletion: false))
             state.sendHapticFeedback(.soft)
             return
         }
@@ -105,12 +107,13 @@ class Hero: SKSpriteNode, GameObject {
             state.sendHapticFeedback(.heavy)
             color = .darkGray
             colorBlendFactor = 1
+            physicsBody = nil
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard !state.isDead else { return }
         yVelocity = 10
-        
+        run(.playSoundFileNamed("flap\(Int.random(in: 0...4)).wav", waitForCompletion: false))
     }
 }

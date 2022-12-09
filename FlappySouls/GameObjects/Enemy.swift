@@ -61,7 +61,7 @@ class Enemy: SKSpriteNode, GameObject {
             self.isHidden = true
             physicsBody = nil
             state.score += 1
-            type.onDeath(for: state)
+            type.onDeath(for: state, node: self)
         }
     }
 }
@@ -139,7 +139,7 @@ private enum EnemyType {
         }
     }
     
-    func onDeath(for state: GameState) {
+    func onDeath(for state: GameState, node: SKNode) {
         switch self {
         case .weak, .normal, .strong:
             break
@@ -147,12 +147,15 @@ private enum EnemyType {
             state.increaseXP()
             state.powerupCooldown = 90
             state.sendHapticFeedback(.rigid)
+            node.run(.playSoundFileNamed("green\(Int.random(in: 0...1)).wav", waitForCompletion: false))
         case .shield:
             state.isShielded = true
             state.sendHapticFeedback(.soft)
+            node.run(.playSoundFileNamed("shieldOn.wav", waitForCompletion: false))
         case .bomb:
             state.swords += 24
             state.sendHapticFeedback(.rigid)
+            node.run(.playSoundFileNamed("flame.wav", waitForCompletion: false))
         }
     }
 }
