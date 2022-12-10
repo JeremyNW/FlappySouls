@@ -12,17 +12,17 @@ class GameButton: SKNode {
   private var label: SKLabelNode?
   private var background: SKSpriteNode?
   private var action: (() -> Void)?
-  private var isProminent = false
-  private var normalColor: UIColor { isProminent ? .buttonPurple : .darkGray  }
-  private var tappedColor: UIColor { isProminent ? .angelPurple : .lightGray }
+  private var normalColor: UIColor = .white
+  private var tappedColor: UIColor = .white
   
-  func setUp(isProminent: Bool = false, action: @escaping () -> Void) {
+  func setUp(theme: GameButtonTheme, action: @escaping () -> Void) {
     label = childNode(withName: "Label") as? SKLabelNode
     background = childNode(withName: "Sprite") as? SKSpriteNode
     background?.colorBlendFactor = 1
     isUserInteractionEnabled = true
     self.action = action
-    self.isProminent = isProminent
+    normalColor = theme.normalColor()
+    tappedColor = theme.tappedColor()
     background?.color = normalColor
   }
   
@@ -41,5 +41,30 @@ class GameButton: SKNode {
   
   func setText(_ text: String) {
     label?.text = text
+  }
+}
+
+enum GameButtonTheme {
+  case dark, purple, light
+  func normalColor() -> UIColor {
+    switch self {
+    case .dark:
+        return .darkGray
+    case .purple:
+      return .buttonPurple
+    case .light:
+        return .lightGray
+    }
+  }
+  
+  func tappedColor() -> UIColor {
+    switch self {
+    case .dark:
+        return .lightGray
+    case .purple:
+      return .angelPurple
+    case .light:
+        return .white
+    }
   }
 }
