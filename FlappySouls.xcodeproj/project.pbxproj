@@ -54,6 +54,11 @@
 		B3ACF5AA293FCDCE00E757F8 /* DeathCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ACF5A9293FCDCE00E757F8 /* DeathCover.swift */; };
 		B3B5033D2943FABA0003403B /* BlueSpark.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5033C2943FABA0003403B /* BlueSpark.sks */; };
 		B3B5033F2943FEB80003403B /* RedSmoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5033E2943FEB80003403B /* RedSmoke.sks */; };
+		B3B50341294469B40003403B /* PurpleFireflies.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B50340294469B40003403B /* PurpleFireflies.sks */; };
+		B3B5034329446E7C0003403B /* BlueSnow.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034229446E7B0003403B /* BlueSnow.sks */; };
+		B3B5034529446EF60003403B /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034429446EF60003403B /* Fire.sks */; };
+		B3B5034929446F180003403B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034729446F180003403B /* Assets.xcassets */; };
+		B3B5034D2944700C0003403B /* GreenRain.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034C2944700C0003403B /* GreenRain.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +110,11 @@
 		B3ACF5A9293FCDCE00E757F8 /* DeathCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathCover.swift; sourceTree = "<group>"; };
 		B3B5033C2943FABA0003403B /* BlueSpark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlueSpark.sks; sourceTree = "<group>"; };
 		B3B5033E2943FEB80003403B /* RedSmoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RedSmoke.sks; sourceTree = "<group>"; };
+		B3B50340294469B40003403B /* PurpleFireflies.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PurpleFireflies.sks; sourceTree = "<group>"; };
+		B3B5034229446E7B0003403B /* BlueSnow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlueSnow.sks; sourceTree = "<group>"; };
+		B3B5034429446EF60003403B /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
+		B3B5034729446F180003403B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B3B5034C2944700C0003403B /* GreenRain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GreenRain.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +132,7 @@
 		1FBFE41329347BE4001CF936 = {
 			isa = PBXGroup;
 			children = (
+				B3B5034729446F180003403B /* Assets.xcassets */,
 				1FBFE43A2934868F001CF936 /* .gitignore */,
 				1FBFE41E29347BE4001CF936 /* FlappySouls */,
 				1FBFE41D29347BE4001CF936 /* Products */,
@@ -233,6 +244,10 @@
 				1FBFE42529347BE4001CF936 /* GameScene.swift */,
 				B3B5033C2943FABA0003403B /* BlueSpark.sks */,
 				B3B5033E2943FEB80003403B /* RedSmoke.sks */,
+				B3B50340294469B40003403B /* PurpleFireflies.sks */,
+				B3B5034229446E7B0003403B /* BlueSnow.sks */,
+				B3B5034C2944700C0003403B /* GreenRain.sks */,
+				B3B5034429446EF60003403B /* Fire.sks */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -301,9 +316,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3B5034529446EF60003403B /* Fire.sks in Resources */,
 				B3193CFC2943D39200E9046F /* shieldOff.wav in Resources */,
 				B3193D032943D39200E9046F /* sword1.wav in Resources */,
 				1FBFE43B2934868F001CF936 /* .gitignore in Resources */,
+				B3B5034929446F180003403B /* Assets.xcassets in Resources */,
 				B3193D152943D4D600E9046F /* flap3.wav in Resources */,
 				B3193D192943D4D600E9046F /* flap4.wav in Resources */,
 				B3193D092943D49A00E9046F /* bullet0.wav in Resources */,
@@ -311,11 +328,13 @@
 				B3193D132943D4D600E9046F /* flap1.wav in Resources */,
 				B3193CFD2943D39200E9046F /* sword3.wav in Resources */,
 				B3193D082943D49A00E9046F /* bullet2.wav in Resources */,
+				B3B5034D2944700C0003403B /* GreenRain.sks in Resources */,
 				1FBFE42B29347BE4001CF936 /* Main.storyboard in Resources */,
 				B3193D012943D39200E9046F /* shieldOn.wav in Resources */,
 				B3193CFF2943D39200E9046F /* green1.wav in Resources */,
 				B3193D022943D39200E9046F /* sword2.wav in Resources */,
 				B3193CFE2943D39200E9046F /* sword4.wav in Resources */,
+				B3B50341294469B40003403B /* PurpleFireflies.sks in Resources */,
 				B3193D162943D4D600E9046F /* bullet4.wav in Resources */,
 				1FBFE42229347BE4001CF936 /* GameScene.sks in Resources */,
 				B3193D122943D4D600E9046F /* bullet3.wav in Resources */,
@@ -326,6 +345,7 @@
 				1FBFE43029347BE5001CF936 /* LaunchScreen.storyboard in Resources */,
 				B338B5FC2941AE7700C4A985 /* Assets.xcassets in Resources */,
 				B3193D182943D4D600E9046F /* flap2.wav in Resources */,
+				B3B5034329446E7C0003403B /* BlueSnow.sks in Resources */,
 				B3193CF32943D1CE00E9046F /* flame.wav in Resources */,
 				B3193D172943D4D600E9046F /* flap0.wav in Resources */,
 				B33BD9202939167700F51FD3 /* MainScene.sks in Resources */,

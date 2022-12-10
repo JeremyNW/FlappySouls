@@ -82,7 +82,7 @@ class Hero: SKSpriteNode, GameObject {
             zRotation = standardRotation
         }
         if state.isShielded {
-            shieldIFrames = 15
+            shieldIFrames = 5
         } else {
             shieldIFrames -= 1
         }

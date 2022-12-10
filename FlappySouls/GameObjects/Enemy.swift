@@ -13,9 +13,11 @@ class Enemy: SKSpriteNode, GameObject {
     var state: GameState!
     var label: SKLabelNode?
     fileprivate var type: EnemyType = .normal
+    var particles: SKEmitterNode?
     
     func setUp(for state: GameState) {
         self.state = state
+        position.x = 0
         let body = SKPhysicsBody(circleOfRadius: self.size.width / 2)
         body.categoryBitMask = 0
         body.contactTestBitMask = 1
@@ -42,10 +44,19 @@ class Enemy: SKSpriteNode, GameObject {
             label.fontName = "HelveticaNeue-CondensedBlack"
         }
         self.type = type
+        guard let particles = type.particles() else { return }
+        particles.particleBirthRate = 0
+        addChild(particles)
+        self.particles = particles
     }
     
     func update(_ currentTime: TimeInterval) {
-        label?.text = "\(hp)"
+        if physicsBody == nil {
+            particles?.particleBirthRate -= 3
+            position.x += 2
+        } else {
+            label?.text = "\(hp)"
+        }
     }
     
     func didCollide(with node: SKNode?) {
@@ -54,15 +65,21 @@ class Enemy: SKSpriteNode, GameObject {
         } else if let node = node as? Bullet {
             hp -= node.damage
         } else {
-            print("This enemy collided with a bullet that has already been destroyed.")
             hp -= state.power
         }
         if hp <= 0 {
-            self.isHidden = true
-            physicsBody = nil
-            state.score += 1
-            type.onDeath(for: state, node: self)
+            die()
         }
+    }
+    
+    func die() {
+        guard physicsBody != nil else { return }
+        physicsBody = nil
+        label?.text = ""
+        state.score += 1
+        type.onDeath(for: state, node: self)
+        particles?.particleBirthRate = 48
+        texture = SKTexture(imageNamed: "invisible")
     }
 }
 
@@ -156,6 +173,20 @@ private enum EnemyType {
             state.swords += 24
             state.sendHapticFeedback(.rigid)
             node.run(.playSoundFileNamed("flame.wav", waitForCompletion: false))
+        }
+    }
+    
+    func particles() -> SKEmitterNode? {
+        switch self {
+            
+        case .weak, .normal, .strong:
+            return SKEmitterNode(fileNamed: "PurpleFireflies")
+        case .powerup:
+            return SKEmitterNode(fileNamed: "GreenRain")
+        case .shield:
+            return SKEmitterNode(fileNamed: "BlueSnow")
+        case .bomb:
+            return SKEmitterNode(fileNamed: "Fire")
         }
     }
 }
