@@ -59,6 +59,7 @@
 		B3B5034529446EF60003403B /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034429446EF60003403B /* Fire.sks */; };
 		B3B5034929446F180003403B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034729446F180003403B /* Assets.xcassets */; };
 		B3B5034D2944700C0003403B /* GreenRain.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034C2944700C0003403B /* GreenRain.sks */; };
+		B3B5034F2944F7920003403B /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034E2944F7920003403B /* Info.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,7 @@
 		B3B5034429446EF60003403B /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
 		B3B5034729446F180003403B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3B5034C2944700C0003403B /* GreenRain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GreenRain.sks; sourceTree = "<group>"; };
+		B3B5034E2944F7920003403B /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				B3193CCB2943D1CE00E9046F /* Audio */,
 				1FBFE42729347BE4001CF936 /* GameViewController.swift */,
 				B338B5F72941AABF00C4A985 /* Colors.swift */,
+				B3B5034E2944F7920003403B /* Info.storyboard */,
 				1FBFE42929347BE4001CF936 /* Main.storyboard */,
 				1FBFE42C29347BE5001CF936 /* Assets.xcassets */,
 				1FBFE42E29347BE5001CF936 /* LaunchScreen.storyboard */,
@@ -334,6 +337,7 @@
 				B3193CFF2943D39200E9046F /* green1.wav in Resources */,
 				B3193D022943D39200E9046F /* sword2.wav in Resources */,
 				B3193CFE2943D39200E9046F /* sword4.wav in Resources */,
+				B3B5034F2944F7920003403B /* Info.storyboard in Resources */,
 				B3B50341294469B40003403B /* PurpleFireflies.sks in Resources */,
 				B3193D162943D4D600E9046F /* bullet4.wav in Resources */,
 				1FBFE42229347BE4001CF936 /* GameScene.sks in Resources */,

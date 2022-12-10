@@ -25,6 +25,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         let notificationName = Notification.Name("fullscreen")
         NotificationCenter.default.addObserver(self, selector: #selector(loadRewardedAd), name: notificationName, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(presentInfoPopup), name: .init("Info"), object: nil)
       GameKitController.shared.setUp()
         subscription = PurchaseController.shared.$isPurchased.sink(receiveValue: { [self] isPurchased in
             if isPurchased {
@@ -50,6 +51,12 @@ class GameViewController: UIViewController {
         self.gameView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
       ])
     }
+  }
+  
+  @objc func presentInfoPopup() {
+    let storyboard = UIStoryboard(name: "Info", bundle: nil)
+    guard let info = storyboard.instantiateInitialViewController() else { return }
+    present(info, animated: true)
   }
 }
 extension GameViewController: GADFullScreenContentDelegate {

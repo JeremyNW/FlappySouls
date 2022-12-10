@@ -24,7 +24,7 @@ class MainScene: SKScene {
         purchaseButton = childNode(withName: "PurchaseButton") as? GameButton
         
         infoButton?.setUp(theme: .light) {
-            print("Info")
+            NotificationCenter.default.post(name: .init("Info"), object: nil)
         }
         
         playButton?.setUp(theme: .purple) {
@@ -44,7 +44,7 @@ class MainScene: SKScene {
                 NotificationCenter.default.post(notification)
                 self.watchButton?.setText("Please wait...")
             }
-            purchaseButton?.setUp(theme: .light) {   PurchaseController.shared.buyFullscreen() }
+            purchaseButton?.setUp(theme: .light) { PurchaseController.shared.buyFullscreen() }
         }
     }
     

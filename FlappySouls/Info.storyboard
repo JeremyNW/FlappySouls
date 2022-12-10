@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="4r4-Ij-4Y9" userLabel="Header">
+                                <rect key="frame" x="89.333333333333329" y="71" width="214.66666666666669" height="40.666666666666657"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Claim 10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bhx-gE-Njm">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="40.666666666666664"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Souls" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLZ-YB-w1R">
+                                        <rect key="frame" x="133.66666666666669" y="0.0" width="81" height="40.666666666666664"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <color key="textColor" systemColor="systemPurpleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to increase damage by 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8t-wO-YAs" userLabel="Header Caption">
+                                <rect key="frame" x="12" y="111.66666666666667" width="369" height="40.666666666666671"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="bottom" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j4v-0h-Kxy" userLabel="Body">
+                                <rect key="frame" x="12" y="152.33333333333337" width="369" height="442"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uTF-ZY-qGx">
+                                        <rect key="frame" x="138" y="0.0" width="231" height="64"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extremely vulnerable" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXh-SF-Eey">
+                                                <rect key="frame" x="0.0" y="0.0" width="159" height="64"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enemy0" translatesAutoresizingMaskIntoConstraints="NO" id="mCF-nv-tUi">
+                                                <rect key="frame" x="167" y="0.0" width="64" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="mCF-nv-tUi" secondAttribute="height" multiplier="1:1" id="2mB-Fe-U2j"/>
+                                                    <constraint firstAttribute="width" constant="64" id="mEo-vz-7ch"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wkk-OT-Toh">
+                                        <rect key="frame" x="79.333333333333343" y="72" width="289.66666666666663" height="64"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gradually becomes powerful" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5R-JU-iwv">
+                                                <rect key="frame" x="0.0" y="0.0" width="217.66666666666666" height="64"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enemy1" translatesAutoresizingMaskIntoConstraints="NO" id="EOp-ni-Uol">
+                                                <rect key="frame" x="225.66666666666669" y="0.0" width="64" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="64" id="BIF-MD-pNc"/>
+                                                    <constraint firstAttribute="width" secondItem="EOp-ni-Uol" secondAttribute="height" multiplier="1:1" id="Joq-ul-hzY"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="m9I-cR-ouS">
+                                        <rect key="frame" x="95" y="143.99999999999997" width="274" height="64"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quickly becomes powerful" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yew-6q-OHf">
+                                                <rect key="frame" x="0.0" y="0.0" width="202" height="64"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enemy4" translatesAutoresizingMaskIntoConstraints="NO" id="j22-qH-yV9">
+                                                <rect key="frame" x="210" y="0.0" width="64" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="j22-qH-yV9" secondAttribute="height" multiplier="1:1" id="87o-Rf-xfT"/>
+                                                    <constraint firstAttribute="width" constant="64" id="ArV-gM-ftl"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRf-k0-h39">
+                                        <rect key="frame" x="0.0" y="215.99999999999997" width="369" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="ddZ-zk-TIt"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JHg-F8-mqQ">
+                                        <rect key="frame" x="12" y="225" width="357" height="64"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fJ-Xh-8zc">
+                                                <rect key="frame" x="0.0" y="0.0" width="285" height="64"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Grants a flaming ">
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="system" size="17"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="Halo">
+                                                        <attributes>
+                                                            <color key="NSColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" metaFont="system" size="17"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=" and ">
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="system" size="17"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="x2 damage">
+                                                        <attributes>
+                                                            <color key="NSColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" metaFont="system" size="17"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enemy2" translatesAutoresizingMaskIntoConstraints="NO" id="Eah-E2-MRE">
+                                                <rect key="frame" x="293" y="0.0" width="64" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="64" id="nlG-6Z-MoD"/>
+                                                    <constraint firstAttribute="width" secondItem="Eah-E2-MRE" secondAttribute="height" multiplier="1:1" id="q9z-VK-K2A"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7tx-Gv-7KY">
+                                        <rect key="frame" x="112.66666666666666" y="297" width="256.33333333333337" height="64"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HjA-Uh-dXi">
+                                                <rect key="frame" x="0.0" y="0.0" width="184.33333333333334" height="64"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Grants a powerful ">
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="system" size="17"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="shield">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" metaFont="system" size="17"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enemy3" translatesAutoresizingMaskIntoConstraints="NO" id="kci-aS-PyZ">
+                                                <rect key="frame" x="192.33333333333331" y="0.0" width="64" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="64" id="lvp-gd-YXq"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="kci-aS-PyZ" firstAttribute="width" secondItem="kci-aS-PyZ" secondAttribute="height" multiplier="1:1" id="iJk-CJ-SeO"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YWx-Of-8eW">
+                                        <rect key="frame" x="71" y="369" width="298" height="64"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkC-V6-nRM">
+                                                <rect key="frame" x="0.0" y="0.0" width="226" height="64"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Grants permanent ">
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="system" size="17"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="+1 damage">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" metaFont="system" size="17"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enemy5" translatesAutoresizingMaskIntoConstraints="NO" id="eNJ-Bd-MEx">
+                                                <rect key="frame" x="234" y="0.0" width="64" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="eNJ-Bd-MEx" secondAttribute="height" multiplier="1:1" id="NZ7-u6-c7d"/>
+                                                    <constraint firstAttribute="width" constant="64" id="joA-AA-GQ7"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tP7-Kw-g9w">
+                                        <rect key="frame" x="0.0" y="441" width="369" height="1"/>
+                                        <viewLayoutGuide key="safeArea" id="b2J-9u-Z24"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="HuE-mD-xRX"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fRf-k0-h39" firstAttribute="width" secondItem="j4v-0h-Kxy" secondAttribute="width" id="vsA-OB-JIc"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4r4-Ij-4Y9" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="35A-lq-lhp"/>
+                            <constraint firstItem="j4v-0h-Kxy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="Enu-Ap-CgE"/>
+                            <constraint firstItem="j4v-0h-Kxy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="GhB-hm-YS4"/>
+                            <constraint firstItem="A8t-wO-YAs" firstAttribute="top" secondItem="4r4-Ij-4Y9" secondAttribute="bottom" id="JXA-A9-hXv"/>
+                            <constraint firstItem="j4v-0h-Kxy" firstAttribute="top" secondItem="A8t-wO-YAs" secondAttribute="bottom" id="JdZ-OO-lPJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="A8t-wO-YAs" secondAttribute="trailing" constant="12" id="M8l-Gg-N3d"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="j4v-0h-Kxy" secondAttribute="trailing" constant="12" id="V5M-TH-idh"/>
+                            <constraint firstItem="A8t-wO-YAs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="vU2-M7-BKE"/>
+                            <constraint firstItem="4r4-Ij-4Y9" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="12" id="zd4-TZ-Tmx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Claim 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8m3-Cb-gfY">
+                    <rect key="frame" x="0.0" y="0.0" width="65" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </objects>
+            <point key="canvasLocation" x="35.877862595419849" y="24.647887323943664"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="enemy0" width="128" height="128"/>
+        <image name="enemy1" width="128" height="128"/>
+        <image name="enemy2" width="128" height="128"/>
+        <image name="enemy3" width="128" height="128"/>
+        <image name="enemy4" width="128" height="128"/>
+        <image name="enemy5" width="128" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
