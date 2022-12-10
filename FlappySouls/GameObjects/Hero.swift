@@ -49,7 +49,7 @@ class Hero: SKSpriteNode, GameObject {
     func update(_ currentTime: TimeInterval) {
         shieldAura?.isHidden = !state.isShielded
         position.y += yVelocity
-        yVelocity -= 0.48
+        yVelocity -= state.isDead ? 0.24 : 0.48
         if position.y < -640 || position.y > 640 {
             die()
         }

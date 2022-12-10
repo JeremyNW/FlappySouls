@@ -11,6 +11,8 @@ import SpriteKit
 class Bullet: SKSpriteNode, GameObject {
     var state: GameState!
     var damage: Int = 1
+    var isDead = false
+    var particles: SKEmitterNode?
     
     func setUp(for state: GameState) {
         self.state = state
@@ -35,21 +37,37 @@ class Bullet: SKSpriteNode, GameObject {
         body.pinned = false
         body.isDynamic = true
         physicsBody = body
+        
+        guard let particles = type.particles() else { return }
+        particles.particleBirthRate = 0
+        addChild(particles)
+        self.particles = particles
     }
     
     func update(_ currentTime: TimeInterval) {
-        self.position.x += 8
-        if self.position.x > 375 {
-            self.removeFromParent()
+        if !isDead { position.x += 8 }
+        if position.x > 400 { die() }
+        if isDead {
+            if particles?.particleBirthRate ?? 0 <= 0 {
+                removeFromParent()
+            }
+            particles?.particleBirthRate -= 4
         }
-        
     }
     
     func didCollide(with node: SKNode?) {
-        self.removeFromParent()
+        die()
     }
     
-    
+    func die() {
+        guard !isDead else { return }
+        isDead = true
+        zRotation = 0
+        position.x += 32
+        physicsBody = nil
+        particles?.particleBirthRate = 48
+        texture = SKTexture(imageNamed: "invisible")
+    }
 }
 
 enum BulletType {
@@ -106,6 +124,15 @@ enum BulletType {
             return 0
         case .sword:
             return -0.5 * .pi
+        }
+    }
+    
+    func particles() -> SKEmitterNode? {
+        switch self {
+        case .standard:
+            return SKEmitterNode(fileNamed: "BlueSpark")
+        case .sword:
+            return SKEmitterNode(fileNamed: "RedSmoke")
         }
     }
 }
