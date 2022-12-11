@@ -25,7 +25,6 @@ class Background: SKNode, GameObject {
     bg = [bg0, bg1]
     mg = [mg0, mg1]
     fg = [fg0, fg1]
-//    bg.forEach { $0.isHidden = true }
   }
   
   func update(_ currentTime: TimeInterval) {
@@ -43,6 +42,4 @@ class Background: SKNode, GameObject {
   func didCollide(with node: SKNode?) {
     
   }
-  
-  
 }

@@ -23,11 +23,11 @@ class GameState {
         }
     }
 
+    var isDead = false
     var isShielded = false
     var swords = 0
     var power: Int { Int(xp) }
     var powerupCooldown = 0
-    var isDead = false
     
     var attackedWithSword = 0
     var slainEyes = 0
