@@ -54,7 +54,7 @@ class GameState {
         persistence.incrementInteger(.slainWithShield, additionalValue: slainWithShield)
        
         Leaderboards.shared.report(score)
-        Achievements.shared.report(power)
+        Achievements.shared.report(score: score, baseDamage: power, isFallen: swords > 0 && isShielded)
     }
     
     func sendHapticFeedback(_ type: HapticType) {
