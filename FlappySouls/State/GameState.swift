@@ -64,6 +64,7 @@ class GameState {
     enum HapticType {
         case soft, heavy, rigid
     }
+    
 }
 
 private class HapticFeedbackGenerators {

@@ -1,0 +1,21 @@
+{
+  "identifier" : "641C9595",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "1658260350",
+    "_developerTeamID" : "2464D42ZHT",
+    "_lastSynchronizedDate" : 692357280.69756496
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

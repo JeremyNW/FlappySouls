@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F2F8329293B1A84000C0F02 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 1F2F8328293B1A84000C0F02 /* GoogleMobileAds */; };
 		1F2F832B29406017000C0F02 /* PurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F832A29406017000C0F02 /* PurchaseController.swift */; };
+		1F482566294485D000D59C16 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F482565294485D000D59C16 /* Products.plist */; };
 		1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE41F29347BE4001CF936 /* AppDelegate.swift */; };
 		1FBFE42229347BE4001CF936 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE42129347BE4001CF936 /* GameScene.sks */; };
 		1FBFE42629347BE4001CF936 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE42529347BE4001CF936 /* GameScene.swift */; };
@@ -58,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		1F2F832A29406017000C0F02 /* PurchaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseController.swift; sourceTree = "<group>"; };
+		1F4825612944853A00D59C16 /* Flappy Souls.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Flappy Souls.storekit"; sourceTree = "<group>"; };
+		1F482565294485D000D59C16 /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		1FBFE41C29347BE4001CF936 /* FlappySouls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappySouls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBFE41F29347BE4001CF936 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FBFE42129347BE4001CF936 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -148,7 +151,12 @@
 				B3193CCB2943D1CE00E9046F /* Audio */,
 				1FBFE42729347BE4001CF936 /* GameViewController.swift */,
 				B338B5F72941AABF00C4A985 /* Colors.swift */,
+
+				1F4825612944853A00D59C16 /* Flappy Souls.storekit */,
+				1F482565294485D000D59C16 /* Products.plist */,
+
 				B3B5034E2944F7920003403B /* Info.storyboard */,
+
 				1FBFE42929347BE4001CF936 /* Main.storyboard */,
 				1FBFE42C29347BE5001CF936 /* Assets.xcassets */,
 				1FBFE42E29347BE5001CF936 /* LaunchScreen.storyboard */,
@@ -329,6 +337,8 @@
 				B338B5FC2941AE7700C4A985 /* Assets.xcassets in Resources */,
 				B3B5034329446E7C0003403B /* BlueSnow.sks in Resources */,
 				B3193CF32943D1CE00E9046F /* flame.wav in Resources */,
+				B3193D172943D4D600E9046F /* flap0.wav in Resources */,
+				1F482566294485D000D59C16 /* Products.plist in Resources */,
 				B33BD9202939167700F51FD3 /* MainScene.sks in Resources */,
 				B3193D072943D49A00E9046F /* flap1.wav in Resources */,
 				B3193D002943D39200E9046F /* sword0.wav in Resources */,

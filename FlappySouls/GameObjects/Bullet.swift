@@ -42,7 +42,7 @@ class Bullet: SKSpriteNode, GameObject {
     }
     
     func update(_ currentTime: TimeInterval) {
-        if !isDead { position.x += 8 }
+        if !isDead { position.x += 6 }
         if position.x > 400 { die() }
         if isDead {
             if particles?.particleBirthRate ?? 0 <= 0 {
