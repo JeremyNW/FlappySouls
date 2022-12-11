@@ -33,10 +33,10 @@ class MainScene: SKScene {
             view.presentScene(scene, transition: .doorsOpenHorizontal(withDuration: 0.4))
         }
         
-        if Persistence.shared.getBool(.isPurchased) {
+        if Persistence.shared.getBool(.isPurchased) || GameState.isFullscreen {
             watchButton?.isHidden = true
             purchaseButton?.isHidden = true
-            playButton?.position.y = -196
+            playButton?.position.y = 0
         } else {
             watchButton?.setUp(theme: .light) {
                 let notificationName = Notification.Name("fullscreen")

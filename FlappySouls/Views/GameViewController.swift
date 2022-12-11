@@ -53,26 +53,32 @@ class GameViewController: UIViewController {
             }
         })
         
-        
-        let scene = SKScene(fileNamed: "MainScene")
-        scene?.scaleMode = .aspectFit
-        gameView.ignoresSiblingOrder = true
-        gameView.presentScene(scene)
+        // Game Start
+        presentMainScene()
     }
     
     @objc func constrainForFullscreen() {
+        GameState.isFullscreen = true
         UIView.animate(withDuration: 0.5) {
             self.adView.removeFromSuperview()
             NSLayoutConstraint.activate([
                 self.gameView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
+        presentMainScene()
     }
     
     @objc func presentInfoPopup() {
         let storyboard = UIStoryboard(name: "Info", bundle: nil)
         guard let info = storyboard.instantiateInitialViewController() else { return }
         present(info, animated: true)
+    }
+    
+    func presentMainScene() {
+        let scene = SKScene(fileNamed: "MainScene")
+        scene?.scaleMode = .aspectFit
+        gameView.ignoresSiblingOrder = true
+        gameView.presentScene(scene)
     }
 }
 extension GameViewController: GADFullScreenContentDelegate {

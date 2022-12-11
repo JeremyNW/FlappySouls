@@ -10,6 +10,7 @@ import UIKit
 import GameKit
 
 class GameState {
+    static var isFullscreen = false
     private let haptics = HapticFeedbackGenerators()
     var score = 0 {
         didSet {
