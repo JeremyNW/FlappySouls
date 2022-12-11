@@ -26,7 +26,7 @@ class MainScene: SKScene {
         infoButton?.setUp(theme: .light) {
             NotificationCenter.default.post(name: .init("Info"), object: nil)
         }
-        
+
         playButton?.setUp(theme: .purple) {
             guard let scene = SKScene(fileNamed: "GameScene") else { return }
             scene.scaleMode = .aspectFit

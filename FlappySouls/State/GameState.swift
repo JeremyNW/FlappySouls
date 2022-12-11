@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import GameKit
 
 class GameState {
     private let haptics = HapticFeedbackGenerators()
@@ -37,10 +38,16 @@ class GameState {
     }
     
     func tearDown() {
-        var highscore = UserDefaults.standard.integer(forKey: "highscore")
-        if score > highscore {
-            highscore = score
-        }
+        GKLeaderboard
+          .submitScore(
+          score,
+          context: 0,
+          player: GKLocalPlayer.local,
+          leaderboardIDs: ["Eternal", "Ephemeral"]) { error in
+            if let error {
+              print(error, error.localizedDescription)
+            }
+          }
     }
     
     func sendHapticFeedback(_ type: HapticType) {

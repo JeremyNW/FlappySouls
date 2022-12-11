@@ -38,7 +38,6 @@
 		B3193D142943D4D600E9046F /* green0.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3193D0C2943D4D500E9046F /* green0.wav */; };
 		B3193D162943D4D600E9046F /* flap4.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3193D0E2943D4D500E9046F /* flap4.wav */; };
 		B338B5F329417FE700C4A985 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338B5F229417FE700C4A985 /* Background.swift */; };
-		B338B5F529419B8C00C4A985 /* GameKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338B5F429419B8C00C4A985 /* GameKitController.swift */; };
 		B338B5F82941AABF00C4A985 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338B5F72941AABF00C4A985 /* Colors.swift */; };
 		B338B5FB2941AE7700C4A985 /* Halo.sks in Resources */ = {isa = PBXBuildFile; fileRef = B338B5F92941AE7700C4A985 /* Halo.sks */; };
 		B338B5FC2941AE7700C4A985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B338B5FA2941AE7700C4A985 /* Assets.xcassets */; };
@@ -63,7 +62,7 @@
 		1FBFE41F29347BE4001CF936 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FBFE42129347BE4001CF936 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		1FBFE42529347BE4001CF936 /* GameScene.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; tabWidth = 4; };
-		1FBFE42729347BE4001CF936 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		1FBFE42729347BE4001CF936 /* GameViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		1FBFE42A29347BE4001CF936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FBFE42C29347BE5001CF936 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FBFE42F29347BE5001CF936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,7 +88,6 @@
 		B3193D0C2943D4D500E9046F /* green0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = green0.wav; sourceTree = "<group>"; };
 		B3193D0E2943D4D500E9046F /* flap4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = flap4.wav; sourceTree = "<group>"; };
 		B338B5F229417FE700C4A985 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
-		B338B5F429419B8C00C4A985 /* GameKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameKitController.swift; sourceTree = "<group>"; };
 		B338B5F629419D0800C4A985 /* FlappySouls.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlappySouls.entitlements; sourceTree = "<group>"; };
 		B338B5F72941AABF00C4A985 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B338B5F92941AE7700C4A985 /* Halo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Halo.sks; sourceTree = "<group>"; };
@@ -209,7 +207,6 @@
 			children = (
 				1F2F832A29406017000C0F02 /* PurchaseController.swift */,
 				B37317122934995300C1DF0B /* GameState.swift */,
-				B338B5F429419B8C00C4A985 /* GameKitController.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -355,7 +352,6 @@
 				B33BD9242939173A00F51FD3 /* GameButton.swift in Sources */,
 				1F2F832B29406017000C0F02 /* PurchaseController.swift in Sources */,
 				B338B5F82941AABF00C4A985 /* Colors.swift in Sources */,
-				B338B5F529419B8C00C4A985 /* GameKitController.swift in Sources */,
 				1FBFE43F29382066001CF936 /* Enemy.swift in Sources */,
 				1FBFE439293482DF001CF936 /* Pipe.swift in Sources */,
 				1FBFE4372934803B001CF936 /* Hero.swift in Sources */,
