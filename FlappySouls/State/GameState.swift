@@ -51,29 +51,8 @@ class GameState {
         persistence.incrementInteger(.slainTeeth, additionalValue: slainTeeth)
         persistence.incrementInteger(.slainArmor, additionalValue: slainArmor)
         persistence.incrementInteger(.slainWithShield, additionalValue: slainWithShield)
-        
-        GKLeaderboard
-          .submitScore(
-          score,
-          context: 0,
-          player: GKLocalPlayer.local,
-          leaderboardIDs: ["Eternal"]) { error in
-            if let error {
-              print(error, error.localizedDescription)
-            }
-          }
-        
-        GKLeaderboard
-          .submitScore(
-          score,
-          context: 0,
-          player: GKLocalPlayer.local,
-          leaderboardIDs: ["Ephemeral"]) { error in
-            if let error {
-              print(error, error.localizedDescription)
-            }
-          }
-        
+       
+        Leaderboards.shared.report(score)
         Achievements.shared.report(power)
     }
     

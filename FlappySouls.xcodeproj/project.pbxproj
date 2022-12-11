@@ -25,6 +25,7 @@
 		1FBFE4412938267E001CF936 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE4402938267E001CF936 /* HUD.swift */; };
 		B3141F8529463DC9008F0346 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3141F8429463DC9008F0346 /* Persistence.swift */; };
 		B3141F87294645F5008F0346 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3141F86294645F5008F0346 /* Achievements.swift */; };
+		B3141F8929465A9E008F0346 /* Leaderboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3141F8829465A9E008F0346 /* Leaderboards.swift */; };
 		B3193CF32943D1CE00E9046F /* flame.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3193CDF2943D1CE00E9046F /* flame.wav */; };
 		B3193CFC2943D39200E9046F /* shieldOff.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3193CF42943D39200E9046F /* shieldOff.wav */; };
 		B3193CFD2943D39200E9046F /* sword3.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3193CF52943D39200E9046F /* sword3.wav */; };
@@ -79,6 +80,7 @@
 		1FBFE4402938267E001CF936 /* HUD.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B3141F8429463DC9008F0346 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B3141F86294645F5008F0346 /* Achievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
+		B3141F8829465A9E008F0346 /* Leaderboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboards.swift; sourceTree = "<group>"; };
 		B3193CDF2943D1CE00E9046F /* flame.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = flame.wav; sourceTree = "<group>"; };
 		B3193CF42943D39200E9046F /* shieldOff.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shieldOff.wav; sourceTree = "<group>"; };
 		B3193CF52943D39200E9046F /* sword3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sword3.wav; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				1F2F832A29406017000C0F02 /* PurchaseController.swift */,
 				B3141F86294645F5008F0346 /* Achievements.swift */,
+				B3141F8829465A9E008F0346 /* Leaderboards.swift */,
 				B338B5F72941AABF00C4A985 /* Colors.swift */,
 				B3141F8429463DC9008F0346 /* Persistence.swift */,
 			);
@@ -387,6 +390,7 @@
 				1FBFE4412938267E001CF936 /* HUD.swift in Sources */,
 				1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */,
 				B33BD9242939173A00F51FD3 /* GameButton.swift in Sources */,
+				B3141F8929465A9E008F0346 /* Leaderboards.swift in Sources */,
 				B3141F87294645F5008F0346 /* Achievements.swift in Sources */,
 				1F2F832B29406017000C0F02 /* PurchaseController.swift in Sources */,
 				B338B5F82941AABF00C4A985 /* Colors.swift in Sources */,

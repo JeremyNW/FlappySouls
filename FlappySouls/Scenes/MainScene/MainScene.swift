@@ -7,7 +7,7 @@
 
 import Foundation
 import SpriteKit
-import StoreKit
+import GameKit
 
 class MainScene: SKScene {
     
@@ -46,6 +46,8 @@ class MainScene: SKScene {
             }
             purchaseButton?.setUp(theme: .light) { PurchaseController.shared.buyFullscreen() }
         }
+        
+        Leaderboards.shared.load()
     }
     
 }
