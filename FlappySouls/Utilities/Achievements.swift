@@ -10,10 +10,12 @@ import GameKit
 
 class Achievements {
   static let shared = Achievements()
-  let attackedWithSword: Double = 10_000
   let baseDamage = 50
-  let slainEnemy: Double = 1_000
-  let slainWithShield: Double = 100
+  
+  // required per/percentage point
+  let attackedWithSword: Double = 100
+  let slainEnemy: Double = 10
+  let slainWithShield: Double = 1
   
   private init() {}
   
