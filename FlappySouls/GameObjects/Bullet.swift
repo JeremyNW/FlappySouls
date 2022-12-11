@@ -22,11 +22,8 @@ class Bullet: SKSpriteNode, GameObject {
         size = type.size()
         texture = type.texture()
         color = type.color()
-        zRotation = type.rotation()
         zPosition = 0
         colorBlendFactor = 1
-        let name = type == .sword ? "sword" : "bullet"
-        run(.playSoundFileNamed(name + "\(Int.random(in: 0...4)).wav", waitForCompletion: false))
         
         let body = SKPhysicsBody(circleOfRadius: self.size.width / 2)
         body.categoryBitMask = 1
@@ -115,15 +112,6 @@ enum BulletType {
             return .angelBlue
         case .sword:
             return .white
-        }
-    }
-    
-    func rotation() -> CGFloat {
-        switch self {
-        case .standard:
-            return 0
-        case .sword:
-            return -0.5 * .pi
         }
     }
     

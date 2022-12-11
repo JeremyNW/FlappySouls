@@ -31,14 +31,11 @@ class Enemy: SKSpriteNode, GameObject {
         let type = EnemyType.random()
         texture = type.texture()
         hp = type.hitpoints(state: state)
-        color = type.color()
-        colorBlendFactor = 1
         if label == nil {
             let label = SKLabelNode()
             addChild(label)
             self.label = label
-            label.xScale = -1
-            label.position.x = -64
+            label.position.x = 64
             label.zPosition = 1
             label.fontColor = .white
             label.fontName = "HelveticaNeue-CondensedBlack"
@@ -138,24 +135,7 @@ private enum EnemyType {
         }
         return SKTexture(imageNamed: "enemy\(id)")
     }
-    
-    func color() -> UIColor {
-        switch self {
-        case .weak:
-            return .white
-        case .normal:
-            return .white
-        case .strong:
-            return .white
-        case .powerup:
-            return .angelGreen
-        case .shield:
-            return .cyan
-        case .bomb:
-            return .enemyRed
-        }
-    }
-    
+
     func onDeath(for state: GameState, node: SKNode) {
         switch self {
         case .weak, .normal, .strong:
