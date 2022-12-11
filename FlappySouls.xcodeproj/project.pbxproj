@@ -23,6 +23,8 @@
 		1FBFE43D2936B456001CF936 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE43C2936B456001CF936 /* Bullet.swift */; };
 		1FBFE43F29382066001CF936 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE43E29382066001CF936 /* Enemy.swift */; };
 		1FBFE4412938267E001CF936 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE4402938267E001CF936 /* HUD.swift */; };
+		B3141F8529463DC9008F0346 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3141F8429463DC9008F0346 /* Persistence.swift */; };
+		B3141F87294645F5008F0346 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3141F86294645F5008F0346 /* Achievements.swift */; };
 		B3193CF32943D1CE00E9046F /* flame.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3193CDF2943D1CE00E9046F /* flame.wav */; };
 		B3193CFC2943D39200E9046F /* shieldOff.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3193CF42943D39200E9046F /* shieldOff.wav */; };
 		B3193CFD2943D39200E9046F /* sword3.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3193CF52943D39200E9046F /* sword3.wav */; };
@@ -75,6 +77,8 @@
 		1FBFE43C2936B456001CF936 /* Bullet.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; tabWidth = 4; };
 		1FBFE43E29382066001CF936 /* Enemy.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; tabWidth = 4; };
 		1FBFE4402938267E001CF936 /* HUD.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; tabWidth = 4; };
+		B3141F8429463DC9008F0346 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		B3141F86294645F5008F0346 /* Achievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
 		B3193CDF2943D1CE00E9046F /* flame.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = flame.wav; sourceTree = "<group>"; };
 		B3193CF42943D39200E9046F /* shieldOff.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shieldOff.wav; sourceTree = "<group>"; };
 		B3193CF52943D39200E9046F /* sword3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sword3.wav; sourceTree = "<group>"; };
@@ -143,25 +147,57 @@
 		1FBFE41E29347BE4001CF936 /* FlappySouls */ = {
 			isa = PBXGroup;
 			children = (
-				B338B5F629419D0800C4A985 /* FlappySouls.entitlements */,
+				B3193CCB2943D1CE00E9046F /* Audio */,
+				B33BD91A2939162A00F51FD3 /* GameObjects */,
+				B3141F8229463D5A008F0346 /* Particles */,
 				B33BD91C2939164200F51FD3 /* State */,
 				B33BD91B2939163400F51FD3 /* Scenes */,
-				B33BD91A2939162A00F51FD3 /* GameObjects */,
+				B3141F8129463D47008F0346 /* Utilities */,
+				B3141F8329463DA3008F0346 /* Views */,
 				1FBFE41F29347BE4001CF936 /* AppDelegate.swift */,
-				B3193CCB2943D1CE00E9046F /* Audio */,
-				1FBFE42729347BE4001CF936 /* GameViewController.swift */,
-				B338B5F72941AABF00C4A985 /* Colors.swift */,
-
+				B338B5F629419D0800C4A985 /* FlappySouls.entitlements */,
 				1F4825612944853A00D59C16 /* Flappy Souls.storekit */,
 				1F482565294485D000D59C16 /* Products.plist */,
-
-				B3B5034E2944F7920003403B /* Info.storyboard */,
-
-				1FBFE42929347BE4001CF936 /* Main.storyboard */,
 				1FBFE42C29347BE5001CF936 /* Assets.xcassets */,
 				1FBFE42E29347BE5001CF936 /* LaunchScreen.storyboard */,
 			);
 			path = FlappySouls;
+			sourceTree = "<group>";
+		};
+		B3141F8129463D47008F0346 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1F2F832A29406017000C0F02 /* PurchaseController.swift */,
+				B3141F86294645F5008F0346 /* Achievements.swift */,
+				B338B5F72941AABF00C4A985 /* Colors.swift */,
+				B3141F8429463DC9008F0346 /* Persistence.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B3141F8229463D5A008F0346 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				B338B5FA2941AE7700C4A985 /* Assets.xcassets */,
+				B338B5F92941AE7700C4A985 /* Halo.sks */,
+				B3B5033C2943FABA0003403B /* BlueSpark.sks */,
+				B3B5033E2943FEB80003403B /* RedSmoke.sks */,
+				B3B50340294469B40003403B /* PurpleFireflies.sks */,
+				B3B5034229446E7B0003403B /* BlueSnow.sks */,
+				B3B5034C2944700C0003403B /* GreenRain.sks */,
+				B3B5034429446EF60003403B /* Fire.sks */,
+			);
+			path = Particles;
+			sourceTree = "<group>";
+		};
+		B3141F8329463DA3008F0346 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1FBFE42729347BE4001CF936 /* GameViewController.swift */,
+				B3B5034E2944F7920003403B /* Info.storyboard */,
+				1FBFE42929347BE4001CF936 /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B3193CCB2943D1CE00E9046F /* Audio */ = {
@@ -213,7 +249,6 @@
 		B33BD91C2939164200F51FD3 /* State */ = {
 			isa = PBXGroup;
 			children = (
-				1F2F832A29406017000C0F02 /* PurchaseController.swift */,
 				B37317122934995300C1DF0B /* GameState.swift */,
 			);
 			path = State;
@@ -232,15 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				1FBFE42129347BE4001CF936 /* GameScene.sks */,
-				B338B5F92941AE7700C4A985 /* Halo.sks */,
-				B338B5FA2941AE7700C4A985 /* Assets.xcassets */,
 				1FBFE42529347BE4001CF936 /* GameScene.swift */,
-				B3B5033C2943FABA0003403B /* BlueSpark.sks */,
-				B3B5033E2943FEB80003403B /* RedSmoke.sks */,
-				B3B50340294469B40003403B /* PurpleFireflies.sks */,
-				B3B5034229446E7B0003403B /* BlueSnow.sks */,
-				B3B5034C2944700C0003403B /* GreenRain.sks */,
-				B3B5034429446EF60003403B /* Fire.sks */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -337,7 +364,6 @@
 				B338B5FC2941AE7700C4A985 /* Assets.xcassets in Resources */,
 				B3B5034329446E7C0003403B /* BlueSnow.sks in Resources */,
 				B3193CF32943D1CE00E9046F /* flame.wav in Resources */,
-				B3193D172943D4D600E9046F /* flap0.wav in Resources */,
 				1F482566294485D000D59C16 /* Products.plist in Resources */,
 				B33BD9202939167700F51FD3 /* MainScene.sks in Resources */,
 				B3193D072943D49A00E9046F /* flap1.wav in Resources */,
@@ -353,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FBFE42629347BE4001CF936 /* GameScene.swift in Sources */,
+				B3141F8529463DC9008F0346 /* Persistence.swift in Sources */,
 				B338B5F329417FE700C4A985 /* Background.swift in Sources */,
 				B33BD91E2939166400F51FD3 /* MainScene.swift in Sources */,
 				B37317132934995300C1DF0B /* GameState.swift in Sources */,
@@ -360,6 +387,7 @@
 				1FBFE4412938267E001CF936 /* HUD.swift in Sources */,
 				1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */,
 				B33BD9242939173A00F51FD3 /* GameButton.swift in Sources */,
+				B3141F87294645F5008F0346 /* Achievements.swift in Sources */,
 				1F2F832B29406017000C0F02 /* PurchaseController.swift in Sources */,
 				B338B5F82941AABF00C4A985 /* Colors.swift in Sources */,
 				1FBFE43F29382066001CF936 /* Enemy.swift in Sources */,

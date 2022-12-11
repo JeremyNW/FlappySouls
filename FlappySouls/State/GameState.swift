@@ -26,7 +26,14 @@ class GameState {
     var swords = 0
     var power: Int { Int(xp) }
     var powerupCooldown = 0
-    var isDead = false 
+    var isDead = false
+    
+    var attackedWithSword = 0
+    var slainEyes = 0
+    var slainTeeth = 0
+    var slainArmor = 0
+    var slainWithShield = 0
+    
     private var xp = 1.0
 
     func increaseXP(by amount: Double = 1) {
@@ -38,16 +45,36 @@ class GameState {
     }
     
     func tearDown() {
+        let persistence = Persistence.shared
+        persistence.incrementInteger(.attackedWithSword, additionalValue: attackedWithSword)
+        persistence.incrementInteger(.slainEyes, additionalValue: slainEyes)
+        persistence.incrementInteger(.slainTeeth, additionalValue: slainTeeth)
+        persistence.incrementInteger(.slainArmor, additionalValue: slainArmor)
+        persistence.incrementInteger(.slainWithShield, additionalValue: slainWithShield)
+        
         GKLeaderboard
           .submitScore(
           score,
           context: 0,
           player: GKLocalPlayer.local,
-          leaderboardIDs: ["Eternal", "Ephemeral"]) { error in
+          leaderboardIDs: ["Eternal"]) { error in
             if let error {
               print(error, error.localizedDescription)
             }
           }
+        
+        GKLeaderboard
+          .submitScore(
+          score,
+          context: 0,
+          player: GKLocalPlayer.local,
+          leaderboardIDs: ["Ephemeral"]) { error in
+            if let error {
+              print(error, error.localizedDescription)
+            }
+          }
+        
+        Achievements.shared.report(power)
     }
     
     func sendHapticFeedback(_ type: HapticType) {

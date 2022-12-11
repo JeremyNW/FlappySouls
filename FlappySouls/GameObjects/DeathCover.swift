@@ -15,7 +15,6 @@ class DeathCover: SKNode, GameObject {
     (childNode(withName: "GameOver") as? GameButton)?.setUp(theme: .light) {
       guard let scene = SKScene(fileNamed: "MainScene") else { return }
       scene.scaleMode = .aspectFit
-      self.state.tearDown()
       self.scene?.view?.presentScene(scene, transition: .doorsCloseHorizontal(withDuration: 0.4))
     }
   }

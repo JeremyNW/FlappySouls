@@ -33,7 +33,7 @@ class MainScene: SKScene {
             view.presentScene(scene, transition: .doorsOpenHorizontal(withDuration: 0.4))
         }
         
-        if UserDefaults.standard.bool(forKey: "purchased") {
+        if Persistence.shared.getBool(.isPurchased) {
             watchButton?.isHidden = true
             purchaseButton?.isHidden = true
             playButton?.position.y = -196

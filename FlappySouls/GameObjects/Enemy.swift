@@ -138,8 +138,12 @@ private enum EnemyType {
 
     func onDeath(for state: GameState, node: SKNode) {
         switch self {
-        case .weak, .normal, .strong:
-            break
+        case .weak:
+            state.slainEyes += 1
+        case .normal:
+            state.slainTeeth += 1
+        case .strong:
+            state.slainArmor += 1
         case .powerup:
             state.increaseXP()
             state.powerupCooldown = 90

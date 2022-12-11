@@ -24,6 +24,9 @@ class Bullet: SKSpriteNode, GameObject {
         color = type.color()
         zPosition = 0
         colorBlendFactor = 1
+        if type == .sword {
+            state.attackedWithSword += 1
+        }
         
         let body = SKPhysicsBody(circleOfRadius: self.size.width / 2)
         body.categoryBitMask = 1

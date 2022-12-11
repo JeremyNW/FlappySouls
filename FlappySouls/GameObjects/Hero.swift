@@ -94,6 +94,7 @@ class Hero: SKSpriteNode, GameObject {
     func didCollide(with node: SKNode?) {
         if state.isShielded || shieldIFrames > 0 {
             state.isShielded = false
+            state.slainWithShield += 1
             run(.playSoundFileNamed("shieldOff.wav", waitForCompletion: false))
             state.sendHapticFeedback(.soft)
             return
@@ -108,6 +109,7 @@ class Hero: SKSpriteNode, GameObject {
             color = .darkGray
             colorBlendFactor = 1
             physicsBody = nil
+            state.tearDown()
         }
     }
     
