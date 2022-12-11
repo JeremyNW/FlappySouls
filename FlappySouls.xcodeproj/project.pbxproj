@@ -55,7 +55,6 @@
 		B3B50341294469B40003403B /* PurpleFireflies.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B50340294469B40003403B /* PurpleFireflies.sks */; };
 		B3B5034329446E7C0003403B /* BlueSnow.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034229446E7B0003403B /* BlueSnow.sks */; };
 		B3B5034529446EF60003403B /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034429446EF60003403B /* Fire.sks */; };
-		B3B5034929446F180003403B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034729446F180003403B /* Assets.xcassets */; };
 		B3B5034D2944700C0003403B /* GreenRain.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034C2944700C0003403B /* GreenRain.sks */; };
 		B3B5034F2944F7920003403B /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034E2944F7920003403B /* Info.storyboard */; };
 /* End PBXBuildFile section */
@@ -111,7 +110,6 @@
 		B3B50340294469B40003403B /* PurpleFireflies.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PurpleFireflies.sks; sourceTree = "<group>"; };
 		B3B5034229446E7B0003403B /* BlueSnow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlueSnow.sks; sourceTree = "<group>"; };
 		B3B5034429446EF60003403B /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
-		B3B5034729446F180003403B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3B5034C2944700C0003403B /* GreenRain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GreenRain.sks; sourceTree = "<group>"; };
 		B3B5034E2944F7920003403B /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,7 +129,6 @@
 		1FBFE41329347BE4001CF936 = {
 			isa = PBXGroup;
 			children = (
-				B3B5034729446F180003403B /* Assets.xcassets */,
 				1FBFE43A2934868F001CF936 /* .gitignore */,
 				1FBFE41E29347BE4001CF936 /* FlappySouls */,
 				1FBFE41D29347BE4001CF936 /* Products */,
@@ -343,7 +340,6 @@
 				B3193CFC2943D39200E9046F /* shieldOff.wav in Resources */,
 				B3193D032943D39200E9046F /* sword1.wav in Resources */,
 				1FBFE43B2934868F001CF936 /* .gitignore in Resources */,
-				B3B5034929446F180003403B /* Assets.xcassets in Resources */,
 				B3193D092943D49A00E9046F /* flap0.wav in Resources */,
 				B338B5FB2941AE7700C4A985 /* Halo.sks in Resources */,
 				B3193CFD2943D39200E9046F /* sword3.wav in Resources */,
