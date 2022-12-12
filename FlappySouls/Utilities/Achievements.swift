@@ -17,13 +17,16 @@ class Achievements {
   let slainEnemy: Double = 10
   let slainWithShield: Double = 1
   
+  let valor = 50
+  let light = 100
+  
   let mercy = 100
   let justice = 250
   let death = 500
   
   private init() {}
   
-  func report(score: Int, baseDamage: Int, isFallen: Bool) {
+  func report(score: Int, waves: Int, baseDamage: Int, isFallen: Bool) {
     let persistence = Persistence.shared
    
     var achievements: [GKAchievement] = []
@@ -58,6 +61,18 @@ class Achievements {
       let fallen = GKAchievement(identifier: "fallen")
       fallen.percentComplete = 100
       achievements.append(fallen)
+    }
+    
+    if waves > valor {
+      let valor = GKAchievement(identifier: "valor")
+      valor.percentComplete = 100
+      achievements.append(valor)
+      
+      if waves > light {
+        let light = GKAchievement(identifier: "light")
+        light.percentComplete = 100
+        achievements.append(light)
+      }
     }
     
     if score > mercy {
