@@ -9,10 +9,10 @@ import Foundation
 import GoogleMobileAds
 
 enum Advertisement {
-#if DEBUG
+#if DEBUG // Test Ad Units
   static let bannerID = "ca-app-pub-3940256099942544/2934735716"
   static let rewardedID = "ca-app-pub-3940256099942544/1712485313"
-#else
+#else // Macrina Ad Units
   static let bannerID = "ca-app-pub-8396290292926383/8584738508"
   static let rewardedID = "ca-app-pub-8396290292926383/3310276810"
 #endif

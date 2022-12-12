@@ -31,7 +31,7 @@ class Leaderboards {
       .loadLeaderboards(IDs: ids) { leaderboards, error in
         error?.log()
         if let eternal = leaderboards?.first {
-          eternal.loadEntries(for: [GKLocalPlayer.local], timeScope: .allTime) { entry, _, error in
+          eternal.loadEntries(for: .global, timeScope: .allTime, range: .init(1...100)) { entry, _, _, error in
             error?.log()
             if let entry,
                entry.rank <= 100 {
@@ -43,7 +43,7 @@ class Leaderboards {
           }
         }
         if let ephemeral = leaderboards?.last {
-          ephemeral.loadEntries(for: [GKLocalPlayer.local], timeScope: .allTime) { entry, _, error in
+          ephemeral.loadEntries(for: .global, timeScope: .allTime, range: .init(1...100)) { entry, _, _, error in
             error?.log()
             if let entry,
                entry.rank == 1 {
