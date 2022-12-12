@@ -12,8 +12,6 @@ class PurchaseController: NSObject, SKPaymentTransactionObserver, ObservableObje
     
     static let shared = PurchaseController()
     let productID = "com.macrinallc.flappyjudgement.fullscreen"
-    @Published var isPurchased = false
-    
     
     private override init() {
         super.init()
@@ -34,7 +32,10 @@ class PurchaseController: NSObject, SKPaymentTransactionObserver, ObservableObje
         
         for transaction in transactions {
             if transaction.transactionState == .purchased {
-                print("transaction successful")
+                let notificationName = Notification.Name("purchase")
+                let notification = Notification(name: notificationName)
+                NotificationCenter.default.post(notification)
+                
             } else if transaction.transactionState == .failed {
                 print("transaction failed")
             }

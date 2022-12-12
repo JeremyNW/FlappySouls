@@ -44,7 +44,10 @@ class MainScene: SKScene {
                 NotificationCenter.default.post(notification)
                 self.watchButton?.setText("Please wait...")
             }
-            purchaseButton?.setUp(theme: .light) { PurchaseController.shared.buyFullscreen() }
+            purchaseButton?.setUp(theme: .light) {
+                PurchaseController.shared.buyFullscreen()
+                
+            }
         }
         
         Leaderboards.shared.load()

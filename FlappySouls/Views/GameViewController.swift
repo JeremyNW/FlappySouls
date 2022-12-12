@@ -29,6 +29,7 @@ class GameViewController: UIViewController {
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(loadRewardedAd), name: .init("fullscreen"), object: nil)
         nc.addObserver(self, selector: #selector(presentInfoPopup), name: .init("Info"), object: nil)
+        nc.addObserver(self, selector: #selector(purchaseComplete), name: .init("purchase"), object: nil)
         
         // GameKit
         GKAccessPoint.shared.location = .topLeading
@@ -43,17 +44,21 @@ class GameViewController: UIViewController {
         }
         
         // Monetization
-        subscription = PurchaseController.shared.$isPurchased.sink(receiveValue: { [self] isPurchased in
-            if isPurchased {
-                self.constrainForFullscreen()
-            } else {
-                bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-                bannerView.rootViewController = self
-                bannerView.load(GADRequest())
-            }
-        })
+        if Persistence.shared.getBool(.isPurchased) {
+            self.constrainForFullscreen()
+        } else {
+            bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+        }
         
         // Game Start
+        presentMainScene()
+    }
+    
+    @objc func purchaseComplete() {
+        Persistence.shared.setBool(.isPurchased, value: true)
+        constrainForFullscreen()
         presentMainScene()
     }
     
