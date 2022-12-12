@@ -50,6 +50,8 @@
 		B33BD9202939167700F51FD3 /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B33BD91F2939167700F51FD3 /* MainScene.sks */; };
 		B33BD9242939173A00F51FD3 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BD9232939173A00F51FD3 /* GameButton.swift */; };
 		B37317132934995300C1DF0B /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37317122934995300C1DF0B /* GameState.swift */; };
+		B388AFC62946D71000DA3444 /* Advertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B388AFC52946D71000DA3444 /* Advertisement.swift */; };
+		B388AFC82946DC2200DA3444 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B388AFC72946DC2200DA3444 /* Error+Extension.swift */; };
 		B3ACF5AA293FCDCE00E757F8 /* DeathCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ACF5A9293FCDCE00E757F8 /* DeathCover.swift */; };
 		B3B5033D2943FABA0003403B /* BlueSpark.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5033C2943FABA0003403B /* BlueSpark.sks */; };
 		B3B5033F2943FEB80003403B /* RedSmoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5033E2943FEB80003403B /* RedSmoke.sks */; };
@@ -106,6 +108,8 @@
 		B33BD91F2939167700F51FD3 /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		B33BD9232939173A00F51FD3 /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 		B37317122934995300C1DF0B /* GameState.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; tabWidth = 4; };
+		B388AFC52946D71000DA3444 /* Advertisement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertisement.swift; sourceTree = "<group>"; };
+		B388AFC72946DC2200DA3444 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		B3ACF5A9293FCDCE00E757F8 /* DeathCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathCover.swift; sourceTree = "<group>"; };
 		B3B5033C2943FABA0003403B /* BlueSpark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlueSpark.sks; sourceTree = "<group>"; };
 		B3B5033E2943FEB80003403B /* RedSmoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RedSmoke.sks; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 				1F482565294485D000D59C16 /* Products.plist */,
 				1FBFE42C29347BE5001CF936 /* Assets.xcassets */,
 				1FBFE42E29347BE5001CF936 /* LaunchScreen.storyboard */,
+				B388AFC72946DC2200DA3444 /* Error+Extension.swift */,
 			);
 			path = FlappySouls;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				B3141F86294645F5008F0346 /* Achievements.swift */,
 				B3141F8829465A9E008F0346 /* Leaderboards.swift */,
 				B338B5F72941AABF00C4A985 /* Colors.swift */,
+				B388AFC52946D71000DA3444 /* Advertisement.swift */,
 				B3141F8429463DC9008F0346 /* Persistence.swift */,
 			);
 			path = Utilities;
@@ -382,6 +388,7 @@
 				1FBFE4412938267E001CF936 /* HUD.swift in Sources */,
 				1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */,
 				B33BD9242939173A00F51FD3 /* GameButton.swift in Sources */,
+				B388AFC82946DC2200DA3444 /* Error+Extension.swift in Sources */,
 				B3141F8929465A9E008F0346 /* Leaderboards.swift in Sources */,
 				B3141F87294645F5008F0346 /* Achievements.swift in Sources */,
 				1F2F832B29406017000C0F02 /* PurchaseController.swift in Sources */,
@@ -389,6 +396,7 @@
 				1FBFE43F29382066001CF936 /* Enemy.swift in Sources */,
 				1FBFE439293482DF001CF936 /* Pipe.swift in Sources */,
 				1FBFE4372934803B001CF936 /* Hero.swift in Sources */,
+				B388AFC62946D71000DA3444 /* Advertisement.swift in Sources */,
 				1FBFE43D2936B456001CF936 /* Bullet.swift in Sources */,
 				B3ACF5AA293FCDCE00E757F8 /* DeathCover.swift in Sources */,
 			);

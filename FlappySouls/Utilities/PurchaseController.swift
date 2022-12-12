@@ -24,23 +24,16 @@ class PurchaseController: NSObject, SKPaymentTransactionObserver, ObservableObje
             let paymentRequest = SKMutablePayment()
             paymentRequest.productIdentifier = productID
             SKPaymentQueue.default().add(paymentRequest)
-        } else {
-            print("user cannot make payments")
         }
     }
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        
         for transaction in transactions {
             if transaction.transactionState == .purchased {
                 let notificationName = Notification.Name("purchase")
                 let notification = Notification(name: notificationName)
                 NotificationCenter.default.post(notification)
                 
-            } else if transaction.transactionState == .failed {
-                print("transaction failed")
             }
         }
-        
     }
-    
 }

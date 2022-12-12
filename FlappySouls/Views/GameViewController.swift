@@ -35,9 +35,7 @@ class GameViewController: UIViewController {
         GKAccessPoint.shared.location = .topLeading
         GKAccessPoint.shared.isActive = true
         GKLocalPlayer.local.authenticateHandler = { viewController, error in
-            if let error {
-                print(error, error.localizedDescription)
-            }
+            error?.log()
             if let viewController {
                 self.present(viewController, animated: true)
             }
@@ -47,9 +45,9 @@ class GameViewController: UIViewController {
         if Persistence.shared.getBool(.isPurchased) {
             self.constrainForFullscreen()
         } else {
-            bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+            bannerView.adUnitID = Advertisement.bannerID
             bannerView.rootViewController = self
-            bannerView.load(GADRequest())
+            bannerView.load(Advertisement.request)
         }
         
         // Game Start
@@ -87,46 +85,26 @@ class GameViewController: UIViewController {
     }
 }
 extension GameViewController: GADFullScreenContentDelegate {
-    
     @objc func loadRewardedAd() {
-        let request = GADRequest()
-        GADRewardedAd.load(withAdUnitID:"ca-app-pub-3940256099942544/1712485313",
-                           request: request,
-                           completionHandler: { [self] ad, error in
-            if let error = error {
-                print("Failed to load rewarded ad with error: \(error.localizedDescription)")
-                return
+        GADRewardedAd
+            .load(
+                withAdUnitID:Advertisement.rewardedID,
+                request: Advertisement.request
+            ){ [self] ad, error in
+                error?.log()
+                rewardedAd = ad
+                rewardedAd?.fullScreenContentDelegate = self
+                ad?.present(fromRootViewController: self) {
+                    self.constrainForFullscreen()
+                }
             }
-            rewardedAd = ad
-            print("Rewarded ad loaded.")
-            rewardedAd?.fullScreenContentDelegate = self
-            self.showFullscreenAd()
-        }
-        )
     }
+
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
-        print("Ad did fail to present full screen content.")
+        error.log()
     }
     
-    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        print("Ad will present full screen content.")
-    }
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {}
     
-    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        constrainForFullscreen()
-    }
-    
-    
-    func showFullscreenAd() {
-        if let ad = rewardedAd {
-            ad.present(fromRootViewController: self) {
-                let reward = ad.adReward
-                print("Reward received with currency \(reward.amount), amount \(reward.amount.doubleValue)")
-                
-                // Add a reward for the user here
-            }
-        } else {
-            print("Ad wasn't ready")
-        }
-    }
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {}
 }

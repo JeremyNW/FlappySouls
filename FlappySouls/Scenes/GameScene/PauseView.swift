@@ -19,7 +19,6 @@ class PauseView: SKNode, GameObject {
     button?.setUp(theme: .light) { [weak self] in
       self?.label?.isHidden.toggle()
       self?.scene?.isPaused.toggle()
-      print(self?.scene?.isPaused == true)
     }
     label = childNode(withName: "PauseLabel")
     label?.isHidden = true

@@ -21,9 +21,7 @@ class Leaderboards {
       context: 0,
       player: GKLocalPlayer.local,
       leaderboardIDs: ids) { error in
-        if let error {
-          print(error, error.localizedDescription)
-        }
+        error?.log()
       }
   }
   
@@ -31,15 +29,10 @@ class Leaderboards {
     guard GKLocalPlayer.local.isAuthenticated else { return }
     GKLeaderboard
       .loadLeaderboards(IDs: ids) { leaderboards, error in
-        if let error {
-          print(error, error.localizedDescription)
-        }
-        
+        error?.log()
         if let eternal = leaderboards?.first {
           eternal.loadEntries(for: [GKLocalPlayer.local], timeScope: .allTime) { entry, _, error in
-            if let error {
-              print(error, error.localizedDescription)
-            }
+            error?.log()
             if let entry,
                entry.rank <= 100 {
               let achievement = GKAchievement(identifier: "eternal")
@@ -51,9 +44,7 @@ class Leaderboards {
         }
         if let ephemeral = leaderboards?.last {
           ephemeral.loadEntries(for: [GKLocalPlayer.local], timeScope: .allTime) { entry, _, error in
-            if let error {
-              print(error, error.localizedDescription)
-            }
+            error?.log()
             if let entry,
                entry.rank == 1 {
               let achievement = GKAchievement(identifier: "ephemeral")
