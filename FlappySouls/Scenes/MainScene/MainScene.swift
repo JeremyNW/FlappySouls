@@ -8,6 +8,7 @@
 import Foundation
 import SpriteKit
 import GameKit
+import UIKit
 
 class MainScene: SKScene {
     
@@ -22,6 +23,9 @@ class MainScene: SKScene {
         playButton = childNode(withName: "PlayButton") as? GameButton
         watchButton = childNode(withName: "WatchButton") as? GameButton
         purchaseButton = childNode(withName: "PurchaseButton") as? GameButton
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(isWaiting), name: .init("Waiting"), object: nil)
         
         infoButton?.setUp(theme: .light) {
             NotificationCenter.default.post(name: .init("Info"), object: nil)
@@ -42,7 +46,6 @@ class MainScene: SKScene {
                 let notificationName = Notification.Name("fullscreen")
                 let notification = Notification(name: notificationName)
                 NotificationCenter.default.post(notification)
-                self.watchButton?.setText("Please wait...")
             }
             purchaseButton?.setUp(theme: .light) {
                 PurchaseController.shared.buyFullscreen()
@@ -51,6 +54,12 @@ class MainScene: SKScene {
         }
         
         Leaderboards.shared.load()
+        
+        
+    }
+
+    @objc func isWaiting() {
+        self.watchButton?.setText("Please wait...")
     }
     
 }
