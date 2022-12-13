@@ -27,11 +27,11 @@ class MainScene: SKScene {
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(isWaiting), name: .init("Waiting"), object: nil)
         
-        infoButton?.setUp(theme: .light) {
+        infoButton?.setUp(theme: .secondary) {
             NotificationCenter.default.post(name: .init("Info"), object: nil)
         }
 
-        playButton?.setUp(theme: .purple) {
+        playButton?.setUp(theme: .primary) {
             guard let scene = SKScene(fileNamed: "GameScene") else { return }
             scene.scaleMode = .aspectFit
             view.presentScene(scene, transition: .doorsOpenHorizontal(withDuration: 0.4))
@@ -42,12 +42,12 @@ class MainScene: SKScene {
             purchaseButton?.isHidden = true
             playButton?.position.y = 0
         } else {
-            watchButton?.setUp(theme: .light) {
+            watchButton?.setUp(theme: .secondary) {
                 let notificationName = Notification.Name("fullscreen")
                 let notification = Notification(name: notificationName)
                 NotificationCenter.default.post(notification)
             }
-            purchaseButton?.setUp(theme: .light) {
+            purchaseButton?.setUp(theme: .secondary) {
                 PurchaseController.shared.buyFullscreen()
                 
             }

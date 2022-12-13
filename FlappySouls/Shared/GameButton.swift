@@ -45,26 +45,22 @@ class GameButton: SKNode {
 }
 
 enum GameButtonTheme {
-  case dark, purple, light
+  case primary, secondary
   func normalColor() -> UIColor {
     switch self {
-    case .dark:
-        return .darkGray
-    case .purple:
-      return .buttonPurple
-    case .light:
-        return .lightGray
+    case .primary:
+      return .angelDeepPurple
+    case .secondary:
+      return .angelGray
     }
   }
   
   func tappedColor() -> UIColor {
     switch self {
-    case .dark:
-        return .lightGray
-    case .purple:
+    case .primary:
       return .angelPurple
-    case .light:
-        return .white
+    case .secondary:
+        return .angelPurple
     }
   }
 }

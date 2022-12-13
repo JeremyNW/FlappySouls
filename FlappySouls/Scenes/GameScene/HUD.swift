@@ -23,7 +23,7 @@ class HUD: SKNode, GameObject {
     func update(_ currentTime: TimeInterval) {
         scoreLabel?.text = "Souls: \(state.score)"
         damageLabel?.text = "Damage: \(state.swords > 0 ? state.power * 2 : state.power)"
-        damageLabel?.fontColor = state.swords > 0 ? .enemyRed :
+        damageLabel?.fontColor = state.swords > 0 ? .angelRed :
         state.powerupCooldown > 0 ? .angelGreen : .white
 //        isHidden = state.isDead
     }

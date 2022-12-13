@@ -16,7 +16,7 @@ class PauseView: SKNode, GameObject {
   func setUp(for state: GameState) {
     self.state = state
     button = childNode(withName: "PauseButton") as? GameButton
-    button?.setUp(theme: .light) { [weak self] in
+    button?.setUp(theme: .secondary) { [weak self] in
       self?.label?.isHidden.toggle()
       self?.scene?.isPaused.toggle()
     }

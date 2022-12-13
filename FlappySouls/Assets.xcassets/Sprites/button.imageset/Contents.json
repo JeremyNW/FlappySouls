@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "s.ui.button.wide.png",
+      "filename" : "flatbutton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
