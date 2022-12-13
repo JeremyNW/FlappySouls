@@ -26,6 +26,7 @@ class PauseView: SKNode, GameObject {
   
   func update(_ currentTime: TimeInterval) {
     button?.isHidden = state.isDead
+    label?.isHidden = scene?.isPaused == false
   }
   
   func didCollide(with node: SKNode?) {
