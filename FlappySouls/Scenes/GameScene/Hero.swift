@@ -95,10 +95,7 @@ class Hero: SKSpriteNode, GameObject {
     
     
     func didCollide(with node: SKNode?) {
-        if node is PowerUp {
-            state.swords += 10
-            return
-        }
+        guard node != nil && !(node is PowerUp) else { return }
         
         if state.isShielded || shieldIFrames > 0 {
             state.isShielded = false
