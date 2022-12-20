@@ -47,6 +47,7 @@ class Hero: SKSpriteNode, GameObject {
     }
     
     func update(_ currentTime: TimeInterval) {
+        state.heroPosition = position
         shieldAura?.isHidden = !state.isShielded
         position.y += yVelocity
         yVelocity -= state.isDead ? 0.24 : 0.48
@@ -65,15 +66,17 @@ class Hero: SKSpriteNode, GameObject {
             downWings.forEach { $0.isHidden = false }
             upWings.forEach { $0.isHidden = true }
         }
-        if timer == 0,
+        if timer <= 0,
            !state.isDead,
-        let state {
+           let state,
+           !self.state.isBossMode || self.state.swords > 0 {
             let bullet = Bullet()
             scene?.addChild(bullet)
             bullet.position.x = self.position.x + 32
             bullet.position.y = self.position.y
             bullet.setUp(for: state)
             timer = 15
+            
         }
         
         if yVelocity <= -12 {
@@ -92,6 +95,11 @@ class Hero: SKSpriteNode, GameObject {
     
     
     func didCollide(with node: SKNode?) {
+        if node is PowerUp {
+            state.swords += 10
+            return
+        }
+        
         if state.isShielded || shieldIFrames > 0 {
             state.isShielded = false
             state.slainWithShield += 1

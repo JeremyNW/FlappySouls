@@ -22,13 +22,14 @@ class GameState {
             increaseXP(by: 0.1)
         }
     }
-
+    
+    var isBossMode = false
     var isDead = false
     var isShielded = false
     var swords = 0
     var power: Int { Int(xp) }
     var powerupCooldown = 0
-    
+    var heroPosition: CGPoint = .zero
     var attackedWithSword = 0
     var slainEyes = 0
     var slainTeeth = 0
