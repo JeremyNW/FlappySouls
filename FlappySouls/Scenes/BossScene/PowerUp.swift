@@ -12,14 +12,26 @@ class PowerUp: SKSpriteNode, GameObject {
     
     var state: GameState!
     let type = PowerUpType.allCases.randomElement()!
-    
+
     func setUp(for state: GameState) {
         self.state = state
         self.texture = type.texture()
+        self.position = CGPoint(x: 850, y: Int.random(in: -550...550))
+        self.size = CGSize(width: 64, height: 64)
+        
+        let body = SKPhysicsBody(circleOfRadius: self.size.width / 2)
+        body.categoryBitMask = 0
+        body.contactTestBitMask = 1
+        body.collisionBitMask = 0
+        body.affectedByGravity = false
+        body.allowsRotation = false
+        body.pinned = false
+        body.isDynamic = true
+        physicsBody = body
     }
     
     func update(_ currentTime: TimeInterval) {
-        
+        self.position.x -= 5
     }
     
     func didCollide(with node: SKNode?) {

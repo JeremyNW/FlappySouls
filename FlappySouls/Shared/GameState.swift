@@ -12,6 +12,8 @@ import GameKit
 class GameState {
     static var isFullscreen = false
     private let haptics = HapticFeedbackGenerators()
+    weak var scene: SKScene!
+    
     var score = 0 {
         didSet {
             increaseXP(by: 0.1)
@@ -22,7 +24,7 @@ class GameState {
             increaseXP(by: 0.1)
         }
     }
-    
+    var powerUpTimer = 60
     var isBossMode = false
     var isDead = false
     var isShielded = false
@@ -43,8 +45,25 @@ class GameState {
     }
     
     func update(_ currentTime: TimeInterval) {
-        powerupCooldown -= 1
-    }
+        
+        
+        if isBossMode {
+            powerUpTimer -= 1
+            if powerUpTimer <= 0 {
+                let powerUp = PowerUp()
+                self.scene.addChild(powerUp)
+                powerUp.setUp(for: self)
+                powerUpTimer = 60
+              
+               
+            }
+        } else {
+            powerupCooldown -= 1
+        }
+            
+         
+        }
+    
     
     func tearDown() {
         let persistence = Persistence.shared

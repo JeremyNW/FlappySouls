@@ -22,6 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
         objects.forEach { $0.setUp(for: state) }
+        state.scene = self
     }
     
     override func update(_ currentTime: TimeInterval) {
