@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F17E54A295426DA00B226A1 /* HealthBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F17E549295426DA00B226A1 /* HealthBar.swift */; };
 		1F2F8329293B1A84000C0F02 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 1F2F8328293B1A84000C0F02 /* GoogleMobileAds */; };
 		1F2F832B29406017000C0F02 /* PurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F832A29406017000C0F02 /* PurchaseController.swift */; };
 		1F482566294485D000D59C16 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F482565294485D000D59C16 /* Products.plist */; };
@@ -66,6 +67,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F17E549295426DA00B226A1 /* HealthBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthBar.swift; sourceTree = "<group>"; };
 		1F2F832A29406017000C0F02 /* PurchaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseController.swift; sourceTree = "<group>"; };
 		1F4825612944853A00D59C16 /* Flappy Souls.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Flappy Souls.storekit"; sourceTree = "<group>"; };
 		1F482565294485D000D59C16 /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				1FDA2160294BFE1800C5E148 /* BossScene.sks */,
+				1F17E549295426DA00B226A1 /* HealthBar.swift */,
 				1FDA2164294C028200C5E148 /* Boss.swift */,
 				1FDA2166294D89AA00C5E148 /* PowerUp.swift */,
 			);
@@ -409,6 +412,7 @@
 				1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */,
 				B33BD9242939173A00F51FD3 /* GameButton.swift in Sources */,
 				B388AFC82946DC2200DA3444 /* Error+Extension.swift in Sources */,
+				1F17E54A295426DA00B226A1 /* HealthBar.swift in Sources */,
 				B3141F8929465A9E008F0346 /* Leaderboards.swift in Sources */,
 				B3141F87294645F5008F0346 /* Achievements.swift in Sources */,
 				1F2F832B29406017000C0F02 /* PurchaseController.swift in Sources */,

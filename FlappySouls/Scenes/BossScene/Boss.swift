@@ -9,8 +9,6 @@ import Foundation
 import SpriteKit
 
 class Boss: SKSpriteNode, GameObject {
-    let maxHP = 50
-    var hp = 50
     var state: GameState!
     
     func setUp(for state: GameState) {
@@ -23,20 +21,20 @@ class Boss: SKSpriteNode, GameObject {
         } else {
             position.y -= 5
         }
-        if hp < (maxHP / 5) {
+        if state.bossHealthPercentage < 20 {
             self.color = .angelRed
         }
     }
     
     func didCollide(with node: SKNode?) {
         if node is Hero {
-            hp = 0
+            state.bossHealthPercentage = 0
         } else if let node = node as? Bullet {
-            hp -= node.damage
+            state.bossHealthPercentage -= node.damage
         } else {
-            hp -= state.power
+            state.bossHealthPercentage -= state.power
         }
-        if hp <= 0 {
+        if state.bossHealthPercentage <= 0 {
             die()
         }
     }

@@ -24,7 +24,7 @@ class GameState {
             increaseXP(by: 0.1)
         }
     }
-    var powerUpTimer = 60
+    var powerUpTimer = 900
     var isBossMode = false
     var isDead = false
     var isShielded = false
@@ -37,6 +37,7 @@ class GameState {
     var slainTeeth = 0
     var slainArmor = 0
     var slainWithShield = 0
+    var bossHealthPercentage = 100
     
     private var xp = 1.0
 
@@ -53,7 +54,7 @@ class GameState {
                 let powerUp = PowerUp()
                 self.scene.addChild(powerUp)
                 powerUp.setUp(for: self)
-                powerUpTimer = 60
+                powerUpTimer = 900
               
                
             }
