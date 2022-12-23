@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BossState: GameState, AngelDataSource, BulletDataSource {
+class BossState: GameState {
     var isDead = false
     var slainWithShield = 0
     var attackedWithSword = 0
@@ -29,3 +29,7 @@ class BossState: GameState, AngelDataSource, BulletDataSource {
         }
     }
 }
+
+extension BossState: AngelDataSource,
+                     BulletDataSource,
+                     DeathMenuDataSource {}

@@ -25,39 +25,40 @@ class MainScene: SKScene {
         purchaseButton = childNode(withName: "PurchaseButton") as? GameButton
         bossButton = childNode(withName: "BossButton") as? GameButton
         
-        let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(isWaiting), name: .init("Waiting"), object: nil)
+        if FeatureFlags.isBossModeEnabled {
+            bossButton?.setUp(theme: .secondary) {
+                guard let scene = SKScene(fileNamed: "BossScene") else { return }
+                scene.scaleMode = .aspectFit
+                view.presentScene(scene, transition: .doorsOpenHorizontal(withDuration: 0.4))
+            }
+        } else {
+            bossButton?.isHidden = true
+            watchButton?.position.y += 140
+            purchaseButton?.position.y += 140
+        }
+        
+        GameNotification.addObserver(self, notification: .waiting, selector: #selector(isWaiting))
 
         infoButton?.setUp(theme: .secondary) {
-            NotificationCenter.default.post(name: .init("Info"), object: nil)
+            GameNotification.post(.info)
         }
         playButton?.setUp(theme: .primary) {
             guard let scene = SKScene(fileNamed: "PlayScene") else { return }
             scene.scaleMode = .aspectFit
             view.presentScene(scene, transition: .doorsOpenHorizontal(withDuration: 0.4))
         }
-        bossButton?.setUp(theme: .secondary, action: {
-            guard let scene = SKScene(fileNamed: "BossScene") else { return }
-            scene.scaleMode = .aspectFit
-            view.presentScene(scene, transition: .doorsOpenHorizontal(withDuration: 0.4))
-        })
         
         if Persistence.shared.getBool(.isPurchased) || Advertisement.isDisabled {
             watchButton?.isHidden = true
             purchaseButton?.isHidden = true
-            playButton?.position.y = 0
         } else {
             watchButton?.setUp(theme: .secondary) {
-                let notificationName = Notification.Name("fullscreen")
-                let notification = Notification(name: notificationName)
-                NotificationCenter.default.post(notification)
+                GameNotification.post(.fullscreen)
             }
             purchaseButton?.setUp(theme: .secondary) {
-                PurchaseController.shared.buyFullscreen()
-                
+                Purchases.shared.buyFullscreen()
             }
         }
-        
         Leaderboards.shared.load()
     }
 

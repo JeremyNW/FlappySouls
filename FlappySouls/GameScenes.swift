@@ -8,4 +8,5 @@
 import Foundation
 import SpriteKit
 
+final class BossScene: GameScene<BossState> {}
 final class PlayScene: GameScene<PlayState> {}

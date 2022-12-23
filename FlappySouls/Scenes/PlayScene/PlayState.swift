@@ -9,7 +9,7 @@ import Foundation
 import SpriteKit
 import GameKit
 
-class PlayState: GameState, AngelDataSource, HUDDataSource, PauseDataSource, BulletDataSource {
+class PlayState: GameState {
     var isPaused = false
     var score = 0 {
         didSet {
@@ -61,3 +61,9 @@ class PlayState: GameState, AngelDataSource, HUDDataSource, PauseDataSource, Bul
         )
     }
 }
+
+extension PlayState: AngelDataSource,
+                     BulletDataSource,
+                     DeathMenuDataSource,
+                     HUDDataSource,
+                     PauseDataSource {}

@@ -26,14 +26,9 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         // Notifications
-        let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(presentFullscreenAlert), name: .init("fullscreen"), object: nil)
-        nc.addObserver(self, selector: #selector(presentInfoPopup), name: .init("Info"), object: nil)
-        nc.addObserver(self, selector: #selector(purchaseComplete), name: .init("purchase"), object: nil)
-        
-        
-        let fullscreenNc = NotificationCenter.default
-        fullscreenNc.addObserver(self, selector: #selector(presentFullscreenAlert), name: .init("alert"), object: nil)
+        GameNotification.addObserver(self, notification: .fullscreen, selector: #selector(presentFullscreenAlert))
+        GameNotification.addObserver(self, notification: .info, selector: #selector(presentInfoPopup))
+        GameNotification.addObserver(self, notification: .purchase, selector: #selector(purchaseComplete))
         
         // GameKit
         GKAccessPoint.shared.location = .topLeading
@@ -82,9 +77,7 @@ class GameViewController: UIViewController {
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
         let watchButton = UIAlertAction(title: "Watch", style: .default) { _ in
             self.loadRewardedAd()
-            let notificationName = Notification.Name("Waiting")
-            let notification = Notification(name: notificationName)
-            NotificationCenter.default.post(notification)
+            GameNotification.post(.waiting)
         }
         alert.addAction(cancelButton)
         alert.addAction(watchButton)
