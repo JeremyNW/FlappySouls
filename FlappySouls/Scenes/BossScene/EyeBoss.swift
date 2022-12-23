@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-class Boss: SKSpriteNode, GameObject {
+class EyeBoss: SKSpriteNode, GameObject {
     weak var state: BossState!
     
     func setUp(for state: GameState) {

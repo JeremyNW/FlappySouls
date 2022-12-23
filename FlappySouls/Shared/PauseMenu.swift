@@ -1,5 +1,5 @@
 //
-//  PauseView.swift
+//  PauseMenu.swift
 //  FlappySouls
 //
 //  Created by Jared Warren on 12/11/22.
@@ -8,18 +8,18 @@
 import Foundation
 import SpriteKit
 
-protocol PauseDataSource: AnyObject {
+protocol PauseMenuDataSource: AnyObject {
   var isDead: Bool { get set }
   var isPaused: Bool { get set }
 }
 
-class PauseView: SKNode, GameObject {
-  weak var dataSource: PauseDataSource!
+class PauseMenu: SKNode, GameObject {
+  weak var dataSource: PauseMenuDataSource!
   var label: SKNode?
   var button: GameButton?
   
   func setUp(for state: GameState) {
-    self.dataSource = state as? PauseDataSource
+    self.dataSource = state as? PauseMenuDataSource
     button = childNode(withName: "PauseButton") as? GameButton
     button?.setUp(theme: .secondary) { [weak self] in
       self?.label?.isHidden.toggle()

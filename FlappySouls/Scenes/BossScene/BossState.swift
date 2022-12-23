@@ -7,16 +7,29 @@
 
 import Foundation
 
+enum BossType: Int {
+    case eye // bossZero
+    case bossOne
+    case bossTwo
+    case bossThree
+    case bossFour
+    case bossFive
+    case bossSix
+}
+
+
 class BossState: GameState {
-    var isDead = false
-    var slainWithShield = 0
     var attackedWithSword = 0
-    var isShielded = false
-    var swords = 0
-    var powerupSpawnTimer = 60
+    var bossHealthPercentage = 0
+    var currentBoss: BossType = .eye
     var heroPosition = CGPoint.zero
+    var isDead = false
+    var isPaused = false
+    var isShielded = false
     var power = 0
-  var bossHealthPercentage = 0
+    var powerupSpawnTimer = 60
+    var slainWithShield = 0
+    var swords = 0
     
     override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
@@ -32,4 +45,5 @@ class BossState: GameState {
 
 extension BossState: AngelDataSource,
                      BulletDataSource,
-                     DeathMenuDataSource {}
+                     DeathMenuDataSource,
+                     PauseMenuDataSource {}

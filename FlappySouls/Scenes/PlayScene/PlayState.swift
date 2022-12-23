@@ -10,7 +10,6 @@ import SpriteKit
 import GameKit
 
 class PlayState: GameState {
-    var isPaused = false
     var score = 0 {
         didSet {
             increaseXP(by: 0.1)
@@ -21,18 +20,18 @@ class PlayState: GameState {
             increaseXP(by: 0.1)
         }
     }
+    var attackedWithSword = 0
+    var heroPosition: CGPoint = .zero
     var isDead = false
+    var isPaused = false
     var isShielded = false
-    var swords = 0
     var power: Int { Int(xp) }
     var powerupCooldown = 0
-    var heroPosition: CGPoint = .zero
-    var attackedWithSword = 0
     var slainEyes = 0
     var slainTeeth = 0
     var slainArmor = 0
     var slainWithShield = 0
-    
+    var swords = 0
     private var xp = 1.0
     
     func increaseXP(by amount: Double = 1) {
@@ -65,5 +64,4 @@ class PlayState: GameState {
 extension PlayState: AngelDataSource,
                      BulletDataSource,
                      DeathMenuDataSource,
-                     HUDDataSource,
-                     PauseDataSource {}
+                     PauseMenuDataSource {}
