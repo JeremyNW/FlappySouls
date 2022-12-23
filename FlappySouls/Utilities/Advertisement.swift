@@ -21,4 +21,5 @@ enum Advertisement {
     request.keywords = ["game", "gaming", "games", "gamer"]
     return request
   }
+  static var isDisabled = false
 }

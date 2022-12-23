@@ -65,7 +65,7 @@ class GameViewController: UIViewController {
     }
     
     @objc func constrainForFullscreen() {
-        GameState.isFullscreen = true
+        Advertisement.isDisabled = true
         UIView.animate(withDuration: 0.5) {
             self.adView.removeFromSuperview()
             NSLayoutConstraint.activate([
@@ -77,7 +77,7 @@ class GameViewController: UIViewController {
     
     @objc func presentFullscreenAlert() {
         
-        let alert = UIAlertController(title: "Rewarded Ad", message: "Watch a brief ad to unlock fullscreen?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Rewarded Ad", message: "Watch a brief ad to unlock fullscreen.", preferredStyle: .alert)
         
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
         let watchButton = UIAlertAction(title: "Watch", style: .default) { _ in

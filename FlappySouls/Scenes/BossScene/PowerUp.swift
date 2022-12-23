@@ -9,12 +9,11 @@ import Foundation
 import SpriteKit
 
 class PowerUp: SKSpriteNode, GameObject {
-    
-    var state: GameState!
+    weak var state: BossState!
     let type = PowerUpType.allCases.randomElement()!
 
     func setUp(for state: GameState) {
-        self.state = state
+        self.state = state as? BossState
         self.texture = type.texture()
         self.position = CGPoint(x: 850, y: Int.random(in: -550...550))
         self.size = CGSize(width: 64, height: 64)
@@ -45,7 +44,7 @@ class PowerUp: SKSpriteNode, GameObject {
         case sword
         case shield
         
-        func onDeath(state: GameState) {
+        func onDeath(state: BossState) {
             switch self {
             case .sword:
                 state.swords += 10

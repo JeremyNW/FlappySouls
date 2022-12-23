@@ -8,6 +8,15 @@
 import Foundation
 import SpriteKit
 
+protocol AngelDataSource: AnyObject {
+    var heroPosition: CGPoint { get set }
+    var isDead: Bool { get set}
+    var isShielded: Bool { get set }
+    var slainWithShield: Int { get set }
+    var swords: Int { get set }
+    func tearDown()
+}
+
 class Hero: SKSpriteNode, GameObject {
     let textures: [SKTexture] = [
         SKTexture(imageNamed: "wing0"),
@@ -15,8 +24,8 @@ class Hero: SKSpriteNode, GameObject {
         SKTexture(imageNamed: "wing2"),
         SKTexture(imageNamed: "wing3"),
     ]
-    var timer: Int = 15
-    var state: GameState!
+    var bulletTimer: Int = 15
+    weak var dataSource: AngelDataSource!
     var yVelocity = CGFloat(0)
     var upWings: [SKSpriteNode] = []
     var downWings: [SKNode] = []
@@ -41,16 +50,16 @@ class Hero: SKSpriteNode, GameObject {
         halo.zPosition = 1
         halo.particleBirthRate = 0
         self.halo = halo
-        self.state = state
+        self.dataSource = state as? AngelDataSource
         self.shieldAura = childNode(withName: "ShieldAura")
         run(.changeVolume(to: 0.1, duration: .greatestFiniteMagnitude))
     }
     
     func update(_ currentTime: TimeInterval) {
-        state.heroPosition = position
-        shieldAura?.isHidden = !state.isShielded
+        dataSource.heroPosition = position
+        shieldAura?.isHidden = !dataSource.isShielded
         position.y += yVelocity
-        yVelocity -= state.isDead ? 0.24 : 0.48
+        yVelocity -= dataSource.isDead ? 0.24 : 0.48
         if position.y < -640 || position.y > 640 {
             die()
         }
@@ -66,16 +75,15 @@ class Hero: SKSpriteNode, GameObject {
             downWings.forEach { $0.isHidden = false }
             upWings.forEach { $0.isHidden = true }
         }
-        if timer <= 0,
-           !state.isDead,
-           let state,
-           !self.state.isBossMode || self.state.swords > 0 {
+        if bulletTimer <= 0,
+           !dataSource.isDead,
+           let state = dataSource as? GameState {
             let bullet = Bullet()
             scene?.addChild(bullet)
             bullet.position.x = self.position.x + 32
             bullet.position.y = self.position.y
             bullet.setUp(for: state)
-            timer = 15
+            bulletTimer = 15
             
         }
         
@@ -84,42 +92,42 @@ class Hero: SKSpriteNode, GameObject {
         } else {
             zRotation = standardRotation
         }
-        if state.isShielded {
+        if dataSource.isShielded {
             shieldIFrames = 5
         } else {
             shieldIFrames -= 1
         }
-        timer -= 1
-        halo?.particleBirthRate = CGFloat(state.swords * 2)
+        bulletTimer -= 1
+        halo?.particleBirthRate = CGFloat(dataSource.swords * 2)
     }
     
     
     func didCollide(with node: SKNode?) {
         guard node != nil && !(node is PowerUp) else { return }
         
-        if state.isShielded || shieldIFrames > 0 {
-            state.isShielded = false
-            state.slainWithShield += 1
+        if dataSource.isShielded || shieldIFrames > 0 {
+            dataSource.isShielded = false
+            dataSource.slainWithShield += 1
             run(.playSoundFileNamed("shieldOff.wav", waitForCompletion: false))
-            state.sendHapticFeedback(.soft)
+            Haptics.sendFeedback(.soft)
             return
         }
         die()
     }
     
     func die() {
-        if !state.isDead {
-            state.isDead = true
-            state.sendHapticFeedback(.heavy)
+        if !dataSource.isDead {
+            dataSource.isDead = true
+            Haptics.sendFeedback(.heavy)
             color = .darkGray
             colorBlendFactor = 1
             physicsBody = nil
-            state.tearDown()
+            dataSource.tearDown()
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard !state.isDead else { return }
+        guard !dataSource.isDead else { return }
         yVelocity = 10
         run(.playSoundFileNamed("flap\(Int.random(in: 0...4)).wav", waitForCompletion: false))
     }

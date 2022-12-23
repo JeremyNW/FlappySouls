@@ -12,11 +12,11 @@ class HealthBar: SKNode, GameObject {
     
     var currentHealthBar: SKSpriteNode!
     var maxHealthBar: SKSpriteNode!
-    var state: GameState!
+    weak var state: BossState!
     
     func setUp(for state: GameState) {
-        self.state = state
-        self.currentHealthBar.size.width = CGFloat(state.bossHealthPercentage * 6)
+        self.state = state as? BossState
+        self.currentHealthBar.size.width = CGFloat(self.state.bossHealthPercentage * 6)
     }
     
     func update(_ currentTime: TimeInterval) {

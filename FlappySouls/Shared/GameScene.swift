@@ -8,21 +8,14 @@
 import SpriteKit
 import GameplayKit
 
-protocol GameObject {
-    func setUp(for state: GameState)
-    func update(_ currentTime: TimeInterval)
-    func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
-    func didCollide(with node: SKNode?)
-}
-
-class GameScene: SKScene, SKPhysicsContactDelegate {
-    var state = GameState()
+class GameScene<State: GameState>: SKScene, SKPhysicsContactDelegate {
     var objects: [GameObject] { getGameObjects(for: self) }
+    var state: State!
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
+        state = State(scene: self)
         objects.forEach { $0.setUp(for: state) }
-        state.scene = self
     }
     
     override func update(_ currentTime: TimeInterval) {

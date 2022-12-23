@@ -8,13 +8,18 @@
 import Foundation
 import SpriteKit
 
+protocol PauseDataSource: AnyObject {
+  var isDead: Bool { get set }
+  var isPaused: Bool { get set }
+}
+
 class PauseView: SKNode, GameObject {
-  var state: GameState!
+  weak var dataSource: PauseDataSource!
   var label: SKNode?
   var button: GameButton?
   
   func setUp(for state: GameState) {
-    self.state = state
+    self.dataSource = state as? PauseDataSource
     button = childNode(withName: "PauseButton") as? GameButton
     button?.setUp(theme: .secondary) { [weak self] in
       self?.label?.isHidden.toggle()
@@ -25,7 +30,7 @@ class PauseView: SKNode, GameObject {
   }
   
   func update(_ currentTime: TimeInterval) {
-    button?.isHidden = state.isDead
+    button?.isHidden = dataSource.isDead
     label?.isHidden = scene?.isPaused == false
   }
   

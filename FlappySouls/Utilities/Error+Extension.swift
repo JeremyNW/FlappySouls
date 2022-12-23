@@ -10,7 +10,7 @@ import Foundation
 extension Error {
   func log() {
     #if DEBUG
-    print(self, self.localizedDescription)
+    print("👻", self, self.localizedDescription)
     #endif
   }
 }

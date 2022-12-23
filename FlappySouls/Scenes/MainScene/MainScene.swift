@@ -11,7 +11,6 @@ import GameKit
 import UIKit
 
 class MainScene: SKScene {
-    
     var infoButton: GameButton?
     var playButton: GameButton?
     var watchButton: GameButton?
@@ -32,21 +31,18 @@ class MainScene: SKScene {
         infoButton?.setUp(theme: .secondary) {
             NotificationCenter.default.post(name: .init("Info"), object: nil)
         }
-        
-
         playButton?.setUp(theme: .primary) {
-            guard let scene = SKScene(fileNamed: "GameScene") else { return }
+            guard let scene = SKScene(fileNamed: "PlayScene") else { return }
             scene.scaleMode = .aspectFit
             view.presentScene(scene, transition: .doorsOpenHorizontal(withDuration: 0.4))
         }
         bossButton?.setUp(theme: .secondary, action: {
-            guard let scene = SKScene(fileNamed: "BossScene") as? GameScene else { return }
+            guard let scene = SKScene(fileNamed: "BossScene") else { return }
             scene.scaleMode = .aspectFit
-            scene.state.isBossMode = true
             view.presentScene(scene, transition: .doorsOpenHorizontal(withDuration: 0.4))
         })
         
-        if Persistence.shared.getBool(.isPurchased) || GameState.isFullscreen {
+        if Persistence.shared.getBool(.isPurchased) || Advertisement.isDisabled {
             watchButton?.isHidden = true
             purchaseButton?.isHidden = true
             playButton?.position.y = 0
@@ -63,8 +59,6 @@ class MainScene: SKScene {
         }
         
         Leaderboards.shared.load()
-        
-        
     }
 
     @objc func isWaiting() {

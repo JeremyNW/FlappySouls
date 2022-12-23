@@ -12,13 +12,13 @@
 		1F2F832B29406017000C0F02 /* PurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F832A29406017000C0F02 /* PurchaseController.swift */; };
 		1F482566294485D000D59C16 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F482565294485D000D59C16 /* Products.plist */; };
 		1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE41F29347BE4001CF936 /* AppDelegate.swift */; };
-		1FBFE42229347BE4001CF936 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE42129347BE4001CF936 /* GameScene.sks */; };
+		1FBFE42229347BE4001CF936 /* PlayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE42129347BE4001CF936 /* PlayScene.sks */; };
 		1FBFE42629347BE4001CF936 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE42529347BE4001CF936 /* GameScene.swift */; };
 		1FBFE42829347BE4001CF936 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE42729347BE4001CF936 /* GameViewController.swift */; };
 		1FBFE42B29347BE4001CF936 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE42929347BE4001CF936 /* Main.storyboard */; };
 		1FBFE42D29347BE5001CF936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE42C29347BE5001CF936 /* Assets.xcassets */; };
 		1FBFE43029347BE5001CF936 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE42E29347BE5001CF936 /* LaunchScreen.storyboard */; };
-		1FBFE4372934803B001CF936 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE4362934803B001CF936 /* Hero.swift */; };
+		1FBFE4372934803B001CF936 /* PlayHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE4362934803B001CF936 /* PlayHero.swift */; };
 		1FBFE439293482DF001CF936 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE438293482DF001CF936 /* Pipe.swift */; };
 		1FBFE43B2934868F001CF936 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE43A2934868F001CF936 /* .gitignore */; };
 		1FBFE43D2936B456001CF936 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE43C2936B456001CF936 /* Bullet.swift */; };
@@ -64,6 +64,14 @@
 		B3B5034529446EF60003403B /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034429446EF60003403B /* Fire.sks */; };
 		B3B5034D2944700C0003403B /* GreenRain.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034C2944700C0003403B /* GreenRain.sks */; };
 		B3B5034F2944F7920003403B /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3B5034E2944F7920003403B /* Info.storyboard */; };
+		B3CB8D8529541E690060EC7D /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CB8D8429541E690060EC7D /* GameObject.swift */; };
+		B3CB8D8729541F670060EC7D /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CB8D8629541F670060EC7D /* PlayScene.swift */; };
+		B3E5E13829551D1900A92EC5 /* PlayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5E13729551D1900A92EC5 /* PlayState.swift */; };
+		B3E5E13A295521E200A92EC5 /* BossState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5E139295521E200A92EC5 /* BossState.swift */; };
+		B3E5E13C295521F300A92EC5 /* BossScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5E13B295521F300A92EC5 /* BossScene.swift */; };
+		B3E5E13E295526C300A92EC5 /* BossHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5E13D295526C300A92EC5 /* BossHero.swift */; };
+		B3E5E140295527C300A92EC5 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5E13F295527C300A92EC5 /* Hero.swift */; };
+		B3E5E14229552B4A00A92EC5 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5E14129552B4A00A92EC5 /* Haptics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,13 +81,13 @@
 		1F482565294485D000D59C16 /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		1FBFE41C29347BE4001CF936 /* FlappySouls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappySouls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBFE41F29347BE4001CF936 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1FBFE42129347BE4001CF936 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		1FBFE42129347BE4001CF936 /* PlayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayScene.sks; sourceTree = "<group>"; };
 		1FBFE42529347BE4001CF936 /* GameScene.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; tabWidth = 4; };
 		1FBFE42729347BE4001CF936 /* GameViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		1FBFE42A29347BE4001CF936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FBFE42C29347BE5001CF936 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FBFE42F29347BE5001CF936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1FBFE4362934803B001CF936 /* Hero.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; tabWidth = 4; };
+		1FBFE4362934803B001CF936 /* PlayHero.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PlayHero.swift; sourceTree = "<group>"; tabWidth = 4; };
 		1FBFE438293482DF001CF936 /* Pipe.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Pipe.swift; sourceTree = "<group>"; tabWidth = 4; };
 		1FBFE43A2934868F001CF936 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		1FBFE43C2936B456001CF936 /* Bullet.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -126,6 +134,14 @@
 		B3B5034429446EF60003403B /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
 		B3B5034C2944700C0003403B /* GreenRain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GreenRain.sks; sourceTree = "<group>"; };
 		B3B5034E2944F7920003403B /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
+		B3CB8D8429541E690060EC7D /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		B3CB8D8629541F670060EC7D /* PlayScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
+		B3E5E13729551D1900A92EC5 /* PlayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayState.swift; sourceTree = "<group>"; };
+		B3E5E139295521E200A92EC5 /* BossState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossState.swift; sourceTree = "<group>"; };
+		B3E5E13B295521F300A92EC5 /* BossScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossScene.swift; sourceTree = "<group>"; };
+		B3E5E13D295526C300A92EC5 /* BossHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = BossHero.swift; sourceTree = "<group>"; tabWidth = 4; };
+		B3E5E13F295527C300A92EC5 /* Hero.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; tabWidth = 4; };
+		B3E5E14129552B4A00A92EC5 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +163,9 @@
 				1FBFE41E29347BE4001CF936 /* FlappySouls */,
 				1FBFE41D29347BE4001CF936 /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		1FBFE41D29347BE4001CF936 /* Products */ = {
 			isa = PBXGroup;
@@ -172,7 +190,6 @@
 				1F482565294485D000D59C16 /* Products.plist */,
 				1FBFE42C29347BE5001CF936 /* Assets.xcassets */,
 				1FBFE42E29347BE5001CF936 /* LaunchScreen.storyboard */,
-				B388AFC72946DC2200DA3444 /* Error+Extension.swift */,
 			);
 			path = FlappySouls;
 			sourceTree = "<group>";
@@ -181,6 +198,9 @@
 			isa = PBXGroup;
 			children = (
 				1FDA2160294BFE1800C5E148 /* BossScene.sks */,
+				B3E5E139295521E200A92EC5 /* BossState.swift */,
+				B3E5E13D295526C300A92EC5 /* BossHero.swift */,
+				B3E5E13B295521F300A92EC5 /* BossScene.swift */,
 				1F17E549295426DA00B226A1 /* HealthBar.swift */,
 				1FDA2164294C028200C5E148 /* Boss.swift */,
 				1FDA2166294D89AA00C5E148 /* PowerUp.swift */,
@@ -191,12 +211,14 @@
 		B3141F8129463D47008F0346 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				1F2F832A29406017000C0F02 /* PurchaseController.swift */,
-				B3141F86294645F5008F0346 /* Achievements.swift */,
-				B3141F8829465A9E008F0346 /* Leaderboards.swift */,
-				B338B5F72941AABF00C4A985 /* Colors.swift */,
 				B388AFC52946D71000DA3444 /* Advertisement.swift */,
+				B3141F86294645F5008F0346 /* Achievements.swift */,
+				B3E5E14129552B4A00A92EC5 /* Haptics.swift */,
+				B338B5F72941AABF00C4A985 /* Colors.swift */,
+				B388AFC72946DC2200DA3444 /* Error+Extension.swift */,
+				B3141F8829465A9E008F0346 /* Leaderboards.swift */,
 				B3141F8429463DC9008F0346 /* Persistence.swift */,
+				1F2F832A29406017000C0F02 /* PurchaseController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -252,7 +274,13 @@
 			isa = PBXGroup;
 			children = (
 				B33BD9232939173A00F51FD3 /* GameButton.swift */,
+				B3CB8D8429541E690060EC7D /* GameObject.swift */,
+				1FBFE42529347BE4001CF936 /* GameScene.swift */,
 				B37317122934995300C1DF0B /* GameState.swift */,
+				1FBFE43C2936B456001CF936 /* Bullet.swift */,
+				1FBFE4402938267E001CF936 /* HUD.swift */,
+				B3E5E13F295527C300A92EC5 /* Hero.swift */,
+				B3141F8A29468EC7008F0346 /* PauseView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -261,7 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				1FDA215F294BFDF900C5E148 /* BossScene */,
-				B33BD922293916D100F51FD3 /* GameScene */,
+				B33BD922293916D100F51FD3 /* PlayScene */,
 				B33BD921293916CA00F51FD3 /* MainScene */,
 			);
 			path = Scenes;
@@ -276,21 +304,19 @@
 			path = MainScene;
 			sourceTree = "<group>";
 		};
-		B33BD922293916D100F51FD3 /* GameScene */ = {
+		B33BD922293916D100F51FD3 /* PlayScene */ = {
 			isa = PBXGroup;
 			children = (
-				1FBFE42129347BE4001CF936 /* GameScene.sks */,
-				1FBFE42529347BE4001CF936 /* GameScene.swift */,
-				B3141F8A29468EC7008F0346 /* PauseView.swift */,
-				1FBFE43C2936B456001CF936 /* Bullet.swift */,
+				1FBFE42129347BE4001CF936 /* PlayScene.sks */,
+				B3CB8D8629541F670060EC7D /* PlayScene.swift */,
+				B3E5E13729551D1900A92EC5 /* PlayState.swift */,
 				B3ACF5A9293FCDCE00E757F8 /* DeathCover.swift */,
 				1FBFE43E29382066001CF936 /* Enemy.swift */,
-				1FBFE4362934803B001CF936 /* Hero.swift */,
+				1FBFE4362934803B001CF936 /* PlayHero.swift */,
 				1FBFE438293482DF001CF936 /* Pipe.swift */,
-				1FBFE4402938267E001CF936 /* HUD.swift */,
 				B338B5F229417FE700C4A985 /* Background.swift */,
 			);
-			path = GameScene;
+			path = PlayScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,7 +401,7 @@
 				B3B50341294469B40003403B /* PurpleFireflies.sks in Resources */,
 				B3193D162943D4D600E9046F /* flap4.wav in Resources */,
 				1FDA2161294BFE1800C5E148 /* BossScene.sks in Resources */,
-				1FBFE42229347BE4001CF936 /* GameScene.sks in Resources */,
+				1FBFE42229347BE4001CF936 /* PlayScene.sks in Resources */,
 				B3193D122943D4D600E9046F /* flap3.wav in Resources */,
 				B3B5033D2943FABA0003403B /* BlueSpark.sks in Resources */,
 				B3193D142943D4D600E9046F /* green0.wav in Resources */,
@@ -402,6 +428,10 @@
 				B3141F8B29468EC7008F0346 /* PauseView.swift in Sources */,
 				1FDA2167294D89AA00C5E148 /* PowerUp.swift in Sources */,
 				1FBFE42629347BE4001CF936 /* GameScene.swift in Sources */,
+				B3E5E14229552B4A00A92EC5 /* Haptics.swift in Sources */,
+				B3E5E13A295521E200A92EC5 /* BossState.swift in Sources */,
+				B3E5E13E295526C300A92EC5 /* BossHero.swift in Sources */,
+				B3E5E140295527C300A92EC5 /* Hero.swift in Sources */,
 				B3141F8529463DC9008F0346 /* Persistence.swift in Sources */,
 				B338B5F329417FE700C4A985 /* Background.swift in Sources */,
 				B33BD91E2939166400F51FD3 /* MainScene.swift in Sources */,
@@ -409,7 +439,9 @@
 				1FBFE42829347BE4001CF936 /* GameViewController.swift in Sources */,
 				1FBFE4412938267E001CF936 /* HUD.swift in Sources */,
 				1FDA2165294C028200C5E148 /* Boss.swift in Sources */,
+				B3E5E13C295521F300A92EC5 /* BossScene.swift in Sources */,
 				1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */,
+				B3CB8D8729541F670060EC7D /* PlayScene.swift in Sources */,
 				B33BD9242939173A00F51FD3 /* GameButton.swift in Sources */,
 				B388AFC82946DC2200DA3444 /* Error+Extension.swift in Sources */,
 				1F17E54A295426DA00B226A1 /* HealthBar.swift in Sources */,
@@ -418,8 +450,10 @@
 				1F2F832B29406017000C0F02 /* PurchaseController.swift in Sources */,
 				B338B5F82941AABF00C4A985 /* Colors.swift in Sources */,
 				1FBFE43F29382066001CF936 /* Enemy.swift in Sources */,
+				B3E5E13829551D1900A92EC5 /* PlayState.swift in Sources */,
 				1FBFE439293482DF001CF936 /* Pipe.swift in Sources */,
-				1FBFE4372934803B001CF936 /* Hero.swift in Sources */,
+				1FBFE4372934803B001CF936 /* PlayHero.swift in Sources */,
+				B3CB8D8529541E690060EC7D /* GameObject.swift in Sources */,
 				B388AFC62946D71000DA3444 /* Advertisement.swift in Sources */,
 				1FBFE43D2936B456001CF936 /* Bullet.swift in Sources */,
 				B3ACF5AA293FCDCE00E757F8 /* DeathCover.swift in Sources */,
@@ -569,7 +603,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FlappySouls/FlappySouls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2464D42ZHT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlappySouls/Info.plist;
@@ -602,7 +636,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FlappySouls/FlappySouls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2464D42ZHT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlappySouls/Info.plist;

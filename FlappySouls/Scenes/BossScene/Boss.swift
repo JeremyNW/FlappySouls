@@ -9,10 +9,10 @@ import Foundation
 import SpriteKit
 
 class Boss: SKSpriteNode, GameObject {
-    var state: GameState!
+    weak var state: BossState!
     
     func setUp(for state: GameState) {
-        self.state = state
+        self.state = state as? BossState
     }
     
     func update(_ currentTime: TimeInterval) {
@@ -27,7 +27,7 @@ class Boss: SKSpriteNode, GameObject {
     }
     
     func didCollide(with node: SKNode?) {
-        if node is Hero {
+        if node is PlayHero {
             state.bossHealthPercentage = 0
         } else if let node = node as? Bullet {
             state.bossHealthPercentage -= node.damage

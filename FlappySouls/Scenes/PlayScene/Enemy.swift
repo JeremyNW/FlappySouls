@@ -10,13 +10,13 @@ import SpriteKit
 
 class Enemy: SKSpriteNode, GameObject {
     var hp = 1
-    var state: GameState!
+    weak var state: PlayState!
     var label: SKLabelNode?
     fileprivate var type: EnemyType = .normal
     var particles: SKEmitterNode?
     
     func setUp(for state: GameState) {
-        self.state = state
+        self.state = state as? PlayState
         position.x = 0
         let body = SKPhysicsBody(circleOfRadius: self.size.width / 2)
         body.categoryBitMask = 0
@@ -30,7 +30,7 @@ class Enemy: SKSpriteNode, GameObject {
         self.isHidden = false
         let type = EnemyType.random()
         texture = type.texture()
-        hp = type.hitpoints(state: state)
+        hp = type.hitpoints(state: self.state)
         if label == nil {
             let label = SKLabelNode()
             addChild(label)
@@ -57,7 +57,7 @@ class Enemy: SKSpriteNode, GameObject {
     }
     
     func didCollide(with node: SKNode?) {
-        if node is Hero {
+        if node is PlayHero {
             hp = 0
         } else if let node = node as? Bullet {
             hp -= node.damage
@@ -97,7 +97,7 @@ private enum EnemyType {
         ].randomElement() ?? .normal
     }
     
-    func hitpoints(state: GameState) -> Int {
+    func hitpoints(state: PlayState) -> Int {
         let score = Double(state.score)
         var hp = Double.random(in: (score * 0.6)...(score * 1.2))
         switch self {
@@ -136,7 +136,7 @@ private enum EnemyType {
         return SKTexture(imageNamed: "enemy\(id)")
     }
 
-    func onDeath(for state: GameState, node: SKNode) {
+    func onDeath(for state: PlayState, node: SKNode) {
         switch self {
         case .weak:
             state.slainEyes += 1
@@ -147,15 +147,15 @@ private enum EnemyType {
         case .powerup:
             state.increaseXP()
             state.powerupCooldown = 90
-            state.sendHapticFeedback(.rigid)
+            Haptics.sendFeedback(.rigid)
             node.run(.playSoundFileNamed("green\(Int.random(in: 0...1)).wav", waitForCompletion: false))
         case .shield:
             state.isShielded = true
-            state.sendHapticFeedback(.soft)
+            Haptics.sendFeedback(.soft)
             node.run(.playSoundFileNamed("shieldOn.wav", waitForCompletion: false))
         case .bomb:
             state.swords += 24
-            state.sendHapticFeedback(.rigid)
+            Haptics.sendFeedback(.rigid)
             node.run(.playSoundFileNamed("flame.wav", waitForCompletion: false))
         }
     }

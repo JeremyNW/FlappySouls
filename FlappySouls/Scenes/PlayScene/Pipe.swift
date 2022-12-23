@@ -9,11 +9,10 @@ import Foundation
 import SpriteKit
 
 class Pipe: SKNode, GameObject {
-    
-    var state: GameState?
+    weak var state: PlayState!
     
     func setUp(for state: GameState) {
-        self.state = state
+        self.state = state as? PlayState
         setUpChildren()
     }
     

@@ -8,24 +8,30 @@
 import Foundation
 import SpriteKit
 
+protocol BulletDataSource: AnyObject {
+    var attackedWithSword: Int { get set }
+    var power: Int { get }
+    var swords: Int { get set }
+}
+
 class Bullet: SKSpriteNode, GameObject {
-    var state: GameState!
+    weak var dataSource: BulletDataSource!
     var damage: Int = 1
     var isDead = false
     var particles: SKEmitterNode?
     
     func setUp(for state: GameState) {
-        self.state = state
+        self.dataSource = state as? BulletDataSource
         
-        let type = BulletType.getType(for: state)
-        damage = type.damage(for: state)
+        let type = BulletType.getType(for: dataSource)
+        damage = type.damage(for: dataSource)
         size = type.size()
         texture = type.texture()
         color = type.color()
         zPosition = 0
         colorBlendFactor = 1
         if type == .sword {
-            state.attackedWithSword += 1
+            dataSource.attackedWithSword += 1
         }
         
         let body = SKPhysicsBody(circleOfRadius: self.size.width / 2)
@@ -74,9 +80,9 @@ enum BulletType {
     case standard
     case sword
     
-    static func getType(for state: GameState) -> BulletType {
-        if state.swords > 0 {
-            state.swords -= 1
+    static func getType(for dataSource: BulletDataSource) -> BulletType {
+        if dataSource.swords > 0 {
+            dataSource.swords -= 1
             return.sword
         }
         return .standard
@@ -100,12 +106,12 @@ enum BulletType {
         }
     }
     
-    func damage(for state: GameState) -> Int {
+    func damage(for dataSource: BulletDataSource) -> Int {
         switch self {
         case .standard:
-            return state.power
+            return dataSource.power
         case .sword:
-            return state.power * 2
+            return dataSource.power * 2
         }
     }
     

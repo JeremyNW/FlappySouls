@@ -9,11 +9,11 @@ import Foundation
 import SpriteKit
 
 class DeathCover: SKNode, GameObject {
-  var state: GameState!
+  weak var state: PlayState!
   func setUp(for state: GameState) {
-    self.state = state
+    self.state = state as? PlayState
     (childNode(withName: "PlayAgain") as? GameButton)?.setUp(theme: .primary) { [weak self] in
-      guard let scene = SKScene(fileNamed: "GameScene") else { return }
+      guard let scene = SKScene(fileNamed: "PlayScene") else { return }
       scene.scaleMode = .aspectFit
       self?.scene?.view?.presentScene(scene, transition: .flipHorizontal(withDuration: 0.4))
     }

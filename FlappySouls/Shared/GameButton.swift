@@ -9,8 +9,8 @@ import Foundation
 import SpriteKit
 
 class GameButton: SKNode {
-  private var label: SKLabelNode?
-  private var background: SKSpriteNode?
+  private var label: SKLabelNode!
+  private var background: SKSpriteNode!
   private var action: (() -> Void)?
   private var normalColor: UIColor = .white
   private var tappedColor: UIColor = .white
