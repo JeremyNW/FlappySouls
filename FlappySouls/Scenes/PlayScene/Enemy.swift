@@ -57,7 +57,7 @@ class Enemy: SKSpriteNode, GameObject {
     }
     
     func didCollide(with node: SKNode?) {
-        if node is PlayHero {
+        if node is Hero {
             hp = 0
         } else if let node = node as? Bullet {
             hp -= node.damage
