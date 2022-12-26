@@ -9,17 +9,21 @@ import Foundation
 import SpriteKit
 
 class HealthBar: SKNode, GameObject {
-    
-    var currentHealthBar: SKSpriteNode!
-    var maxHealthBar: SKSpriteNode!
-    weak var state: BossState!
+
+    var currentHealthBar: SKSpriteNode?
+    var maxHealthBar: SKSpriteNode?
+    var state: BossState!
     
     func setUp(for state: GameState) {
         self.state = state as? BossState
-        self.currentHealthBar.size.width = CGFloat(self.state.bossHealthPercentage * 6)
+        currentHealthBar = childNode(withName: "currentHealth") as? SKSpriteNode
+        maxHealthBar = childNode(withName: "maxHealth") as? SKSpriteNode
+        
     }
     
     func update(_ currentTime: TimeInterval) {
+        currentHealthBar?.size.width = CGFloat(state.bossHealthPercentage * 6)
+        currentHealthBar?.position.x = CGFloat(state.bossHealthPercentage - 6)
     }
     
     func didCollide(with node: SKNode?) {

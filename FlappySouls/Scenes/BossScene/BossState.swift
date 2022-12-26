@@ -20,13 +20,13 @@ enum BossType: Int {
 
 class BossState: GameState {
     var attackedWithSword = 0
-    var bossHealthPercentage = 0
+    var bossHealthPercentage = 100
     var currentBoss: BossType = .eye
     var heroPosition = CGPoint.zero
+    var power = 1
     var isDead = false
     var isPaused = false
     var isShielded = false
-    var power = 0
     var powerupSpawnTimer = 60
     var slainWithShield = 0
     var swords = 0

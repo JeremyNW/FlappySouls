@@ -27,7 +27,7 @@ class EyeBoss: SKSpriteNode, GameObject {
     }
     
     func didCollide(with node: SKNode?) {
-        if node is PlayHero {
+        if node is BossHero {
             state.bossHealthPercentage = 0
         } else if let node = node as? Bullet {
             state.bossHealthPercentage -= node.damage
