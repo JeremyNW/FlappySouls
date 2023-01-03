@@ -13,5 +13,9 @@ import Foundation
  All flags should be manually set to `false` when we push updates to the store
  */
 enum FeatureFlags {
+    #if DEBUG
     static let isBossModeEnabled = true
+    #else
+    static let isBossModeEnabled = false
+    #endif
 }
