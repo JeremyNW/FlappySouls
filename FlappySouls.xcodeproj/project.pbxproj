@@ -71,7 +71,6 @@
 		B3CB8D8729541F670060EC7D /* GameScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CB8D8629541F670060EC7D /* GameScenes.swift */; };
 		B3E5E13829551D1900A92EC5 /* PlayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5E13729551D1900A92EC5 /* PlayState.swift */; };
 		B3E5E13A295521E200A92EC5 /* BossState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5E139295521E200A92EC5 /* BossState.swift */; };
-		B3E5E13C295521F300A92EC5 /* BossScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5E13B295521F300A92EC5 /* BossScene.swift */; };
 		B3E5E13E295526C300A92EC5 /* BossHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5E13D295526C300A92EC5 /* BossHero.swift */; };
 		B3E5E140295527C300A92EC5 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5E13F295527C300A92EC5 /* Hero.swift */; };
 		B3E5E14229552B4A00A92EC5 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5E14129552B4A00A92EC5 /* Haptics.swift */; };
@@ -144,7 +143,6 @@
 		B3CB8D8629541F670060EC7D /* GameScenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScenes.swift; sourceTree = "<group>"; };
 		B3E5E13729551D1900A92EC5 /* PlayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayState.swift; sourceTree = "<group>"; };
 		B3E5E139295521E200A92EC5 /* BossState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossState.swift; sourceTree = "<group>"; };
-		B3E5E13B295521F300A92EC5 /* BossScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossScene.swift; sourceTree = "<group>"; };
 		B3E5E13D295526C300A92EC5 /* BossHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = BossHero.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B3E5E13F295527C300A92EC5 /* Hero.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B3E5E14129552B4A00A92EC5 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
@@ -209,7 +207,6 @@
 				B3E5E139295521E200A92EC5 /* BossState.swift */,
 				B3AA7C6C29557D690033E031 /* BossHUD.swift */,
 				B3E5E13D295526C300A92EC5 /* BossHero.swift */,
-				B3E5E13B295521F300A92EC5 /* BossScene.swift */,
 				1F17E549295426DA00B226A1 /* HealthBar.swift */,
 				1FDA2164294C028200C5E148 /* EyeBoss.swift */,
 				1FDA2166294D89AA00C5E148 /* PowerUp.swift */,
@@ -457,7 +454,6 @@
 				1FBFE42829347BE4001CF936 /* GameViewController.swift in Sources */,
 				1FBFE4412938267E001CF936 /* PlayHUD.swift in Sources */,
 				1FDA2165294C028200C5E148 /* EyeBoss.swift in Sources */,
-				B3E5E13C295521F300A92EC5 /* BossScene.swift in Sources */,
 				1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */,
 				B3CB8D8729541F670060EC7D /* GameScenes.swift in Sources */,
 				B3AA7C6D29557D690033E031 /* BossHUD.swift in Sources */,
@@ -623,7 +619,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FlappySouls/FlappySouls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2464D42ZHT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlappySouls/Info.plist;
@@ -639,7 +635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.macrinallc.flappyjudgement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -656,7 +652,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FlappySouls/FlappySouls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2464D42ZHT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlappySouls/Info.plist;
@@ -672,7 +668,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.macrinallc.flappyjudgement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
