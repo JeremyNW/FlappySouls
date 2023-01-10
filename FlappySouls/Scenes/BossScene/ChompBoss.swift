@@ -1,32 +1,31 @@
 //
-//  Boss.swift
+//  ChompBoss.swift
 //  FlappySouls
 //
-//  Created by Jeremy Warren on 12/15/22.
+//  Created by Jeremy Warren on 1/10/23.
 //
 
 import Foundation
 import SpriteKit
 
-class EyeBoss: SKSpriteNode, GameObject {
+class ChompBoss: SKSpriteNode, GameObject {
     weak var state: BossState!
+    
     
     func setUp(for state: GameState) {
         self.state = state as? BossState
+        isHidden = true
     }
     
     func update(_ currentTime: TimeInterval) {
-//        if position.y < state.heroPosition.y {
-//            position.y += 5
-//        } else {
-//            position.y -= 5
-//        }
-        if position.x > 240 {
-            position.x -= 3
-        }
-        
-        if state.bossHealthPercentage < 20 {
-            self.color = .angelRed
+        if state.currentBoss == .bossOne {
+            self.isHidden = false
+            if position.x > 240 {
+                position.x -= 3
+            }
+            if state.bossHealthPercentage < 20 {
+                self.color = .angelRed
+            }
         }
     }
     
@@ -45,7 +44,7 @@ class EyeBoss: SKSpriteNode, GameObject {
     
     func die() {
         self.removeFromParent()
+        state.currentBoss = .bossTwo
         state.bossHealthPercentage = 100
-        state.currentBoss = .bossOne
     }
 }

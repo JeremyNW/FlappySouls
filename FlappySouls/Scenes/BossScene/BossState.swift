@@ -21,7 +21,6 @@ enum BossType: Int {
 class BossState: GameState {
     var attackedWithSword = 0
     var bossHealthPercentage = 100
-    // Boss Health Percentage = 100 because when we * 6 in HealthBar.swift it will equal the width of the SKSpriteNode
     var currentBoss: BossType = .eye
     var heroPosition = CGPoint.zero
     var power = 1
@@ -42,6 +41,13 @@ class BossState: GameState {
             powerupSpawnTimer = 60
         }
     }
+    
+    func nextBoss() {
+        currentBoss = BossType(rawValue: currentBoss.rawValue + 1) ?? .eye
+
+    }
+    
+    
 }
 
 extension BossState: AngelDataSource,
