@@ -39,8 +39,10 @@ class MainScene: SKScene {
         
         GameNotification.addObserver(self, notification: .waiting, selector: #selector(isWaiting))
 
-        infoButton?.setUp(theme: .secondary) {
+        let theme: GameButtonTheme = Persistence.shared.getBool(.isOnboarded) ? .secondary : .primary
+        infoButton?.setUp(theme: theme) {
             GameNotification.post(.info)
+            Persistence.shared.setBool(.isOnboarded, value: true)
         }
         playButton?.setUp(theme: .primary) {
             guard let scene = SKScene(fileNamed: "PlayScene") else { return }

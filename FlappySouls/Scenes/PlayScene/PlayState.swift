@@ -25,7 +25,7 @@ class PlayState: GameState {
     var isDead = false
     var isPaused = false
     var isShielded = false
-    var power: Int { Int(xp) }
+    var power: Int { Int(xp * 1.25) }
     var powerupCooldown = 0
     var slainEyes = 0
     var slainTeeth = 0

@@ -13,6 +13,7 @@
 		1F482566294485D000D59C16 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F482565294485D000D59C16 /* Products.plist */; };
 		1F977B26296E0075002DCFBC /* ChompBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F977B25296E0075002DCFBC /* ChompBoss.swift */; };
 		1F977B29296E05D9002DCFBC /* WormBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F977B28296E05D9002DCFBC /* WormBoss.swift */; };
+		1F977B2B296F425A002DCFBC /* MiniBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F977B2A296F425A002DCFBC /* MiniBoss.swift */; };
 		1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE41F29347BE4001CF936 /* AppDelegate.swift */; };
 		1FBFE42229347BE4001CF936 /* PlayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE42129347BE4001CF936 /* PlayScene.sks */; };
 		1FBFE42629347BE4001CF936 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE42529347BE4001CF936 /* GameScene.swift */; };
@@ -85,6 +86,7 @@
 		1F482565294485D000D59C16 /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		1F977B25296E0075002DCFBC /* ChompBoss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChompBoss.swift; sourceTree = "<group>"; };
 		1F977B28296E05D9002DCFBC /* WormBoss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WormBoss.swift; sourceTree = "<group>"; };
+		1F977B2A296F425A002DCFBC /* MiniBoss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBoss.swift; sourceTree = "<group>"; };
 		1FBFE41C29347BE4001CF936 /* FlappySouls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappySouls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBFE41F29347BE4001CF936 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FBFE42129347BE4001CF936 /* PlayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayScene.sks; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		1F977B27296E05BB002DCFBC /* Bosses */ = {
 			isa = PBXGroup;
 			children = (
+				1F977B2A296F425A002DCFBC /* MiniBoss.swift */,
 				1FDA2164294C028200C5E148 /* EyeBoss.swift */,
 				1F977B25296E0075002DCFBC /* ChompBoss.swift */,
 				1F977B28296E05D9002DCFBC /* WormBoss.swift */,
@@ -475,6 +478,7 @@
 				B33BD9242939173A00F51FD3 /* GameButton.swift in Sources */,
 				1F977B26296E0075002DCFBC /* ChompBoss.swift in Sources */,
 				B388AFC82946DC2200DA3444 /* Error+.swift in Sources */,
+				1F977B2B296F425A002DCFBC /* MiniBoss.swift in Sources */,
 				1F17E54A295426DA00B226A1 /* HealthBar.swift in Sources */,
 				B3141F8929465A9E008F0346 /* Leaderboards.swift in Sources */,
 				B3141F87294645F5008F0346 /* Achievements.swift in Sources */,
@@ -635,7 +639,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FlappySouls/FlappySouls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 2464D42ZHT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlappySouls/Info.plist;
@@ -647,6 +651,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -668,7 +673,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FlappySouls/FlappySouls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 2464D42ZHT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlappySouls/Info.plist;
@@ -680,6 +685,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

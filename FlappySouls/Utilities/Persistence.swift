@@ -32,6 +32,7 @@ class Persistence {
   
   enum PersistedBool: String {
     case isPurchased
+    case isOnboarded
   }
   
   enum PersistedInteger: String {

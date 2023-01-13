@@ -60,8 +60,12 @@ class Hero: SKSpriteNode, GameObject {
         shieldAura?.isHidden = !dataSource.isShielded
         position.y += yVelocity
         yVelocity -= dataSource.isDead ? 0.24 : 0.48
-        if position.y < -640 || position.y > 640 {
-            die()
+        if position.y < -630 && !dataSource.isDead {
+            position.y = -630
+            yVelocity = 0
+        } else if position.y > 631  {
+            position.y = 630
+            yVelocity = 0
         }
         
         if yVelocity < 8 {
