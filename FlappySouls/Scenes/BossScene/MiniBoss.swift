@@ -83,7 +83,7 @@ class MiniBoss: SKSpriteNode, GameObject {
             case .eye:
                 return CGSize(width: 128, height: 128)
             case .chomp:
-                return CGSize(width: 128, height: 128)
+                return CGSize(width: 175, height: 175)
             case .worm:
                 return CGSize(width: 128, height: 128)
             case .fire:

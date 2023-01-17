@@ -12,8 +12,10 @@ class ChompBoss: SKSpriteNode, GameObject {
     weak var state: BossState!
     private var attackTimer = 420
   
-    var MBPositionX: CGFloat = 500
-    var MBPositionY: CGFloat = 0
+//    var MBPositionX: CGFloat = 500
+    var MBPosition = CGPoint(x: 0, y: 0)
+    var YPosition = CGFloat(500)
+
     
     func miniChompAttack() {
         var miniBosses: [MiniBoss] = [
@@ -24,15 +26,21 @@ class ChompBoss: SKSpriteNode, GameObject {
         MiniBoss()
             ]
         for miniBoss in miniBosses {
-            scene?.addChild(miniBoss)
+            self.addChild(miniBoss)
             miniBoss.enemyType = .chomp
             miniBoss.setUp(for: state)
-            let move = SKAction.moveTo(y: MBPositionY, duration: 1.5)
-            miniBoss.run(move)
-            MBPositionY -= 80
+            miniBoss.zPosition = 0
+            miniBoss.position = MBPosition
+            let dash = SKAction.moveTo(x: -720, duration: 1)
+            let move = SKAction.moveTo(y: YPosition, duration: 1.5)
+            let moveAndDash = SKAction.sequence([move, dash])
+            miniBoss.run(moveAndDash)
+            YPosition -= 250
         }
+ 
+        YPosition = 500
     }
-    
+
     func setUp(for state: GameState) {
         self.state = state as? BossState
         isHidden = true
