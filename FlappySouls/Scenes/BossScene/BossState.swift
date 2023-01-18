@@ -17,29 +17,27 @@ enum BossType: Int {
     case bossSix
 }
 
+enum BossStateMachine {
+    case attacking, entering, moving
+}
+
 
 class BossState: GameState {
     var attackedWithSword = 0
-    var bossHealthPercentage = 10
+    var bossHealthPercentage = 50
     var currentBoss: BossType = .eye
     var heroPosition = CGPoint.zero
     var power = 1
     var isDead = false
     var isPaused = false
     var isShielded = false
-    var powerupSpawnTimer = 60
+    var isAttacking = false
     var slainWithShield = 0
     var swords = 0
+    var stateMachine: BossStateMachine = .entering
     
     override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
-        powerupSpawnTimer -= 1
-        if powerupSpawnTimer <= 0 {
-            let powerUp = PowerUp()
-            self.scene?.addChild(powerUp)
-            powerUp.setUp(for: self)
-            powerupSpawnTimer = 60
-        }
     }
     
     func nextBoss() {

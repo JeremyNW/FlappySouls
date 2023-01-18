@@ -18,7 +18,7 @@ class ChompBoss: SKSpriteNode, GameObject {
 
     
     func miniChompAttack() {
-        var miniBosses: [MiniBoss] = [
+        let miniBosses: [MiniBoss] = [
         MiniBoss(),
         MiniBoss(),
         MiniBoss(),
@@ -32,7 +32,7 @@ class ChompBoss: SKSpriteNode, GameObject {
             miniBoss.zPosition = 0
             miniBoss.position = MBPosition
             let dash = SKAction.moveTo(x: -720, duration: 1)
-            let move = SKAction.moveTo(y: YPosition, duration: 1.5)
+            let move = SKAction.moveTo(y: YPosition, duration: 0.25)
             let moveAndDash = SKAction.sequence([move, dash])
             miniBoss.run(moveAndDash)
             YPosition -= 250
