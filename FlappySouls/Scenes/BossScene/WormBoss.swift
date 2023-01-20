@@ -10,11 +10,19 @@ import SpriteKit
 
 class WormBoss: SKSpriteNode, GameObject {
     weak var state: BossState!
-    
+    private var attackTimer = 420
     
     func setUp(for state: GameState) {
         self.state = state as? BossState
         isHidden = true
+    }
+    
+    func miniWormAttack() {
+        let miniBosses: [MiniBoss] = [
+        MiniBoss(),
+        MiniBoss(),
+        MiniBoss()
+        ]
     }
     
     func update(_ currentTime: TimeInterval) {
@@ -22,9 +30,19 @@ class WormBoss: SKSpriteNode, GameObject {
             self.isHidden = false
             if position.x > 240 {
                 position.x -= 3
-            }
-            if state.bossHealthPercentage < 20 {
-                self.color = .angelRed
+                
+                
+                if attackTimer != 0 {
+                    attackTimer -= 1
+                } else {
+                   miniWormAttack()
+                    attackTimer += 420
+                }
+                
+                
+                if state.bossHealthPercentage < 20 {
+                    self.color = .angelRed
+                }
             }
         }
     }

@@ -9,9 +9,10 @@ import Foundation
 import SpriteKit
 
 class MiniBoss: SKSpriteNode, GameObject {
-    var hp = 1
+    var hp = 0
     weak var state: BossState!
     var enemyType: EnemyType = .chomp
+    var dashTimer = 0
     
     func setUp(for state: GameState) {
         self.state = state as? BossState
@@ -31,10 +32,25 @@ class MiniBoss: SKSpriteNode, GameObject {
         self.position.x = 0
         self.position.y = 0
         
+        if self.enemyType == .chomp {
+            var dashTimer = Int.random(in: 60...180)
+            
+            self.dashTimer = dashTimer
+        }
+        if self.enemyType == .chomp {
+            self.hp = 3
+        } else if self.enemyType == .worm {
+            self.hp = 10
+        }
+
     }
     
     func update(_ currentTime: TimeInterval) {
-        
+        dashTimer -= 1
+        if dashTimer <= 0 && enemyType == .chomp {
+            let dash = SKAction.moveTo(x: -720, duration: 0.25)
+            self.run(dash)
+        }
     }
     
     func didCollide(with node: SKNode?) {
@@ -55,7 +71,8 @@ class MiniBoss: SKSpriteNode, GameObject {
         physicsBody = nil
         texture = SKTexture(imageNamed: "invisible")
     }
-   
+    
+
     enum EnemyType {
         case eye
         case chomp

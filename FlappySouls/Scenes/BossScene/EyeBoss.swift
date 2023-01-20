@@ -33,17 +33,17 @@ class EyeBoss: SKSpriteNode, GameObject {
                 state.stateMachine = .moving
             }
         case .moving:
-            position.y += CGFloat(movement)
-            if position.y >= 650 {
-                isGoingUp = false
-            }
-            if !isGoingUp {
-                movement = -5
-            }
-            if !isGoingUp && position.y <= -650 {
-                isGoingUp = true
-                movement = 5
-            }
+//            position.y += CGFloat(movement)
+//            if position.y >= 650 {
+//                isGoingUp = false
+//            }
+//            if !isGoingUp {
+//                movement = -5
+//            }
+//            if !isGoingUp && position.y <= -650 {
+//                isGoingUp = true
+//                movement = 5
+//            }
             if position.x > 240 && attackTimer != 0 {
                 position.x -= 3
             }

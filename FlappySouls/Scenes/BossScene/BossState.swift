@@ -21,12 +21,16 @@ enum BossStateMachine {
     case attacking, entering, moving
 }
 
+enum miniBossStateMachine {
+    case attacking, moving
+}
+
 
 class BossState: GameState {
     var attackedWithSword = 0
-    var bossHealthPercentage = 50
+    var bossHealthPercentage = 20
     var currentBoss: BossType = .eye
-    var heroPosition = CGPoint.zero
+    var heroPosition: CGPoint = .zero
     var power = 1
     var isDead = false
     var isPaused = false
