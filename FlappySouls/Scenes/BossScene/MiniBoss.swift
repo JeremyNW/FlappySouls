@@ -29,18 +29,18 @@ class MiniBoss: SKSpriteNode, GameObject {
         body.isDynamic = true
         physicsBody = body
         self.isHidden = false
-        self.position.x = 0
-        self.position.y = 0
         
         if self.enemyType == .chomp {
             let dashTimer = Int.random(in: 60...180)
             
             self.dashTimer = dashTimer
         }
-        if self.enemyType == .chomp {
-            self.hp = 4
-        } else if self.enemyType == .worm {
-            self.hp = 10
+        if enemyType == .chomp {
+            self.hp = 5
+        } else if enemyType == .worm {
+            self.hp = 50
+        } else if enemyType == .fire {
+            hp = 50
         }
 
     }
@@ -90,7 +90,7 @@ class MiniBoss: SKSpriteNode, GameObject {
             case .worm:
                 id = 4
             case .fire:
-                id = 5
+                id = 2
             }
             return SKTexture(imageNamed: "enemy\(id)")
         }
@@ -102,7 +102,7 @@ class MiniBoss: SKSpriteNode, GameObject {
             case .chomp:
                 return CGSize(width: 180, height: 180)
             case .worm:
-                return CGSize(width: 128, height: 128)
+                return CGSize(width: 180, height: 180)
             case .fire:
                 return CGSize(width: 128, height: 128)
             }

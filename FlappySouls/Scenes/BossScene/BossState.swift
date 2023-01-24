@@ -28,7 +28,7 @@ enum miniBossStateMachine {
 
 class BossState: GameState {
     var attackedWithSword = 0
-    var bossHealthPercentage = 10
+    var bossHealthPercentage = 50
     var currentBoss: BossType = .eye
     var heroPosition: CGPoint = .zero
     var power = 1

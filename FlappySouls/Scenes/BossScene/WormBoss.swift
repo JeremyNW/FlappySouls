@@ -55,7 +55,7 @@ class WormBoss: SKSpriteNode, GameObject {
         }
     }
     func didCollide(with node: SKNode?) {
-        if state.stateMachine == .attacking {
+        if state.stateMachine == .attacking && state.currentBoss == .bossTwo {
             if node is BossHero {
                 state.bossHealthPercentage = 0
             } else if let node = node as? Bullet {
@@ -71,6 +71,7 @@ class WormBoss: SKSpriteNode, GameObject {
     func die() {
         self.removeFromParent()
         state.currentBoss = .bossThree
-        state.bossHealthPercentage = 100
+        state.bossHealthPercentage = 50
+        state.stateMachine = .entering
     }
 }
