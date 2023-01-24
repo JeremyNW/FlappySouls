@@ -33,17 +33,21 @@ class EyeBoss: SKSpriteNode, GameObject {
                 state.stateMachine = .moving
             }
         case .moving:
-//            position.y += CGFloat(movement)
-//            if position.y >= 650 {
-//                isGoingUp = false
-//            }
-//            if !isGoingUp {
-//                movement = -5
-//            }
-//            if !isGoingUp && position.y <= -650 {
-//                isGoingUp = true
-//                movement = 5
-//            }
+            position.y += CGFloat(movement)
+
+            if state.heroPosition.y > position.y {
+                movement = -5
+            }
+            if state.heroPosition.y < position.y {
+                movement = 5
+            }
+            if position.y >= 540 {
+                movement = -5
+            }
+            if position.y <= -540 {
+                movement = 5
+            }
+            
             if position.x > 240 && attackTimer != 0 {
                 position.x -= 3
             }
@@ -81,7 +85,8 @@ class EyeBoss: SKSpriteNode, GameObject {
     
     func die() {
         self.removeFromParent()
-        state.bossHealthPercentage = 100
+        state.bossHealthPercentage = 50
         state.currentBoss = .bossOne
+        state.stateMachine = .entering
     }
 }

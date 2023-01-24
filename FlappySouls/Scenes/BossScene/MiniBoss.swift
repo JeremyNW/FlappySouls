@@ -33,7 +33,7 @@ class MiniBoss: SKSpriteNode, GameObject {
         self.position.y = 0
         
         if self.enemyType == .chomp {
-            var dashTimer = Int.random(in: 60...180)
+            let dashTimer = Int.random(in: 60...180)
             
             self.dashTimer = dashTimer
         }

@@ -11,10 +11,11 @@ import SpriteKit
 class ChompBoss: SKSpriteNode, GameObject {
     weak var state: BossState!
     private var attackTimer = 420
-  
-    var MBPosition = CGPoint(x: 0, y: 0)
+    var isGoingUp = true
+    var MBPosition = CGPoint(x: 240, y: 0)
     var YPosition = CGFloat(500)
-    
+    var movement = 0
+
     
     func miniChompAttack() {
         let miniBosses: [MiniBoss] = [
@@ -25,7 +26,7 @@ class ChompBoss: SKSpriteNode, GameObject {
         MiniBoss()
         ]
         for miniBoss in miniBosses {
-            self.addChild(miniBoss)
+            scene!.addChild(miniBoss)
             miniBoss.enemyType = .chomp
             miniBoss.setUp(for: state)
             miniBoss.zPosition = 0
@@ -45,18 +46,42 @@ class ChompBoss: SKSpriteNode, GameObject {
     func update(_ currentTime: TimeInterval) {
         if state.currentBoss == .bossOne {
             self.isHidden = false
-            
+            switch state.stateMachine {
+                
+            case .attacking:
+                
+                miniChompAttack()
+                state.stateMachine = .moving
+            case .entering:
+                if position.x >= 240 {
+                    position.x -= 3
+                }
+                if position.x <= 240 {
+                    state.stateMachine = .moving
+                }
+            case .moving:
+                position.y += CGFloat(movement)
+                if position.y >= 600 {
+                    isGoingUp = false
+                }
+                if position.y <= -600 {
+                    isGoingUp = true
+                }
+                if isGoingUp {
+                    movement = 5
+                } else {
+                    movement = -5
+                }
+            }
             if attackTimer != 0 {
                 attackTimer -= 1
             } else {
-               miniChompAttack()
+                state.stateMachine = .attacking
                 attackTimer += 420
             }
             
             
-            if position.x > 240 {
-                position.x -= 3
-            }
+           
             if state.bossHealthPercentage < 20 {
                 self.color = .angelRed
             }
@@ -64,21 +89,23 @@ class ChompBoss: SKSpriteNode, GameObject {
     }
     
     func didCollide(with node: SKNode?) {
-        if node is BossHero {
-            state.bossHealthPercentage = 0
-        } else if let node = node as? Bullet {
-            state.bossHealthPercentage -= node.damage
-        } else {
-            state.bossHealthPercentage -= state.power
-        }
-        if state.bossHealthPercentage <= 0 {
-            die()
+        if state.stateMachine == .attacking || state.stateMachine == .moving {
+            if node is BossHero {
+                state.bossHealthPercentage = 0
+            } else if let node = node as? Bullet {
+                state.bossHealthPercentage -= node.damage
+            } else {
+                state.bossHealthPercentage -= state.power
+            }
+            if state.bossHealthPercentage <= 0 {
+                die()
+            }
         }
     }
-    
     func die() {
         self.removeFromParent()
         state.currentBoss = .bossTwo
         state.bossHealthPercentage = 100
+        state.stateMachine = .entering
     }
 }
