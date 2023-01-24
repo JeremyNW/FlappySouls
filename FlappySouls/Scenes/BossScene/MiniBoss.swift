@@ -38,7 +38,7 @@ class MiniBoss: SKSpriteNode, GameObject {
             self.dashTimer = dashTimer
         }
         if self.enemyType == .chomp {
-            self.hp = 3
+            self.hp = 4
         } else if self.enemyType == .worm {
             self.hp = 10
         }
