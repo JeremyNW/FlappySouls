@@ -36,17 +36,17 @@ class FireBoss: SKSpriteNode, GameObject {
         if state.currentBoss == .bossThree {
             self.isHidden = false
             position.y += CGFloat(movement)
-            switch state.stateMachine {
-                
+            
+            switch state.machine {
             case .attacking:
                 fire()
-                state.stateMachine = .moving
+                state.machine = .moving
             case .entering:
                 if position.x >= 240 {
                     position.x -= 3
                 }
                 if position.x <= 240 {
-                    state.stateMachine = .moving
+                    state.machine = .moving
                 }
             case .moving:
                 if position.y >= 600 {
@@ -64,14 +64,14 @@ class FireBoss: SKSpriteNode, GameObject {
             if attackTimer != 0 {
                 attackTimer -= 1
             } else {
-                state.stateMachine = .attacking
+                state.machine = .attacking
                 attackTimer += 120
             }
         }
     }
     
     func didCollide(with node: SKNode?) {
-        if state.stateMachine == .attacking || state.stateMachine == .moving && state.currentBoss == .bossThree  {
+        if state.machine == .attacking || state.machine == .moving && state.currentBoss == .bossThree  {
             if node is BossHero {
                 state.bossHealthPercentage = 0
             } else if let node = node as? Bullet {
@@ -88,7 +88,7 @@ class FireBoss: SKSpriteNode, GameObject {
         self.removeFromParent()
         state.currentBoss = .bossFour
         state.bossHealthPercentage = 100
-        state.stateMachine = .entering
+        state.machine = .entering
     }
     
 

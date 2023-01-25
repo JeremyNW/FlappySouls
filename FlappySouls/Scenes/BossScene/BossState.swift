@@ -28,7 +28,7 @@ enum miniBossStateMachine {
 
 class BossState: GameState {
     var attackedWithSword = 0
-    var bossHealthPercentage = 50
+    var bossHealthPercentage = 100
     var currentBoss: BossType = .eye
     var heroPosition: CGPoint = .zero
     var power = 1
@@ -38,7 +38,7 @@ class BossState: GameState {
     var isAttacking = false
     var slainWithShield = 0
     var swords = 0
-    var stateMachine: BossStateMachine = .entering
+    var machine: BossStateMachine = .entering
     
     override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)

@@ -19,7 +19,7 @@ class EyeBoss: SKSpriteNode, GameObject {
     
     func update(_ currentTime: TimeInterval) {
         
-        switch state.stateMachine {
+        switch state.machine {
         case .attacking:
             let move = SKAction.moveTo(x: -640, duration: 1)
             let rotate = SKAction.rotate(byAngle: CGFloat.pi, duration: 2)
@@ -30,7 +30,7 @@ class EyeBoss: SKSpriteNode, GameObject {
                 position.x -= 3
             }
             if position.x <= 240 {
-                state.stateMachine = .moving
+                state.machine = .moving
             }
         case .moving:
             position.y += CGFloat(movement)
@@ -53,14 +53,14 @@ class EyeBoss: SKSpriteNode, GameObject {
             }
         }
         if attackTimer == 0 {
-            state.stateMachine = .attacking
-        } else if state.stateMachine != .entering {
+            state.machine = .attacking
+        } else if state.machine != .entering {
             attackTimer -= 1
-            state.stateMachine = .moving
+            state.machine = .moving
         }
         if position.x < -500 {
             self.position.x = 320
-            state.stateMachine = .entering
+            state.machine = .entering
             attackTimer = 420
         }
         if state.bossHealthPercentage < 20 {
@@ -69,7 +69,7 @@ class EyeBoss: SKSpriteNode, GameObject {
     }
     
     func didCollide(with node: SKNode?) {
-        if state.stateMachine == .moving {
+        if state.machine == .moving {
             if node is BossHero {
                 state.bossHealthPercentage = 0
             } else if let node = node as? Bullet {
@@ -85,8 +85,8 @@ class EyeBoss: SKSpriteNode, GameObject {
     
     func die() {
         self.removeFromParent()
-        state.bossHealthPercentage = 50
+        state.bossHealthPercentage = 100
         state.currentBoss = .bossOne
-        state.stateMachine = .entering
+        state.machine = .entering
     }
 }

@@ -34,7 +34,11 @@ class MiniBoss: SKSpriteNode, GameObject {
             let dashTimer = Int.random(in: 60...180)
             
             self.dashTimer = dashTimer
+        } else if enemyType == .worm {
+            let dashTimer = 60
+            self.dashTimer = dashTimer
         }
+        
         if enemyType == .chomp {
             self.hp = 5
         } else if enemyType == .worm {
@@ -50,6 +54,12 @@ class MiniBoss: SKSpriteNode, GameObject {
         if dashTimer <= 0 && enemyType == .chomp {
             let dash = SKAction.moveTo(x: -720, duration: 0.25)
             self.run(dash)
+        }
+        if dashTimer <= 0 && enemyType == .worm {
+            let move = SKAction.moveTo(y: state.heroPosition.y, duration: 1)
+            let dash = SKAction.moveTo(x: -720, duration: 1)
+            let moveAndDash = SKAction.group([move, dash])
+            self.run(moveAndDash)
         }
     }
     
@@ -100,7 +110,7 @@ class MiniBoss: SKSpriteNode, GameObject {
             case .eye:
                 return CGSize(width: 128, height: 128)
             case .chomp:
-                return CGSize(width: 180, height: 180)
+                return CGSize(width: 190, height: 190)
             case .worm:
                 return CGSize(width: 180, height: 180)
             case .fire:

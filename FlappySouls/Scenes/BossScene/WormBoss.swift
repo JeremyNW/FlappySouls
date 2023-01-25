@@ -11,26 +11,47 @@ import SpriteKit
 class WormBoss: SKSpriteNode, GameObject {
     weak var state: BossState!
     private var attackTimer = 420
-  
     var movement = 5
+    var YPosition = CGFloat(300)
     func setUp(for state: GameState) {
         self.state = state as? BossState
         isHidden = true
+        self.zPosition = 0
     }
+    
+    func positionWorms() {
+        let wormBoss = self
+        let worms: [MiniBoss] = [
+        MiniBoss(),
+        MiniBoss()
+        ]
+        for worm in worms {
+            scene!.addChild(worm)
+            worm.enemyType = .worm
+            worm.setUp(for: state)
+            worm.position = wormBoss.position
+            let position = SKAction.moveTo(y: YPosition, duration: 1)
+            worm.run(position)
+            YPosition -= 600
+        }
+        YPosition = 300
+    }
+
     
     func update(_ currentTime: TimeInterval) {
         if state.currentBoss == .bossTwo {
             
-            switch state.stateMachine {
+            switch state.machine {
                 
             case .attacking:
-                break
+                positionWorms()
+                state.machine = .moving
             case .entering:
                 if position.x > 240 {
                     position.x -= 3
                 }
                 if position.x <= 240 {
-                    state.stateMachine = .moving
+                    state.machine = .moving
                 }
                 
             case .moving:
@@ -43,7 +64,7 @@ class WormBoss: SKSpriteNode, GameObject {
                 if attackTimer != 0 {
                     attackTimer -= 1
                 } else {
-                    state.stateMachine = .attacking
+                    state.machine = .attacking
                     attackTimer += 420
                 }
                 
@@ -55,7 +76,7 @@ class WormBoss: SKSpriteNode, GameObject {
         }
     }
     func didCollide(with node: SKNode?) {
-        if state.stateMachine == .attacking && state.currentBoss == .bossTwo {
+        if state.machine == .attacking || state.machine == .moving && state.currentBoss == .bossTwo {
             if node is BossHero {
                 state.bossHealthPercentage = 0
             } else if let node = node as? Bullet {
@@ -71,7 +92,7 @@ class WormBoss: SKSpriteNode, GameObject {
     func die() {
         self.removeFromParent()
         state.currentBoss = .bossThree
-        state.bossHealthPercentage = 50
-        state.stateMachine = .entering
+        state.bossHealthPercentage = 100
+        state.machine = .entering
     }
 }
