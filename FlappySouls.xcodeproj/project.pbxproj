@@ -14,6 +14,7 @@
 		1F977B26296E0075002DCFBC /* ChompBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F977B25296E0075002DCFBC /* ChompBoss.swift */; };
 		1F977B29296E05D9002DCFBC /* WormBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F977B28296E05D9002DCFBC /* WormBoss.swift */; };
 		1F977B2B296F425A002DCFBC /* MiniBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F977B2A296F425A002DCFBC /* MiniBoss.swift */; };
+		1FBEAD582981C2C100D2BCF6 /* DarkAngel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBEAD572981C2C100D2BCF6 /* DarkAngel.swift */; };
 		1FBFE42029347BE4001CF936 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE41F29347BE4001CF936 /* AppDelegate.swift */; };
 		1FBFE42229347BE4001CF936 /* PlayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FBFE42129347BE4001CF936 /* PlayScene.sks */; };
 		1FBFE42629347BE4001CF936 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBFE42529347BE4001CF936 /* GameScene.swift */; };
@@ -88,6 +89,7 @@
 		1F977B25296E0075002DCFBC /* ChompBoss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChompBoss.swift; sourceTree = "<group>"; };
 		1F977B28296E05D9002DCFBC /* WormBoss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WormBoss.swift; sourceTree = "<group>"; };
 		1F977B2A296F425A002DCFBC /* MiniBoss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBoss.swift; sourceTree = "<group>"; };
+		1FBEAD572981C2C100D2BCF6 /* DarkAngel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkAngel.swift; sourceTree = "<group>"; };
 		1FBFE41C29347BE4001CF936 /* FlappySouls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappySouls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBFE41F29347BE4001CF936 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FBFE42129347BE4001CF936 /* PlayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayScene.sks; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				1F977B25296E0075002DCFBC /* ChompBoss.swift */,
 				1F977B28296E05D9002DCFBC /* WormBoss.swift */,
 				1FC8B02D297F9D96006D2AD3 /* FireBoss.swift */,
+				1FBEAD572981C2C100D2BCF6 /* DarkAngel.swift */,
 			);
 			name = Bosses;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				B3141F8B29468EC7008F0346 /* PauseMenu.swift in Sources */,
 				1FDA2167294D89AA00C5E148 /* PowerUp.swift in Sources */,
 				1FBFE42629347BE4001CF936 /* GameScene.swift in Sources */,
+				1FBEAD582981C2C100D2BCF6 /* DarkAngel.swift in Sources */,
 				B3E5E14229552B4A00A92EC5 /* Haptics.swift in Sources */,
 				B3E5E13A295521E200A92EC5 /* BossState.swift in Sources */,
 				B3E5E13E295526C300A92EC5 /* BossHero.swift in Sources */,
