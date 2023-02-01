@@ -85,7 +85,7 @@ class EyeBoss: SKSpriteNode, GameObject {
     
     func die() {
         self.removeFromParent()
-        state.bossHealthPercentage = 100
+        state.bossHealthPercentage = 1
         state.currentBoss = .bossOne
         state.machine = .entering
     }

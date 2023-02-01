@@ -19,17 +19,34 @@ class DarkAngel: SKSpriteNode, GameObject {
         self.state = state as? BossState
         isHidden = true
     }
-    
+    func fire() {
+        let DarkAngel = self
+        let sword = MiniBoss()
+        sword.enemyType = .sword
+        sword.position = DarkAngel.position
+        scene!.addChild(sword)
+        sword.setUp(for: state)
+
+        let move = SKAction.moveTo(x: -640 , duration: 1.5)
+        let dash = SKAction.moveTo(y: state.heroPosition.y, duration: 1.5)
+        let moveAndDash = SKAction.group([move, dash])
+        sword.run(moveAndDash)
+    }
     func update(_ currentTime: TimeInterval) {
-        if state.currentBoss == .bossTwo {
+        if state.currentBoss == .bossFour {
             self.isHidden = false
             switch state.machine {
                 
             case .attacking:
                 if attackTimer == 0 {
-                    
-                } else if attackTimer == 450 {
-                    
+                    let move = SKAction.moveTo(x: -640, duration: 1)
+                    let rotate = SKAction.rotate(byAngle: CGFloat.pi, duration: 2)
+                    let moveAndRotate = SKAction.group([rotate, move])
+                    self.run(moveAndRotate)
+                    attackTimer += 900
+                    state.machine = .moving
+                } else if attackTimer < 450 && attackTimer % 50 == 0 {
+                    fire()
                 }
             case .entering:
                 if position.x >= 240 {
@@ -85,7 +102,7 @@ class DarkAngel: SKSpriteNode, GameObject {
     }
     func die() {
         self.removeFromParent()
-        state.currentBoss = .bossTwo
+        state.currentBoss = .bossFive
         state.bossHealthPercentage = 100
         state.machine = .entering
     }

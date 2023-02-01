@@ -105,7 +105,7 @@ class ChompBoss: SKSpriteNode, GameObject {
     func die() {
         self.removeFromParent()
         state.currentBoss = .bossTwo
-        state.bossHealthPercentage = 100
+        state.bossHealthPercentage = 1
         state.machine = .entering
     }
 }

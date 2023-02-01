@@ -88,9 +88,11 @@ class MiniBoss: SKSpriteNode, GameObject {
         case chomp
         case worm
         case fire
+        case sword
         
         
         func texture() -> SKTexture {
+            var texture = SKTexture()
             var id = 0
             switch self {
             case .eye:
@@ -101,8 +103,16 @@ class MiniBoss: SKSpriteNode, GameObject {
                 id = 4
             case .fire:
                 id = 2
+            case .sword:
+                id = 10
             }
-            return SKTexture(imageNamed: "enemy\(id)")
+            if id <= 9 {
+                texture = SKTexture(imageNamed: "enemy\(id)")
+            }
+            if id == 10 {
+                texture = SKTexture(imageNamed: "s.weapons.sword")
+            }
+            return texture
         }
      
         func size() -> CGSize {
@@ -114,6 +124,8 @@ class MiniBoss: SKSpriteNode, GameObject {
             case .worm:
                 return CGSize(width: 180, height: 180)
             case .fire:
+                return CGSize(width: 128, height: 128)
+            case .sword:
                 return CGSize(width: 128, height: 128)
             }
             

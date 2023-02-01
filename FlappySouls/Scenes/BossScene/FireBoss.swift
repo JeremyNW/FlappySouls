@@ -87,7 +87,7 @@ class FireBoss: SKSpriteNode, GameObject {
     func die() {
         self.removeFromParent()
         state.currentBoss = .bossFour
-        state.bossHealthPercentage = 100
+        state.bossHealthPercentage = 50
         state.machine = .entering
     }
     

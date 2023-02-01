@@ -92,7 +92,7 @@ class WormBoss: SKSpriteNode, GameObject {
     func die() {
         self.removeFromParent()
         state.currentBoss = .bossThree
-        state.bossHealthPercentage = 100
+        state.bossHealthPercentage = 1
         state.machine = .entering
     }
 }
