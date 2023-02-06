@@ -9,13 +9,37 @@ import Foundation
 import SpriteKit
 
 class DarkAngel: SKSpriteNode, GameObject {
+    let textures: [SKTexture] = [
+        SKTexture(imageNamed: "wing0"),
+        SKTexture(imageNamed: "wing1"),
+        SKTexture(imageNamed: "wing2"),
+        SKTexture(imageNamed: "wing3"),
+    ]
     weak var state: BossState!
     private var attackTimer = 900
     var isGoingUp = true
     var movement = 0
     var swordsTimer = 5
+    var flapCounter = 0
+    var upWings: [SKSpriteNode] = []
+    var downWings: [SKNode] = []
+    var halo: SKEmitterNode?
     
     func setUp(for state: GameState) {
+        guard
+            let upZero = childNode(withName: "SKWingUp0") as? SKSpriteNode,
+            let upOne = childNode(withName: "SKWingUp1") as? SKSpriteNode,
+            let downZero = childNode(withName: "SKWingDown0"),
+            let downOne = childNode(withName: "SKWingDown1"),
+            let halo = SKEmitterNode(fileNamed: "Halo")
+        else { return }
+        upWings = [upZero, upOne]
+        downWings = [downZero, downOne]
+        addChild(halo)
+        halo.position = CGPoint(x: 8, y: 56)
+        halo.zPosition = 1
+        halo.particleBirthRate = 48
+        self.halo = halo
         self.state = state as? BossState
         isHidden = true
     }
@@ -33,6 +57,30 @@ class DarkAngel: SKSpriteNode, GameObject {
         sword.run(moveAndDash)
     }
     func update(_ currentTime: TimeInterval) {
+        if flapCounter < 10 {
+            downWings.forEach { $0.isHidden = true }
+            for wing in upWings {
+                wing.isHidden = false
+                wing.texture = textures[0]
+            }
+        } else if flapCounter < 20 {
+            for wing in upWings {
+                wing.isHidden = false
+                wing.texture = textures[3]
+            }
+        } else if flapCounter < 23 {
+            for wing in upWings {
+                wing.isHidden = false
+                wing.texture = textures[2]
+            }
+        } else {
+            downWings.forEach { $0.isHidden = false }
+            upWings.forEach { $0.isHidden = true }
+        }
+        flapCounter += 1
+        flapCounter %= 35
+        
+        
         if state.currentBoss == .bossFour {
             self.isHidden = false
             switch state.machine {
@@ -45,7 +93,7 @@ class DarkAngel: SKSpriteNode, GameObject {
                     self.run(moveAndRotate)
                     attackTimer += 900
                     state.machine = .moving
-                } else if attackTimer < 450 && attackTimer % 50 == 0 {
+                } else if attackTimer % 100 == 0 && attackTimer != 0 {
                     fire()
                 }
             case .entering:
@@ -71,9 +119,11 @@ class DarkAngel: SKSpriteNode, GameObject {
             }
             if attackTimer != 0 {
                 attackTimer -= 1
-            } else if attackTimer == 0 || attackTimer == 450 {
+            } else if attackTimer == 0 {
                 state.machine = .attacking
                 attackTimer += 900
+            } else if attackTimer == 450 {
+                state.machine = .attacking
             }
             
         }
