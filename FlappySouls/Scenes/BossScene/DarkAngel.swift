@@ -88,15 +88,19 @@ class DarkAngel: SKSpriteNode, GameObject {
             case .attacking:
                 if attackTimer == 0 {
                     let move = SKAction.moveTo(x: -640, duration: 1)
-                    let rotate = SKAction.rotate(byAngle: CGFloat.pi, duration: 2)
-                    let moveAndRotate = SKAction.group([rotate, move])
-                    self.run(moveAndRotate)
+//                    let rotate = SKAction.rotate(byAngle: CGFloat.pi, duration: 2)
+//                    let moveAndRotate = SKAction.group([rotate, move])
+                    self.run(move)
                     attackTimer += 900
                     state.machine = .moving
-                } else if attackTimer % 100 == 0 && attackTimer != 0 {
+                }
+                if attackTimer % 100 == 0 && attackTimer != 0 {
                     fire()
                 }
             case .entering:
+                if position.x < -500 {
+                    position.x = 560
+                }
                 if position.x >= 240 {
                     position.x -= 3
                 }
@@ -115,6 +119,9 @@ class DarkAngel: SKSpriteNode, GameObject {
                     movement = 5
                 } else {
                     movement = -5
+                }
+                if position.x < -550 {
+                    state.machine = .entering
                 }
             }
             if attackTimer != 0 {
